@@ -1,0 +1,305 @@
+# Data Quality Assurance System - .gitignore
+
+# ==========================================
+# DATASET FILES (Large CSV files)
+# ==========================================
+# Original large dataset files - too big for Git
+home-credit-default-risk-dataset/*.csv
+home-credit-default-risk-dataset/daily/
+!home-credit-default-risk-dataset/daily/.gitkeep
+
+# Keep only the column description file (small and useful)
+!home-credit-default-risk-dataset/HomeCredit_columns_description.csv
+
+# ==========================================
+# DOCKER & INFRASTRUCTURE
+# ==========================================
+# Docker volumes and data
+docker-iceberg/warehouse/
+docker-iceberg/notebooks/
+docker-hadoop/logs/
+docker-hadoop/data/
+
+# Docker Compose overrides
+docker-compose.override.yml
+.env
+
+# ==========================================
+# DATA QUALITY OUTPUTS
+# ==========================================
+# DQ check results (generated files)
+docker-iceberg/dq-results/*.csv
+docker-iceberg/dq-results/*.parquet/
+docker-iceberg/dq-results/*.txt
+
+# Keep the directory structure
+!docker-iceberg/dq-results/.gitkeep
+
+# Logs
+docker-iceberg/logs/
+*.log
+
+# ==========================================
+# PYTHON
+# ==========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ==========================================
+# POWERSHELL
+# ==========================================
+# PowerShell execution policy files
+*.ps1xml
+
+# ==========================================
+# WINDOWS
+# ==========================================
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# ==========================================
+# LINUX/MAC
+# ==========================================
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# ==========================================
+# IDE / EDITOR
+# ==========================================
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix
+
+# JetBrains IDEs
+.idea/
+*.swp
+*.swo
+
+# Vim
+*~
+*.swp
+*.swo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ==========================================
+# BACKUP & TEMPORARY FILES
+# ==========================================
+# Backup files
+*.bak
+*.backup
+*.old
+*.orig
+*.tmp
+*.temp
+
+# Temporary files
+*~
+*.tmp
+*.temp
+temp/
+tmp/
+
+# ==========================================
+# PROJECT SPECIFIC
+# ==========================================
+# Configuration files with sensitive data (if any)
+*secret*
+*password*
+*credentials*
+
+# Large output files that shouldn't be tracked
+*.parquet
+*.orc
+*.avro
+
+# Compressed files (unless needed)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# ==========================================
+# SPARK / HADOOP SPECIFIC
+# ==========================================
+# Spark local temp directories
+spark-warehouse/
+metastore_db/
+derby.log
+
+# Hadoop temp files
+hadoop-logs/
+*.log
+
+# ==========================================
+# KEEP THESE DIRECTORIES STRUCTURE
+# ==========================================
+# Important: Keep directory structure with .gitkeep files
+!**/.gitkeep

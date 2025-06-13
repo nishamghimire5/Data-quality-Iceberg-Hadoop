@@ -1,0 +1,290 @@
+{
+  "tables": [
+    {
+      "name": "application_train",
+      "keyColumn": "SK_ID_CURR",
+      "checks": [
+        {
+          "type": "freshness",
+          "maxAgeDays": 1,
+          "alertLevel": "high"
+        },
+        {
+          "type": "nullCheck",
+          "columns": ["SK_ID_CURR", "TARGET", "AMT_INCOME_TOTAL", "AMT_CREDIT"],
+          "maxNullPercentage": 1.0,
+          "alertLevel": "high"
+        },
+        {
+          "type": "valueRange",
+          "column": "AMT_INCOME_TOTAL",
+          "min": 0,
+          "max": 10000000,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "valueRange",
+          "column": "AMT_CREDIT",
+          "min": 0,
+          "max": 5000000,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "volumeCheck",
+          "minRowCount": 100,
+          "alertLevel": "medium"
+        }
+      ]
+    },
+    {
+      "name": "application_test",
+      "keyColumn": "SK_ID_CURR",
+      "checks": [
+        {
+          "type": "freshness",
+          "maxAgeDays": 1,
+          "alertLevel": "high"
+        },
+        {
+          "type": "nullCheck",
+          "columns": ["SK_ID_CURR", "AMT_INCOME_TOTAL", "AMT_CREDIT"],
+          "maxNullPercentage": 1.0,
+          "alertLevel": "high"
+        },
+        {
+          "type": "valueRange",
+          "column": "AMT_INCOME_TOTAL",
+          "min": 0,
+          "max": 10000000,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "valueRange",
+          "column": "AMT_CREDIT",
+          "min": 0,
+          "max": 5000000,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "volumeCheck",
+          "minRowCount": 50,
+          "alertLevel": "medium"
+        }
+      ]
+    },
+    {
+      "name": "bureau",
+      "keyColumn": "SK_ID_BUREAU",
+      "checks": [
+        {
+          "type": "freshness",
+          "maxAgeDays": 1,
+          "alertLevel": "high"
+        },
+        {
+          "type": "nullCheck",
+          "columns": ["SK_ID_BUREAU", "SK_ID_CURR", "CREDIT_ACTIVE"],
+          "maxNullPercentage": 1.0,
+          "alertLevel": "high"
+        },
+        {
+          "type": "valueRange",
+          "column": "DAYS_CREDIT",
+          "min": -10000,
+          "max": 0,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "volumeCheck",
+          "minRowCount": 50,
+          "alertLevel": "medium"
+        }
+      ]
+    },
+    {
+      "name": "bureau_balance",
+      "keyColumn": "SK_ID_BUREAU",
+      "checks": [
+        {
+          "type": "freshness",
+          "maxAgeDays": 1,
+          "alertLevel": "high"
+        },
+        {
+          "type": "nullCheck",
+          "columns": ["SK_ID_BUREAU", "MONTHS_BALANCE", "STATUS"],
+          "maxNullPercentage": 1.0,
+          "alertLevel": "high"
+        },
+        {
+          "type": "valueRange",
+          "column": "MONTHS_BALANCE",
+          "min": -100,
+          "max": 0,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "volumeCheck",
+          "minRowCount": 50,
+          "alertLevel": "medium"
+        }
+      ]
+    },
+    {
+      "name": "credit_card_balance",
+      "keyColumn": "SK_ID_PREV",
+      "checks": [
+        {
+          "type": "freshness",
+          "maxAgeDays": 1,
+          "alertLevel": "high"
+        },
+        {
+          "type": "nullCheck",
+          "columns": ["SK_ID_PREV", "SK_ID_CURR", "MONTHS_BALANCE"],
+          "maxNullPercentage": 1.0,
+          "alertLevel": "high"
+        },
+        {
+          "type": "valueRange",
+          "column": "AMT_BALANCE",
+          "min": -100000,
+          "max": 1000000,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "volumeCheck",
+          "minRowCount": 50,
+          "alertLevel": "medium"
+        }
+      ]
+    },
+    {
+      "name": "installments_payments",
+      "keyColumn": "SK_ID_PREV",
+      "checks": [
+        {
+          "type": "freshness",
+          "maxAgeDays": 1,
+          "alertLevel": "high"
+        },
+        {
+          "type": "nullCheck",
+          "columns": ["SK_ID_PREV", "SK_ID_CURR", "NUM_INSTALMENT_NUMBER"],
+          "maxNullPercentage": 1.0,
+          "alertLevel": "high"
+        },
+        {
+          "type": "valueRange",
+          "column": "AMT_INSTALMENT",
+          "min": 0,
+          "max": 1000000,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "valueRange",
+          "column": "AMT_PAYMENT",
+          "min": 0,
+          "max": 1000000,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "volumeCheck",
+          "minRowCount": 50,
+          "alertLevel": "medium"
+        }
+      ]
+    },
+    {
+      "name": "pos_cash_balance",
+      "keyColumn": "SK_ID_PREV",
+      "checks": [
+        {
+          "type": "freshness",
+          "maxAgeDays": 1,
+          "alertLevel": "high"
+        },
+        {
+          "type": "nullCheck",
+          "columns": ["SK_ID_PREV", "SK_ID_CURR", "MONTHS_BALANCE"],
+          "maxNullPercentage": 1.0,
+          "alertLevel": "high"
+        },
+        {
+          "type": "valueRange",
+          "column": "CNT_INSTALMENT",
+          "min": 0,
+          "max": 100,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "valueRange",
+          "column": "CNT_INSTALMENT_FUTURE",
+          "min": 0,
+          "max": 100,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "volumeCheck",
+          "minRowCount": 50,
+          "alertLevel": "medium"
+        }
+      ]
+    },
+    {
+      "name": "previous_application",
+      "keyColumn": "SK_ID_PREV",
+      "checks": [
+        {
+          "type": "freshness",
+          "maxAgeDays": 1,
+          "alertLevel": "high"
+        },
+        {
+          "type": "nullCheck",
+          "columns": ["SK_ID_PREV", "SK_ID_CURR", "NAME_CONTRACT_TYPE"],
+          "maxNullPercentage": 1.0,
+          "alertLevel": "high"
+        },
+        {
+          "type": "valueRange",
+          "column": "AMT_CREDIT",
+          "min": 0,
+          "max": 5000000,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "valueRange",
+          "column": "AMT_ANNUITY",
+          "min": 0,
+          "max": 500000,
+          "alertLevel": "medium"
+        },
+        {
+          "type": "volumeCheck",
+          "minRowCount": 50,
+          "alertLevel": "medium"
+        }
+      ]
+    }
+  ],
+  "schemaDrift": {
+    "enabled": true,
+    "trackAddedColumns": true,
+    "trackDroppedColumns": true,
+    "trackTypeChanges": true,
+    "historyPath": "./schema_history"
+  },
+  "notifications": {
+    "email": {
+      "enabled": true,
+      "recipients": ["admin@example.com"],
+      "onlyForHighAlerts": false
+    },
+    "github": {
+      "enabled": true,
+      "repository": "username/data-quality-repo",
+      "createIssueOnFail": true
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# This file ensures the dq-results directory is tracked in Git
+# while ignoring the actual result files (which are generated)
