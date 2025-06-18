@@ -1,0 +1,3247 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Working Data Quality Report - Home Credit Dataset</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+                .header { background-color: #2c3e50; color: white; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+                .summary { background-color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+                .table-section { background-color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+                .good { color: #27ae60; }
+                .warning { color: #f39c12; }
+                .error { color: #e74c3c; }
+                table { width: 100%; border-collapse: collapse; }
+                th, td { padding: 8px; border: 1px solid #ddd; text-align: left; }
+                th { background-color: #34495e; color: white; }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>✅ Working Data Quality Report</h1>
+                <h2>Home Credit Dataset - Column Analysis</h2>
+                <p>Generated: 2025-06-18 05:11:27</p>
+            </div>
+            
+            <div class="summary">
+                <h3>📊 Summary</h3>
+                <p>Total Tables: 8</p>
+                <p>Successful Analyses: 8</p>
+                <p>Total Rows: 587,949</p>
+                <p>Total Business Columns: 339</p>
+            </div>
+        
+            <div class="table-section">
+                <h3 class="good">✅ application_train_daily</h3>
+                <p>Rows: 3,200 | Business Columns: 122</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Distinct Count</th>
+                            <th>Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td>SK_ID_CURR</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>3200</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>TARGET</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_CONTRACT_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CODE_GENDER</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_OWN_CAR</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_OWN_REALTY</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_CHILDREN</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_INCOME_TOTAL</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>152</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_CREDIT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>981</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_ANNUITY</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1968</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_GOODS_PRICE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.9</td>
+                            <td>0.12%</td>
+                            <td>283</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_TYPE_SUITE</td>
+                            <td>StringType()</td>
+                            <td class="good">99.6</td>
+                            <td>0.44%</td>
+                            <td>8</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_INCOME_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_EDUCATION_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_FAMILY_STATUS</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_HOUSING_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>6</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REGION_POPULATION_RELATIVE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>79</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_BIRTH</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2920</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_EMPLOYED</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2029</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_REGISTRATION</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2779</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_ID_PUBLISH</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2343</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>OWN_CAR_AGE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>66.78%</td>
+                            <td>44</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_MOBIL</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_EMP_PHONE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_WORK_PHONE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_CONT_MOBILE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_PHONE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_EMAIL</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>OCCUPATION_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="warning">68.3</td>
+                            <td>31.69%</td>
+                            <td>19</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_FAM_MEMBERS</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>6</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REGION_RATING_CLIENT</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REGION_RATING_CLIENT_W_CITY</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>WEEKDAY_APPR_PROCESS_START</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>HOUR_APPR_PROCESS_START</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>22</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REG_REGION_NOT_LIVE_REGION</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REG_REGION_NOT_WORK_REGION</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVE_REGION_NOT_WORK_REGION</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REG_CITY_NOT_LIVE_CITY</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REG_CITY_NOT_WORK_CITY</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVE_CITY_NOT_WORK_CITY</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ORGANIZATION_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>52</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>EXT_SOURCE_1</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>55.78%</td>
+                            <td>1416</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>EXT_SOURCE_2</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.8</td>
+                            <td>0.16%</td>
+                            <td>3101</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>EXT_SOURCE_3</td>
+                            <td>DoubleType()</td>
+                            <td class="good">80.5</td>
+                            <td>19.53%</td>
+                            <td>520</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>APARTMENTS_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>50.31%</td>
+                            <td>435</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>BASEMENTAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>58.16%</td>
+                            <td>854</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BEGINEXPLUATATION_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">51.5</td>
+                            <td>48.5%</td>
+                            <td>102</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BUILD_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>65.62%</td>
+                            <td>88</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>COMMONAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>68.88%</td>
+                            <td>576</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ELEVATORS_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>52.97%</td>
+                            <td>61</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ENTRANCES_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.2</td>
+                            <td>49.78%</td>
+                            <td>76</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMAX_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.8</td>
+                            <td>49.25%</td>
+                            <td>69</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMIN_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.06%</td>
+                            <td>54</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LANDAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>58.09%</td>
+                            <td>804</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAPARTMENTS_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.09%</td>
+                            <td>359</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.0</td>
+                            <td>50.0%</td>
+                            <td>1131</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAPARTMENTS_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>68.47%</td>
+                            <td>58</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>54.84%</td>
+                            <td>505</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>APARTMENTS_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>50.31%</td>
+                            <td>309</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>BASEMENTAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>58.16%</td>
+                            <td>840</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BEGINEXPLUATATION_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">51.5</td>
+                            <td>48.5%</td>
+                            <td>101</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BUILD_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>65.62%</td>
+                            <td>88</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>COMMONAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>68.88%</td>
+                            <td>575</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ELEVATORS_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>52.97%</td>
+                            <td>22</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ENTRANCES_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.2</td>
+                            <td>49.78%</td>
+                            <td>26</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMAX_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.8</td>
+                            <td>49.25%</td>
+                            <td>22</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMIN_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.06%</td>
+                            <td>22</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LANDAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>58.09%</td>
+                            <td>785</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAPARTMENTS_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.09%</td>
+                            <td>283</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.0</td>
+                            <td>50.0%</td>
+                            <td>1136</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAPARTMENTS_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>68.47%</td>
+                            <td>28</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>54.84%</td>
+                            <td>472</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>APARTMENTS_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>50.31%</td>
+                            <td>366</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>BASEMENTAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>58.16%</td>
+                            <td>843</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BEGINEXPLUATATION_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">51.5</td>
+                            <td>48.5%</td>
+                            <td>102</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BUILD_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>65.62%</td>
+                            <td>88</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>COMMONAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>68.88%</td>
+                            <td>578</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ELEVATORS_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>52.97%</td>
+                            <td>33</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ENTRANCES_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.2</td>
+                            <td>49.78%</td>
+                            <td>36</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMAX_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.8</td>
+                            <td>49.25%</td>
+                            <td>39</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMIN_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.06%</td>
+                            <td>36</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LANDAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>58.09%</td>
+                            <td>809</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAPARTMENTS_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.09%</td>
+                            <td>323</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.0</td>
+                            <td>50.0%</td>
+                            <td>1111</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAPARTMENTS_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>68.47%</td>
+                            <td>37</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>54.84%</td>
+                            <td>501</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FONDKAPREMONT_MODE</td>
+                            <td>StringType()</td>
+                            <td class="error">50</td>
+                            <td>67.53%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>HOUSETYPE_MODE</td>
+                            <td>StringType()</td>
+                            <td class="error">50.1</td>
+                            <td>49.94%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>TOTALAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">52.1</td>
+                            <td>47.91%</td>
+                            <td>1133</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>WALLSMATERIAL_MODE</td>
+                            <td>StringType()</td>
+                            <td class="error">50</td>
+                            <td>50.5%</td>
+                            <td>8</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>EMERGENCYSTATE_MODE</td>
+                            <td>StringType()</td>
+                            <td class="error">52.9</td>
+                            <td>47.06%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>OBS_30_CNT_SOCIAL_CIRCLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.7</td>
+                            <td>0.28%</td>
+                            <td>20</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DEF_30_CNT_SOCIAL_CIRCLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.7</td>
+                            <td>0.28%</td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>OBS_60_CNT_SOCIAL_CIRCLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.7</td>
+                            <td>0.28%</td>
+                            <td>19</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DEF_60_CNT_SOCIAL_CIRCLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.7</td>
+                            <td>0.28%</td>
+                            <td>6</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_LAST_PHONE_CHANGE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1688</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_2</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_3</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_4</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_5</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_6</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_7</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_8</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_9</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_10</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_11</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_12</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_13</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_14</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_15</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_16</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_17</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_18</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_19</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_20</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_21</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_HOUR</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.3</td>
+                            <td>12.72%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_DAY</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.3</td>
+                            <td>12.72%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_WEEK</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.3</td>
+                            <td>12.72%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_MON</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.3</td>
+                            <td>12.72%</td>
+                            <td>13</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_QRT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.3</td>
+                            <td>12.72%</td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_YEAR</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.3</td>
+                            <td>12.72%</td>
+                            <td>11</td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ application_test_daily</h3>
+                <p>Rows: 532 | Business Columns: 121</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Distinct Count</th>
+                            <th>Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td>SK_ID_CURR</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>532</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_CONTRACT_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CODE_GENDER</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_OWN_CAR</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_OWN_REALTY</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_CHILDREN</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>6</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_INCOME_TOTAL</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>75</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_CREDIT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>280</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_ANNUITY</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>455</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_GOODS_PRICE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>117</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_TYPE_SUITE</td>
+                            <td>StringType()</td>
+                            <td class="good">98.5</td>
+                            <td>1.5%</td>
+                            <td>8</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_INCOME_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_EDUCATION_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_FAMILY_STATUS</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_HOUSING_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>6</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REGION_POPULATION_RELATIVE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>76</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_BIRTH</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>522</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_EMPLOYED</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>409</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_REGISTRATION</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>515</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_ID_PUBLISH</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>507</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>OWN_CAR_AGE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.11%</td>
+                            <td>34</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_MOBIL</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_EMP_PHONE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_WORK_PHONE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_CONT_MOBILE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_PHONE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_EMAIL</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>OCCUPATION_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="warning">67.3</td>
+                            <td>32.71%</td>
+                            <td>19</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_FAM_MEMBERS</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REGION_RATING_CLIENT</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REGION_RATING_CLIENT_W_CITY</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>WEEKDAY_APPR_PROCESS_START</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>HOUR_APPR_PROCESS_START</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>18</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REG_REGION_NOT_LIVE_REGION</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REG_REGION_NOT_WORK_REGION</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVE_REGION_NOT_WORK_REGION</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REG_CITY_NOT_LIVE_CITY</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>REG_CITY_NOT_WORK_CITY</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVE_CITY_NOT_WORK_CITY</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ORGANIZATION_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>44</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>EXT_SOURCE_1</td>
+                            <td>DoubleType()</td>
+                            <td class="error">56.8</td>
+                            <td>43.23%</td>
+                            <td>303</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>EXT_SOURCE_2</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>530</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>EXT_SOURCE_3</td>
+                            <td>DoubleType()</td>
+                            <td class="good">80.8</td>
+                            <td>19.17%</td>
+                            <td>261</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>APARTMENTS_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>50.38%</td>
+                            <td>149</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>BASEMENTAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>56.95%</td>
+                            <td>191</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BEGINEXPLUATATION_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">51.1</td>
+                            <td>48.87%</td>
+                            <td>67</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BUILD_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>65.98%</td>
+                            <td>60</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>COMMONAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>69.36%</td>
+                            <td>134</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ELEVATORS_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>53.57%</td>
+                            <td>31</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ENTRANCES_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.2</td>
+                            <td>49.81%</td>
+                            <td>34</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMAX_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.2</td>
+                            <td>49.81%</td>
+                            <td>30</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMIN_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.29%</td>
+                            <td>25</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LANDAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>57.14%</td>
+                            <td>178</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAPARTMENTS_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>68.61%</td>
+                            <td>103</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.4</td>
+                            <td>49.62%</td>
+                            <td>250</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAPARTMENTS_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>69.36%</td>
+                            <td>21</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAREA_AVG</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>54.89%</td>
+                            <td>124</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>APARTMENTS_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>50.38%</td>
+                            <td>126</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>BASEMENTAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>56.95%</td>
+                            <td>185</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BEGINEXPLUATATION_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">51.1</td>
+                            <td>48.87%</td>
+                            <td>70</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BUILD_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>65.98%</td>
+                            <td>63</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>COMMONAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>69.36%</td>
+                            <td>136</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ELEVATORS_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>53.57%</td>
+                            <td>18</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ENTRANCES_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.2</td>
+                            <td>49.81%</td>
+                            <td>16</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMAX_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.2</td>
+                            <td>49.81%</td>
+                            <td>18</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMIN_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.29%</td>
+                            <td>16</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LANDAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>57.14%</td>
+                            <td>172</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAPARTMENTS_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>68.61%</td>
+                            <td>92</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.4</td>
+                            <td>49.62%</td>
+                            <td>249</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAPARTMENTS_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>69.36%</td>
+                            <td>14</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>54.89%</td>
+                            <td>107</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>APARTMENTS_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>50.38%</td>
+                            <td>139</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>BASEMENTAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>56.95%</td>
+                            <td>186</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BEGINEXPLUATATION_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">51.1</td>
+                            <td>48.87%</td>
+                            <td>68</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>YEARS_BUILD_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>65.98%</td>
+                            <td>62</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>COMMONAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>69.36%</td>
+                            <td>139</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ELEVATORS_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>53.57%</td>
+                            <td>23</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>ENTRANCES_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.2</td>
+                            <td>49.81%</td>
+                            <td>23</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMAX_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.2</td>
+                            <td>49.81%</td>
+                            <td>22</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLOORSMIN_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>67.29%</td>
+                            <td>22</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LANDAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>57.14%</td>
+                            <td>172</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAPARTMENTS_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>68.61%</td>
+                            <td>98</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>LIVINGAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50.4</td>
+                            <td>49.62%</td>
+                            <td>253</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAPARTMENTS_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>69.36%</td>
+                            <td>16</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NONLIVINGAREA_MEDI</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>54.89%</td>
+                            <td>117</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FONDKAPREMONT_MODE</td>
+                            <td>StringType()</td>
+                            <td class="error">50</td>
+                            <td>67.48%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>HOUSETYPE_MODE</td>
+                            <td>StringType()</td>
+                            <td class="error">50.4</td>
+                            <td>49.62%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>TOTALAREA_MODE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">51.3</td>
+                            <td>48.68%</td>
+                            <td>249</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>WALLSMATERIAL_MODE</td>
+                            <td>StringType()</td>
+                            <td class="error">50</td>
+                            <td>50.38%</td>
+                            <td>8</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>EMERGENCYSTATE_MODE</td>
+                            <td>StringType()</td>
+                            <td class="error">52.3</td>
+                            <td>47.74%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>OBS_30_CNT_SOCIAL_CIRCLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.8</td>
+                            <td>0.19%</td>
+                            <td>14</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DEF_30_CNT_SOCIAL_CIRCLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.8</td>
+                            <td>0.19%</td>
+                            <td>6</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>OBS_60_CNT_SOCIAL_CIRCLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.8</td>
+                            <td>0.19%</td>
+                            <td>13</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DEF_60_CNT_SOCIAL_CIRCLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.8</td>
+                            <td>0.19%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_LAST_PHONE_CHANGE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>422</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_2</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_3</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_4</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_5</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_6</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_7</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_8</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_9</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_10</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_11</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_12</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_13</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_14</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_15</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_16</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_17</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_18</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_19</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_20</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_DOCUMENT_21</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>1</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_HOUR</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.0</td>
+                            <td>12.97%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_DAY</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.0</td>
+                            <td>12.97%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_WEEK</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.0</td>
+                            <td>12.97%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_MON</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.0</td>
+                            <td>12.97%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_QRT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.0</td>
+                            <td>12.97%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_REQ_CREDIT_BUREAU_YEAR</td>
+                            <td>DoubleType()</td>
+                            <td class="good">87.0</td>
+                            <td>12.97%</td>
+                            <td>12</td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ bureau_daily</h3>
+                <p>Rows: 17,272 | Business Columns: 17</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Distinct Count</th>
+                            <th>Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td>SK_ID_CURR</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>16612</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SK_ID_BUREAU</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>17272</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CREDIT_ACTIVE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CREDIT_CURRENCY</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_CREDIT</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2861</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CREDIT_DAY_OVERDUE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>33</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_CREDIT_ENDDATE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">93.5</td>
+                            <td>6.5%</td>
+                            <td>4932</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_ENDDATE_FACT</td>
+                            <td>DoubleType()</td>
+                            <td class="warning">63.3</td>
+                            <td>36.74%</td>
+                            <td>2557</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_CREDIT_MAX_OVERDUE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>65.27%</td>
+                            <td>1139</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_CREDIT_PROLONG</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_CREDIT_SUM</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>8193</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_CREDIT_SUM_DEBT</td>
+                            <td>DoubleType()</td>
+                            <td class="warning">74.8</td>
+                            <td>15.24%</td>
+                            <td>4353</td>
+                            <td>74 negative values</td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_CREDIT_SUM_LIMIT</td>
+                            <td>DoubleType()</td>
+                            <td class="error">55.2</td>
+                            <td>34.8%</td>
+                            <td>616</td>
+                            <td>3 negative values</td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_CREDIT_SUM_OVERDUE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>39</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CREDIT_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>9</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_CREDIT_UPDATE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2412</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_ANNUITY</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>72.26%</td>
+                            <td>1813</td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ bureau_balance_daily</h3>
+                <p>Rows: 273,932 | Business Columns: 3</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Distinct Count</th>
+                            <th>Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td>SK_ID_BUREAU</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>215465</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>MONTHS_BALANCE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>97</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>STATUS</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>8</td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ credit_card_balance_daily</h3>
+                <p>Rows: 38,749 | Business Columns: 23</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Distinct Count</th>
+                            <th>Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td>SK_ID_PREV</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>28870</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SK_ID_CURR</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>28835</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>MONTHS_BALANCE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>96</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_BALANCE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">90.0</td>
+                            <td>0.0%</td>
+                            <td>16515</td>
+                            <td>17 negative values</td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_CREDIT_LIMIT_ACTUAL</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>98</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_DRAWINGS_ATM_CURRENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">80.4</td>
+                            <td>19.62%</td>
+                            <td>327</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_DRAWINGS_CURRENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2930</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_DRAWINGS_OTHER_CURRENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">80.4</td>
+                            <td>19.62%</td>
+                            <td>94</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_DRAWINGS_POS_CURRENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">80.4</td>
+                            <td>19.62%</td>
+                            <td>2560</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_INST_MIN_REGULARITY</td>
+                            <td>DoubleType()</td>
+                            <td class="good">92.2</td>
+                            <td>7.78%</td>
+                            <td>5344</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_PAYMENT_CURRENT</td>
+                            <td>DoubleType()</td>
+                            <td class="warning">79.8</td>
+                            <td>20.23%</td>
+                            <td>9610</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_PAYMENT_TOTAL_CURRENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>4244</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_RECEIVABLE_PRINCIPAL</td>
+                            <td>DoubleType()</td>
+                            <td class="good">90.0</td>
+                            <td>0.0%</td>
+                            <td>15037</td>
+                            <td>18 negative values</td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_RECIVABLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">90.0</td>
+                            <td>0.0%</td>
+                            <td>17055</td>
+                            <td>1096 negative values</td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_TOTAL_RECEIVABLE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">90.0</td>
+                            <td>0.0%</td>
+                            <td>17056</td>
+                            <td>1096 negative values</td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_DRAWINGS_ATM_CURRENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">80.4</td>
+                            <td>19.62%</td>
+                            <td>24</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_DRAWINGS_CURRENT</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>70</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_DRAWINGS_OTHER_CURRENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">80.4</td>
+                            <td>19.62%</td>
+                            <td>6</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_DRAWINGS_POS_CURRENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">80.4</td>
+                            <td>19.62%</td>
+                            <td>69</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_INSTALMENT_MATURE_CUM</td>
+                            <td>DoubleType()</td>
+                            <td class="good">92.2</td>
+                            <td>7.78%</td>
+                            <td>108</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_CONTRACT_STATUS</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SK_DPD</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>232</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SK_DPD_DEF</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>25</td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ installments_payments_daily</h3>
+                <p>Rows: 136,725 | Business Columns: 8</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Distinct Count</th>
+                            <th>Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td>SK_ID_PREV</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>117599</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SK_ID_CURR</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>97336</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NUM_INSTALMENT_VERSION</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>34</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NUM_INSTALMENT_NUMBER</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>208</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_INSTALMENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2921</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_ENTRY_PAYMENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.02%</td>
+                            <td>2957</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_INSTALMENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>82769</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_PAYMENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.02%</td>
+                            <td>84058</td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ POS_CASH_balance_daily</h3>
+                <p>Rows: 100,719 | Business Columns: 8</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Distinct Count</th>
+                            <th>Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td>SK_ID_PREV</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>94091</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SK_ID_CURR</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>80645</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>MONTHS_BALANCE</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>96</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_INSTALMENT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.7</td>
+                            <td>0.25%</td>
+                            <td>60</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_INSTALMENT_FUTURE</td>
+                            <td>DoubleType()</td>
+                            <td class="good">99.7</td>
+                            <td>0.25%</td>
+                            <td>67</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_CONTRACT_STATUS</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SK_DPD</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>954</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SK_DPD_DEF</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>79</td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ previous_application_daily</h3>
+                <p>Rows: 16,820 | Business Columns: 37</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Distinct Count</th>
+                            <th>Issues</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td>SK_ID_PREV</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>16820</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SK_ID_CURR</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>16223</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_CONTRACT_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_ANNUITY</td>
+                            <td>DoubleType()</td>
+                            <td class="warning">77.8</td>
+                            <td>22.21%</td>
+                            <td>10263</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_APPLICATION</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5477</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_CREDIT</td>
+                            <td>DoubleType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>7727</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_DOWN_PAYMENT</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>54.62%</td>
+                            <td>1990</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>AMT_GOODS_PRICE</td>
+                            <td>DoubleType()</td>
+                            <td class="warning">76.7</td>
+                            <td>23.29%</td>
+                            <td>5478</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>WEEKDAY_APPR_PROCESS_START</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>HOUR_APPR_PROCESS_START</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>24</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>FLAG_LAST_APPL_PER_CONTRACT</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NFLAG_LAST_APPL_IN_DAY</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>RATE_DOWN_PAYMENT</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>54.62%</td>
+                            <td>3474</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>RATE_INTEREST_PRIMARY</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>99.65%</td>
+                            <td>14</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>RATE_INTEREST_PRIVILEGED</td>
+                            <td>DoubleType()</td>
+                            <td class="error">50</td>
+                            <td>99.65%</td>
+                            <td>7</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_CASH_LOAN_PURPOSE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>23</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_CONTRACT_STATUS</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_DECISION</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>2787</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_PAYMENT_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CODE_REJECT_REASON</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>9</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_TYPE_SUITE</td>
+                            <td>StringType()</td>
+                            <td class="error">51.3</td>
+                            <td>48.7%</td>
+                            <td>8</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_CLIENT_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>4</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_GOODS_CATEGORY</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>25</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_PORTFOLIO</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_PRODUCT_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CHANNEL_TYPE</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>8</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>SELLERPLACE_AREA</td>
+                            <td>IntegerType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>897</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_SELLER_INDUSTRY</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>11</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>CNT_PAYMENT</td>
+                            <td>DoubleType()</td>
+                            <td class="warning">77.8</td>
+                            <td>22.21%</td>
+                            <td>30</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NAME_YIELD_GROUP</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.0%</td>
+                            <td>5</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>PRODUCT_COMBINATION</td>
+                            <td>StringType()</td>
+                            <td class="good">100</td>
+                            <td>0.01%</td>
+                            <td>18</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_FIRST_DRAWING</td>
+                            <td>DoubleType()</td>
+                            <td class="error">59.8</td>
+                            <td>40.19%</td>
+                            <td>538</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_FIRST_DUE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">59.8</td>
+                            <td>40.19%</td>
+                            <td>2656</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_LAST_DUE_1ST_VERSION</td>
+                            <td>DoubleType()</td>
+                            <td class="error">59.8</td>
+                            <td>40.19%</td>
+                            <td>3272</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_LAST_DUE</td>
+                            <td>DoubleType()</td>
+                            <td class="error">59.8</td>
+                            <td>40.19%</td>
+                            <td>2455</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>DAYS_TERMINATION</td>
+                            <td>DoubleType()</td>
+                            <td class="error">59.8</td>
+                            <td>40.19%</td>
+                            <td>2334</td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td>NFLAG_INSURED_ON_APPROVAL</td>
+                            <td>DoubleType()</td>
+                            <td class="error">59.8</td>
+                            <td>40.19%</td>
+                            <td>3</td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+        </body>
+        </html>
+        

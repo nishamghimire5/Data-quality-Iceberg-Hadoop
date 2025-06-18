@@ -1,0 +1,19 @@
+FRESH DAILY DATA QUALITY ANALYSIS
+==================================================
+
+Generated: 2025-06-18 05:23:39
+Simulation ID: 20250618_051742
+Random Seed: 13
+Simulation Date: 2025-06-18
+
+Total Tables: 8
+Total Rows: 1,161,458
+
+✅ application_train_daily: 6,236 rows (seed: 13)
+✅ application_test_daily: 991 rows (seed: 13)
+✅ bureau_daily: 34,155 rows (seed: 13)
+✅ bureau_balance_daily: 542,044 rows (seed: 13)
+✅ credit_card_balance_daily: 76,189 rows (seed: 13)
+✅ installments_payments_daily: 269,979 rows (seed: 13)
+✅ POS_CASH_balance_daily: 198,630 rows (seed: 13)
+✅ previous_application_daily: 33,234 rows (seed: 13)

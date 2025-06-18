@@ -1,0 +1,20 @@
+WORKING DATA QUALITY SUMMARY REPORT
+==================================================
+
+Generated: 2025-06-18 05:11:27
+
+Total Tables: 8
+Successful: 8
+Failed: 0
+
+Total Rows Analyzed: 587,949
+Total Business Columns: 339
+
+✅ application_train_daily: 3,200 rows, 122 columns
+✅ application_test_daily: 532 rows, 121 columns
+✅ bureau_daily: 17,272 rows, 17 columns
+✅ bureau_balance_daily: 273,932 rows, 3 columns
+✅ credit_card_balance_daily: 38,749 rows, 23 columns
+✅ installments_payments_daily: 136,725 rows, 8 columns
+✅ POS_CASH_balance_daily: 100,719 rows, 8 columns
+✅ previous_application_daily: 16,820 rows, 37 columns

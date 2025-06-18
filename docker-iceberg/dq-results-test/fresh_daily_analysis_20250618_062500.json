@@ -1,0 +1,722 @@
+{
+  "timestamp": "2025-06-18T06:29:21.153564",
+  "simulation_id": "20250618_062258",
+  "random_seed": 265,
+  "simulation_date": "2025-06-18",
+  "summary": {
+    "total_tables": 8,
+    "total_rows": 950662,
+    "total_columns": 339
+  },
+  "table_results": [
+    {
+      "table_name": "application_train_daily",
+      "simulation_id": "20250618_062258",
+      "random_seed": 265,
+      "total_rows": 5109,
+      "total_columns": 128,
+      "business_columns": 122,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "TARGET",
+          "data_type": "IntegerType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "NAME_CONTRACT_TYPE",
+          "data_type": "StringType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CODE_GENDER",
+          "data_type": "StringType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "FLAG_OWN_CAR",
+          "data_type": "StringType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "FLAG_OWN_REALTY",
+          "data_type": "StringType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CNT_CHILDREN",
+          "data_type": "IntegerType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_INCOME_TOTAL",
+          "data_type": "DoubleType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_CREDIT",
+          "data_type": "DoubleType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_ANNUITY",
+          "data_type": "DoubleType()",
+          "total_rows": 5109,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 5109,
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-18T06:25:00.688021"
+    },
+    {
+      "table_name": "application_test_daily",
+      "simulation_id": "20250618_062258",
+      "random_seed": 265,
+      "total_rows": 807,
+      "total_columns": 127,
+      "business_columns": 121,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "NAME_CONTRACT_TYPE",
+          "data_type": "StringType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CODE_GENDER",
+          "data_type": "StringType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "FLAG_OWN_CAR",
+          "data_type": "StringType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "FLAG_OWN_REALTY",
+          "data_type": "StringType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CNT_CHILDREN",
+          "data_type": "IntegerType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_INCOME_TOTAL",
+          "data_type": "DoubleType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_CREDIT",
+          "data_type": "DoubleType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_ANNUITY",
+          "data_type": "DoubleType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_GOODS_PRICE",
+          "data_type": "DoubleType()",
+          "total_rows": 807,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 807,
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-18T06:25:12.825890"
+    },
+    {
+      "table_name": "bureau_daily",
+      "simulation_id": "20250618_062258",
+      "random_seed": 265,
+      "total_rows": 28311,
+      "total_columns": 23,
+      "business_columns": 17,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 28311,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 28311,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_ID_BUREAU",
+          "data_type": "IntegerType()",
+          "total_rows": 28311,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 28311,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CREDIT_ACTIVE",
+          "data_type": "StringType()",
+          "total_rows": 28311,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 28311,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CREDIT_CURRENCY",
+          "data_type": "StringType()",
+          "total_rows": 28311,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 28311,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "DAYS_CREDIT",
+          "data_type": "IntegerType()",
+          "total_rows": 28311,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 28311,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CREDIT_DAY_OVERDUE",
+          "data_type": "IntegerType()",
+          "total_rows": 28311,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 28311,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "DAYS_CREDIT_ENDDATE",
+          "data_type": "DoubleType()",
+          "total_rows": 28311,
+          "null_count": 1747,
+          "null_percentage": 6.17,
+          "non_null_count": 26564,
+          "data_quality_score": 93.8
+        },
+        {
+          "column_name": "DAYS_ENDDATE_FACT",
+          "data_type": "DoubleType()",
+          "total_rows": 28311,
+          "null_count": 10537,
+          "null_percentage": 37.22,
+          "non_null_count": 17774,
+          "data_quality_score": 62.8
+        },
+        {
+          "column_name": "AMT_CREDIT_MAX_OVERDUE",
+          "data_type": "DoubleType()",
+          "total_rows": 28311,
+          "null_count": 18580,
+          "null_percentage": 65.63,
+          "non_null_count": 9731,
+          "data_quality_score": 50
+        },
+        {
+          "column_name": "CNT_CREDIT_PROLONG",
+          "data_type": "IntegerType()",
+          "total_rows": 28311,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 28311,
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-18T06:25:16.638124"
+    },
+    {
+      "table_name": "bureau_balance_daily",
+      "simulation_id": "20250618_062258",
+      "random_seed": 265,
+      "total_rows": 443283,
+      "total_columns": 9,
+      "business_columns": 3,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_BUREAU",
+          "data_type": "IntegerType()",
+          "total_rows": 443283,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 443283,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "MONTHS_BALANCE",
+          "data_type": "IntegerType()",
+          "total_rows": 443283,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 443283,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "STATUS",
+          "data_type": "StringType()",
+          "total_rows": 443283,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 443283,
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-18T06:25:36.501880"
+    },
+    {
+      "table_name": "credit_card_balance_daily",
+      "simulation_id": "20250618_062258",
+      "random_seed": 265,
+      "total_rows": 62736,
+      "total_columns": 29,
+      "business_columns": 23,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_PREV",
+          "data_type": "IntegerType()",
+          "total_rows": 62736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 62736,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 62736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 62736,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "MONTHS_BALANCE",
+          "data_type": "IntegerType()",
+          "total_rows": 62736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 62736,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_BALANCE",
+          "data_type": "DoubleType()",
+          "total_rows": 62736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 62736,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_CREDIT_LIMIT_ACTUAL",
+          "data_type": "IntegerType()",
+          "total_rows": 62736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 62736,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_DRAWINGS_ATM_CURRENT",
+          "data_type": "DoubleType()",
+          "total_rows": 62736,
+          "null_count": 12339,
+          "null_percentage": 19.67,
+          "non_null_count": 50397,
+          "data_quality_score": 80.3
+        },
+        {
+          "column_name": "AMT_DRAWINGS_CURRENT",
+          "data_type": "DoubleType()",
+          "total_rows": 62736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 62736,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_DRAWINGS_OTHER_CURRENT",
+          "data_type": "DoubleType()",
+          "total_rows": 62736,
+          "null_count": 12339,
+          "null_percentage": 19.67,
+          "non_null_count": 50397,
+          "data_quality_score": 80.3
+        },
+        {
+          "column_name": "AMT_DRAWINGS_POS_CURRENT",
+          "data_type": "DoubleType()",
+          "total_rows": 62736,
+          "null_count": 12339,
+          "null_percentage": 19.67,
+          "non_null_count": 50397,
+          "data_quality_score": 80.3
+        },
+        {
+          "column_name": "AMT_INST_MIN_REGULARITY",
+          "data_type": "DoubleType()",
+          "total_rows": 62736,
+          "null_count": 5064,
+          "null_percentage": 8.07,
+          "non_null_count": 57672,
+          "data_quality_score": 91.9
+        }
+      ],
+      "analysis_timestamp": "2025-06-18T06:26:14.453371"
+    },
+    {
+      "table_name": "installments_payments_daily",
+      "simulation_id": "20250618_062258",
+      "random_seed": 265,
+      "total_rows": 220668,
+      "total_columns": 14,
+      "business_columns": 8,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_PREV",
+          "data_type": "IntegerType()",
+          "total_rows": 220668,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 220668,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 220668,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 220668,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "NUM_INSTALMENT_VERSION",
+          "data_type": "DoubleType()",
+          "total_rows": 220668,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 220668,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "NUM_INSTALMENT_NUMBER",
+          "data_type": "IntegerType()",
+          "total_rows": 220668,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 220668,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "DAYS_INSTALMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 220668,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 220668,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "DAYS_ENTRY_PAYMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 220668,
+          "null_count": 44,
+          "null_percentage": 0.02,
+          "non_null_count": 220624,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_INSTALMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 220668,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 220668,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_PAYMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 220668,
+          "null_count": 44,
+          "null_percentage": 0.02,
+          "non_null_count": 220624,
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-18T06:26:51.021385"
+    },
+    {
+      "table_name": "POS_CASH_balance_daily",
+      "simulation_id": "20250618_062258",
+      "random_seed": 265,
+      "total_rows": 162251,
+      "total_columns": 14,
+      "business_columns": 8,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_PREV",
+          "data_type": "IntegerType()",
+          "total_rows": 162251,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 162251,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 162251,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 162251,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "MONTHS_BALANCE",
+          "data_type": "IntegerType()",
+          "total_rows": 162251,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 162251,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CNT_INSTALMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 162251,
+          "null_count": 422,
+          "null_percentage": 0.26,
+          "non_null_count": 161829,
+          "data_quality_score": 99.7
+        },
+        {
+          "column_name": "CNT_INSTALMENT_FUTURE",
+          "data_type": "DoubleType()",
+          "total_rows": 162251,
+          "null_count": 419,
+          "null_percentage": 0.26,
+          "non_null_count": 161832,
+          "data_quality_score": 99.7
+        },
+        {
+          "column_name": "NAME_CONTRACT_STATUS",
+          "data_type": "StringType()",
+          "total_rows": 162251,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 162251,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_DPD",
+          "data_type": "IntegerType()",
+          "total_rows": 162251,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 162251,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_DPD_DEF",
+          "data_type": "IntegerType()",
+          "total_rows": 162251,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 162251,
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-18T06:28:14.806268"
+    },
+    {
+      "table_name": "previous_application_daily",
+      "simulation_id": "20250618_062258",
+      "random_seed": 265,
+      "total_rows": 27497,
+      "total_columns": 43,
+      "business_columns": 37,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_PREV",
+          "data_type": "IntegerType()",
+          "total_rows": 27497,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 27497,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 27497,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 27497,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "NAME_CONTRACT_TYPE",
+          "data_type": "StringType()",
+          "total_rows": 27497,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 27497,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_ANNUITY",
+          "data_type": "DoubleType()",
+          "total_rows": 27497,
+          "null_count": 6185,
+          "null_percentage": 22.49,
+          "non_null_count": 21312,
+          "data_quality_score": 77.5
+        },
+        {
+          "column_name": "AMT_APPLICATION",
+          "data_type": "DoubleType()",
+          "total_rows": 27497,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 27497,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_CREDIT",
+          "data_type": "DoubleType()",
+          "total_rows": 27497,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 27497,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_DOWN_PAYMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 27497,
+          "null_count": 14774,
+          "null_percentage": 53.73,
+          "non_null_count": 12723,
+          "data_quality_score": 50
+        },
+        {
+          "column_name": "AMT_GOODS_PRICE",
+          "data_type": "DoubleType()",
+          "total_rows": 27497,
+          "null_count": 6386,
+          "null_percentage": 23.22,
+          "non_null_count": 21111,
+          "data_quality_score": 76.8
+        },
+        {
+          "column_name": "WEEKDAY_APPR_PROCESS_START",
+          "data_type": "StringType()",
+          "total_rows": 27497,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 27497,
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "HOUR_APPR_PROCESS_START",
+          "data_type": "IntegerType()",
+          "total_rows": 27497,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 27497,
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-18T06:28:57.821145"
+    }
+  ]
+}

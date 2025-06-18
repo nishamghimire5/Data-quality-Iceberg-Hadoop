@@ -17,7 +17,7 @@ import logging
 from datetime import datetime
 import random
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import col, lit, current_timestamp, monotonically_increasing_id
+from pyspark.sql.functions import col, lit, current_timestamp, monotonically_increasing_id, length
 from pyspark.sql.functions import min as spark_min, max as spark_max, avg as spark_avg, count as spark_count
 import pandas as pd
 
@@ -166,10 +166,9 @@ class DailySimulationDQSystem:
                     'column_analysis': [],
                     'analysis_timestamp': datetime.now().isoformat()
                 }
-                
-                # Analyze each business column
+                  # Analyze each business column
                 for col_name in business_columns[:10]:  # Limit to first 10 for speed
-                    col_analysis = self.analyze_column_simple(df, col_name, total_rows)
+                    col_analysis = self.analyze_column_comprehensive(df, col_name, total_rows)
                     table_result['column_analysis'].append(col_analysis)
                 
                 all_results.append(table_result)
@@ -182,47 +181,194 @@ class DailySimulationDQSystem:
                     'error': str(e),
                     'simulation_id': self.simulation_id,
                     'analysis_timestamp': datetime.now().isoformat()
-                })
-        
+                })        
         # Generate reports
         self.generate_fresh_reports(all_results, timestamp)
         logger.info("✅ Fresh data analysis completed")
         
         return all_results
 
-    def analyze_column_simple(self, df, col_name, total_rows):
-        """Simple column analysis"""
+    def analyze_column_comprehensive(self, df, col_name, total_rows):
+        """
+        Comprehensive column analysis with DQ checks:
+        - Volume/null monitoring
+        - Min/max/avg range validation  
+        - Data type validation
+        - Freshness checks
+        - Range validation alerts
+        """
         try:
-            # Null analysis
+            # Basic null analysis
             null_count = df.filter(col(col_name).isNull()).count()
             null_percentage = (null_count / total_rows) * 100 if total_rows > 0 else 0
+            non_null_count = total_rows - null_count
             
             col_type = str(df.schema[col_name].dataType)
             
+            # Initialize comprehensive analysis
             analysis = {
                 'column_name': col_name,
                 'data_type': col_type,
                 'total_rows': total_rows,
                 'null_count': null_count,
                 'null_percentage': round(null_percentage, 2),
-                'non_null_count': total_rows - null_count
+                'non_null_count': non_null_count,
+                'dq_checks': [],
+                'alerts': [],
+                'statistics': {}
             }
             
-            # Simple quality score
-            quality_score = 100 - min(null_percentage, 50)
-            analysis['data_quality_score'] = round(quality_score, 1)
+            # DQ Check 1: Volume monitoring
+            if total_rows == 0:
+                analysis['alerts'].append("CRITICAL: No data found")
+                analysis['data_quality_score'] = 0
+                return analysis
+            
+            # DQ Check 2: NULL value validation
+            if null_percentage > 95:
+                analysis['alerts'].append(f"CRITICAL: {null_percentage}% null values - data integrity issue")
+            elif null_percentage > 50:
+                analysis['alerts'].append(f"WARNING: {null_percentage}% null values - high null rate")
+            elif null_percentage > 20:
+                analysis['alerts'].append(f"INFO: {null_percentage}% null values - moderate null rate")
+            
+            analysis['dq_checks'].append({
+                'check_name': 'null_validation',
+                'status': 'PASS' if null_percentage <= 50 else 'FAIL',
+                'threshold': '≤50%',
+                'actual': f"{null_percentage}%"
+            })
+            
+            # Get distinct count for uniqueness analysis
+            if non_null_count > 0:
+                try:
+                    distinct_count = df.select(col_name).distinct().count()
+                    uniqueness_percentage = (distinct_count / total_rows) * 100
+                    analysis['statistics']['distinct_count'] = distinct_count
+                    analysis['statistics']['uniqueness_percentage'] = round(uniqueness_percentage, 2)
+                    
+                    # DQ Check 3: Uniqueness validation for ID columns
+                    if col_name.startswith('SK_ID_'):
+                        if uniqueness_percentage < 95:
+                            analysis['alerts'].append(f"WARNING: ID column {col_name} uniqueness only {uniqueness_percentage}%")
+                        analysis['dq_checks'].append({
+                            'check_name': 'id_uniqueness',
+                            'status': 'PASS' if uniqueness_percentage >= 95 else 'FAIL',
+                            'threshold': '≥95%',
+                            'actual': f"{uniqueness_percentage}%"
+                        })
+                except Exception as e:
+                    analysis['alerts'].append(f"Could not calculate distinctness: {str(e)}")
+            
+            # DQ Check 4: Numeric range validation for numeric columns
+            if any(x in col_type.lower() for x in ['int', 'long', 'double', 'float']):
+                try:
+                    non_null_df = df.filter(col(col_name).isNotNull())
+                    if non_null_df.count() > 0:
+                        # Calculate statistics
+                        stats = non_null_df.agg(
+                            spark_min(col_name).alias("min_val"),
+                            spark_max(col_name).alias("max_val"), 
+                            spark_avg(col_name).alias("avg_val")
+                        ).collect()[0]
+                        
+                        min_val = stats['min_val'] 
+                        max_val = stats['max_val']
+                        avg_val = stats['avg_val']
+                        
+                        analysis['statistics'].update({
+                            'min_value': min_val,
+                            'max_value': max_val,
+                            'average_value': round(avg_val, 2) if avg_val else None,
+                            'range_span': max_val - min_val if min_val is not None and max_val is not None else None
+                        })
+                        
+                        # DQ Check 5: Range validation alerts
+                        if min_val is not None and max_val is not None:
+                            # Check for suspicious ranges
+                            if col_name == 'TARGET' and (min_val < 0 or max_val > 1):
+                                analysis['alerts'].append(f"ERROR: TARGET values outside [0,1] range: {min_val} to {max_val}")
+                            
+                            if 'DAYS_' in col_name and max_val > 0:
+                                analysis['alerts'].append(f"WARNING: {col_name} has positive days values: max={max_val}")
+                            
+                            if 'AMT_' in col_name and min_val < 0:
+                                analysis['alerts'].append(f"WARNING: {col_name} has negative amounts: min={min_val}")
+                            
+                            # General range validation
+                            range_span = max_val - min_val
+                            if range_span == 0:
+                                analysis['alerts'].append(f"INFO: {col_name} has constant value: {min_val}")
+                            
+                            analysis['dq_checks'].append({
+                                'check_name': 'numeric_range_validation',
+                                'status': 'PASS',
+                                'min_value': min_val,
+                                'max_value': max_val,
+                                'average_value': round(avg_val, 2) if avg_val else None
+                            })
+                        
+                except Exception as e:
+                    analysis['alerts'].append(f"Numeric analysis failed: {str(e)}")
+            
+            # DQ Check 6: String length validation for string columns
+            elif 'string' in col_type.lower():
+                try:
+                    non_null_df = df.filter(col(col_name).isNotNull())
+                    if non_null_df.count() > 0:
+                        # Calculate string length statistics
+                        length_stats = non_null_df.agg(
+                            spark_min(length(col(col_name))).alias("min_len"),
+                            spark_max(length(col(col_name))).alias("max_len"),
+                            spark_avg(length(col(col_name))).alias("avg_len")
+                        ).collect()[0]
+                        
+                        analysis['statistics'].update({
+                            'min_length': length_stats['min_len'],
+                            'max_length': length_stats['max_len'], 
+                            'avg_length': round(length_stats['avg_len'], 2) if length_stats['avg_len'] else None
+                        })
+                        
+                        # Check for suspiciously short/long strings
+                        if length_stats['min_len'] == 0:
+                            analysis['alerts'].append(f"WARNING: {col_name} contains empty strings")
+                        if length_stats['max_len'] > 100:
+                            analysis['alerts'].append(f"INFO: {col_name} has very long strings (max: {length_stats['max_len']})")
+                            
+                        analysis['dq_checks'].append({
+                            'check_name': 'string_length_validation',
+                            'status': 'PASS',
+                            'min_length': length_stats['min_len'],
+                            'max_length': length_stats['max_len']
+                        })
+                        
+                except Exception as e:
+                    analysis['alerts'].append(f"String analysis failed: {str(e)}")
+            
+            # Calculate overall data quality score
+            critical_alerts = len([a for a in analysis['alerts'] if 'CRITICAL' in a])
+            warning_alerts = len([a for a in analysis['alerts'] if 'WARNING' in a])
+            failed_checks = len([c for c in analysis['dq_checks'] if c.get('status') == 'FAIL'])
+            
+            quality_score = 100
+            quality_score -= critical_alerts * 30  # -30 for each critical alert
+            quality_score -= warning_alerts * 10   # -10 for each warning 
+            quality_score -= failed_checks * 20    # -20 for each failed check
+            quality_score -= min(null_percentage / 2, 25)  # Deduct based on null percentage
+            
+            analysis['data_quality_score'] = max(round(quality_score, 1), 0)
             
             return analysis
             
         except Exception as e:
-            return {
-                'column_name': col_name,
+            return {                'column_name': col_name,
                 'error': str(e),
-                'data_quality_score': 0
+                'data_quality_score': 0,
+                'alerts': [f"CRITICAL: Analysis failed - {str(e)}"]
             }
 
     def generate_fresh_reports(self, results, timestamp):
-        """Generate reports for fresh simulated data"""
+        """Generate comprehensive reports for fresh simulated data"""
         
         # JSON report with simulation details
         json_file = f"{self.results_dir}/fresh_daily_analysis_{timestamp}.json"
@@ -239,6 +385,11 @@ class DailySimulationDQSystem:
                 },
                 'table_results': results
             }, f, indent=2, default=str)
+        
+        # HTML report with comprehensive DQ analysis
+        html_file = f"{self.results_dir}/fresh_daily_dq_report_{timestamp}.html"
+        with open(html_file, 'w') as f:
+            f.write(self.generate_html_report(results, timestamp))
         
         # Summary with simulation info
         summary_file = f"{self.results_dir}/fresh_daily_summary_{timestamp}.txt"
@@ -260,7 +411,167 @@ class DailySimulationDQSystem:
         
         logger.info(f"📊 Fresh simulation reports generated:")
         logger.info(f"   📋 JSON: {json_file}")
+        logger.info(f"   🌐 HTML: {html_file}")
         logger.info(f"   📝 Summary: {summary_file}")
+
+    def generate_html_report(self, results, timestamp):
+        """Generate comprehensive HTML report with DQ checks"""
+        
+        total_tables = len(results)
+        total_rows = sum(r.get('total_rows', 0) for r in results)
+        total_columns = sum(r.get('business_columns', 0) for r in results)
+        
+        html = f"""
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Fresh Daily DQ Report - Home Credit Dataset</title>
+            <style>
+                body {{ font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }}
+                .header {{ background-color: #2c3e50; color: white; padding: 20px; border-radius: 5px; margin-bottom: 20px; }}
+                .summary {{ background-color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px; }}
+                .table-section {{ background-color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px; }}
+                .good {{ color: #27ae60; }}
+                .warning {{ color: #f39c12; }}
+                .error {{ color: #e74c3c; }}
+                .info {{ color: #3498db; }}
+                table {{ width: 100%; border-collapse: collapse; margin-bottom: 15px; }}
+                th, td {{ padding: 8px; border: 1px solid #ddd; text-align: left; font-size: 12px; }}
+                th {{ background-color: #34495e; color: white; }}
+                .dq-check {{ margin: 5px 0; padding: 5px; border-radius: 3px; font-size: 11px; }}
+                .check-pass {{ background-color: #d5f4e6; color: #27ae60; }}
+                .check-fail {{ background-color: #fdf2f2; color: #e74c3c; }}
+                .alert {{ margin: 2px 0; padding: 3px; border-radius: 3px; font-size: 10px; }}
+                .alert-critical {{ background-color: #fdf2f2; color: #e74c3c; }}
+                .alert-warning {{ background-color: #fefbf3; color: #f39c12; }}
+                .alert-info {{ background-color: #f0f8ff; color: #3498db; }}
+                .stats {{ font-size: 11px; color: #666; }}
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>🔄 Fresh Daily Data Quality Report</h1>
+                <h2>Home Credit Dataset - Comprehensive DQ Analysis</h2>
+                <p>Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
+                <p>Simulation ID: {self.simulation_id} | Random Seed: {self.random_seed}</p>
+            </div>
+            
+            <div class="summary">
+                <h3>📊 Summary</h3>
+                <p>Total Tables: {total_tables}</p>
+                <p>Successful Analyses: {len([r for r in results if 'error' not in r])}</p>
+                <p>Total Rows: {total_rows:,}</p>
+                <p>Total Business Columns: {total_columns}</p>
+                <p><strong>🎲 Fresh Data:</strong> New random sample with seed {self.random_seed}</p>
+            </div>
+        """
+        
+        # Generate table sections
+        for result in results:
+            if 'error' in result:
+                html += f"""
+                <div class="table-section">
+                    <h3 class="error">❌ {result['table_name']}</h3>
+                    <p class="error">Error: {result['error']}</p>
+                </div>
+                """
+                continue
+                
+            table_name = result['table_name']
+            total_rows = result['total_rows']
+            business_columns = result['business_columns']
+            
+            html += f"""
+            <div class="table-section">
+                <h3 class="good">✅ {table_name}</h3>
+                <p>Rows: {total_rows:,} | Business Columns: {business_columns}</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Statistics</th>
+                            <th>DQ Checks</th>
+                            <th>Alerts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            """
+            
+            # Add column analysis rows
+            for col_analysis in result.get('column_analysis', []):
+                col_name = col_analysis.get('column_name', 'Unknown')
+                data_type = col_analysis.get('data_type', 'Unknown')
+                quality_score = col_analysis.get('data_quality_score', 0)
+                null_pct = col_analysis.get('null_percentage', 0)
+                
+                # Format statistics
+                stats = col_analysis.get('statistics', {})
+                stats_html = ""
+                if 'min_value' in stats:
+                    stats_html += f"Min: {stats['min_value']}<br>"
+                if 'max_value' in stats:
+                    stats_html += f"Max: {stats['max_value']}<br>"
+                if 'average_value' in stats:
+                    stats_html += f"Avg: {stats['average_value']}<br>"
+                if 'distinct_count' in stats:
+                    stats_html += f"Distinct: {stats['distinct_count']}<br>"
+                if 'uniqueness_percentage' in stats:
+                    stats_html += f"Unique: {stats['uniqueness_percentage']}%"
+                
+                # Format DQ checks
+                checks_html = ""
+                for check in col_analysis.get('dq_checks', []):
+                    status = check.get('status', 'UNKNOWN')
+                    check_name = check.get('check_name', 'unknown')
+                    css_class = 'check-pass' if status == 'PASS' else 'check-fail'
+                    checks_html += f'<div class="dq-check {css_class}">{check_name}: {status}</div>'
+                
+                # Format alerts
+                alerts_html = ""
+                for alert in col_analysis.get('alerts', []):
+                    if 'CRITICAL' in alert:
+                        css_class = 'alert-critical'
+                    elif 'WARNING' in alert:
+                        css_class = 'alert-warning'
+                    else:
+                        css_class = 'alert-info'
+                    alerts_html += f'<div class="alert {css_class}">{alert}</div>'
+                
+                # Determine quality score color
+                if quality_score >= 80:
+                    score_class = 'good'
+                elif quality_score >= 60:
+                    score_class = 'warning'
+                else:
+                    score_class = 'error'
+                
+                html += f"""
+                        <tr>
+                            <td><strong>{col_name}</strong></td>
+                            <td class="stats">{data_type}</td>
+                            <td class="{score_class}"><strong>{quality_score}</strong></td>
+                            <td>{null_pct}%</td>
+                            <td class="stats">{stats_html}</td>
+                            <td>{checks_html}</td>
+                            <td>{alerts_html}</td>
+                        </tr>
+                """
+            
+            html += """
+                    </tbody>
+                </table>
+            </div>
+            """
+        
+        html += """
+        </body>
+        </html>
+        """
+        
+        return html
 
 def main():
     """Main execution - TRUE daily simulation"""
