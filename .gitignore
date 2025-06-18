@@ -3,13 +3,13 @@
 # ==========================================
 # DATASET FILES (Large CSV files)
 # ==========================================
-# Original large dataset files - too big for Git
+# Original large dataset files - too big for Git (2.6GB total)
 home-credit-default-risk-dataset/*.csv
 home-credit-default-risk-dataset/daily/
-!home-credit-default-risk-dataset/daily/.gitkeep
 
 # Keep only the column description file (small and useful)
 !home-credit-default-risk-dataset/HomeCredit_columns_description.csv
+!home-credit-default-risk-dataset/.gitkeep
 
 # ==========================================
 # DOCKER & INFRASTRUCTURE
@@ -17,6 +17,8 @@ home-credit-default-risk-dataset/daily/
 # Docker volumes and data
 docker-iceberg/warehouse/
 docker-iceberg/notebooks/
+docker-iceberg/openrefine-workspace/
+docker-iceberg/dqops-home/
 docker-hadoop/logs/
 docker-hadoop/data/
 
@@ -27,17 +29,17 @@ docker-compose.override.yml
 # ==========================================
 # DATA QUALITY OUTPUTS
 # ==========================================
-# DQ check results (generated files)
-docker-iceberg/dq-results/*.csv
+# DQ check results (generated files) - but keep final demo reports
 docker-iceberg/dq-results/*.parquet/
-docker-iceberg/dq-results/*.txt
+docker-iceberg/logs/
+*.log
+
+# Keep final demo reports for showcase
+!docker-iceberg/dq-results/working_dq_*
+!docker-iceberg/dq-results/final_dq_*
 
 # Keep the directory structure
 !docker-iceberg/dq-results/.gitkeep
-
-# Logs
-docker-iceberg/logs/
-*.log
 
 # ==========================================
 # PYTHON

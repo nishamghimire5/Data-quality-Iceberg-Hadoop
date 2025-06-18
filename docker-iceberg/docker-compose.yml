@@ -11,14 +11,18 @@ services:
       - rest
       - minio
     volumes:
-      - ./warehouse:/home/iceberg/warehouse
       - ./notebooks:/home/iceberg/notebooks/notebooks
       - ..:/data
+      - ./config:/opt/spark/conf-hdfs
     environment:
       - AWS_ACCESS_KEY_ID=admin
       - AWS_SECRET_ACCESS_KEY=password
       - AWS_REGION=us-east-1
       - HADOOP_NAMENODE_HOST=namenode
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - HDFS_CONF_dfs_nameservices=namenode
+      - HDFS_CONF_dfs_namenode_rpc_address_namenode=namenode:9000
+      - HDFS_CONF_dfs_namenode_http_address_namenode=namenode:9870
     ports:
       - 8888:8888  # Jupyter notebook
       - 8080:8080  # Spark UI
@@ -76,10 +80,45 @@ services:
       tail -f /dev/null
       "
 
+  openrefine:
+    image: vimagick/openrefine:latest
+    container_name: openrefine
+    networks:
+      - iceberg_net
+      - hadoop_network
+    ports:
+      - 3333:3333
+    volumes:
+      - ./openrefine-workspace:/workspace
+      - ..:/data
+      - ./warehouse:/warehouse
+    environment:
+      - OPENREFINE_MEMORY=2G
+
+  dqops:
+    image: dqops/dqo:1.6.0
+    container_name: dqops
+    networks:
+      - iceberg_net
+      - hadoop_network
+    ports:
+      - 8082:8888
+    volumes:
+      - ./dqops-home:/dqo/userhome
+      - ..:/data
+      - ./warehouse:/warehouse
+    environment:
+      - DQO_USER_HOME=/dqo/userhome
+      - DQO_USER_NAME=admin
+      - DQO_USER_EMAIL=admin@localhost
+      - DQO_CLOUD_LOGIN=false
+    command: ["run", "--headless", "--server.port=8888"]
+
 networks:
   iceberg_net:
   hadoop_network:
     external: true
+    name: docker-hadoop_default
 
 volumes:
   warehouse:

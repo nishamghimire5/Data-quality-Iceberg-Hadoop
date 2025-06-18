@@ -1,0 +1,52 @@
+{
+  "timestamp": "2025-06-15T15:53:07.111337",
+  "table": "application_train_daily",
+  "record_count": 1000,
+  "checks": {
+    "volume": {
+      "status": "pass",
+      "record_count": 1000,
+      "min_threshold": 500,
+      "max_threshold": 50000
+    },
+    "null_values": {
+      "status": "pass",
+      "column_results": {
+        "SK_ID_CURR": {
+          "null_count": "0",
+          "null_percentage": 0.0,
+          "status": "pass"
+        },
+        "TARGET": {
+          "null_count": "0",
+          "null_percentage": 0.0,
+          "status": "pass"
+        }
+      }
+    },
+    "range_validation": {
+      "status": "pass",
+      "column_results": {
+        "AMT_INCOME_TOTAL": {
+          "min_allowed": 0,
+          "max_allowed": 10000000,
+          "violations": "0",
+          "violation_percentage": 0.0,
+          "status": "pass"
+        },
+        "AMT_CREDIT": {
+          "min_allowed": 0,
+          "max_allowed": 5000000,
+          "violations": "7",
+          "violation_percentage": 0.7000000000000001,
+          "status": "pass"
+        }
+      }
+    },
+    "freshness": {
+      "status": "pass",
+      "hours_old": 4.981388888888889e-06,
+      "threshold_hours": 24
+    }
+  }
+}

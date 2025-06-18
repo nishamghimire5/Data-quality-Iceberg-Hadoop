@@ -1,0 +1,163 @@
+{
+  "data_sources": {
+    "home_credit": {
+      "tables": {
+        "application_train": {
+          "path": "hdfs://namenode:9000/data/home-credit-default-risk-dataset/application_train.csv",
+          "primary_key": "SK_ID_CURR",
+          "freshness_threshold_hours": 24,
+          "volume_min": 1000,
+          "volume_max": 500000
+        },
+        "application_test": {
+          "path": "hdfs://namenode:9000/data/home-credit-default-risk-dataset/application_test.csv",
+          "primary_key": "SK_ID_CURR",
+          "freshness_threshold_hours": 24,
+          "volume_min": 500,
+          "volume_max": 250000
+        },
+        "bureau": {
+          "path": "/data/home-credit-default-risk-dataset/bureau.csv",
+          "primary_key": "SK_ID_BUREAU",
+          "freshness_threshold_hours": 24,
+          "volume_min": 100,
+          "volume_max": 2000000
+        },
+        "bureau_balance": {
+          "path": "/data/home-credit-default-risk-dataset/bureau_balance.csv",
+          "primary_key": "SK_ID_BUREAU",
+          "freshness_threshold_hours": 24,
+          "volume_min": 1000,
+          "volume_max": 30000000
+        },
+        "credit_card_balance": {
+          "path": "/data/home-credit-default-risk-dataset/credit_card_balance.csv",
+          "primary_key": "SK_ID_PREV",
+          "freshness_threshold_hours": 24,
+          "volume_min": 50,
+          "volume_max": 5000000
+        },
+        "previous_application": {
+          "path": "/data/home-credit-default-risk-dataset/previous_application.csv",
+          "primary_key": "SK_ID_PREV",
+          "freshness_threshold_hours": 24,
+          "volume_min": 100,
+          "volume_max": 2000000
+        },
+        "installments_payments": {
+          "path": "/data/home-credit-default-risk-dataset/installments_payments.csv",
+          "primary_key": "SK_ID_PREV",
+          "freshness_threshold_hours": 24,
+          "volume_min": 1000,
+          "volume_max": 15000000
+        },
+        "POS_CASH_balance": {
+          "path": "/data/home-credit-default-risk-dataset/POS_CASH_balance.csv",
+          "primary_key": "SK_ID_PREV",
+          "freshness_threshold_hours": 24,
+          "volume_min": 500,
+          "volume_max": 12000000
+        },
+        "HomeCredit_columns_description": {
+          "path": "/data/home-credit-default-risk-dataset/HomeCredit_columns_description.csv",
+          "primary_key": "Table",
+          "freshness_threshold_hours": 168,
+          "volume_min": 10,
+          "volume_max": 1000
+        },
+        "sample_submission": {
+          "path": "/data/home-credit-default-risk-dataset/sample_submission.csv",
+          "primary_key": "SK_ID_CURR",
+          "freshness_threshold_hours": 24,
+          "volume_min": 100,
+          "volume_max": 250000
+        }
+      }
+    }
+  },
+  "dq_rules": {
+    "freshness": {
+      "enabled": true,
+      "max_age_hours": 24,
+      "description": "Alert if data is older than 24 hours"
+    },
+    "volume": {
+      "enabled": true,
+      "min_records": 100,
+      "max_records": 1000000,
+      "description": "Volume count monitoring with min/max thresholds"
+    },
+    "null_checks": {
+      "enabled": true,
+      "critical_columns": ["SK_ID_CURR", "TARGET"],
+      "max_null_percentage": 5.0,
+      "description": "Reject if NULL values exceed threshold in critical columns"
+    },
+    "range_checks": {
+      "enabled": true,
+      "numeric_ranges": {
+        "AMT_INCOME_TOTAL": {
+          "min": 0,
+          "max": 10000000,
+          "description": "Income amount validation"
+        },
+        "AMT_CREDIT": {
+          "min": 0,
+          "max": 5000000,
+          "description": "Credit amount validation"
+        },
+        "DAYS_BIRTH": {
+          "min": -25000,
+          "max": -6000,
+          "description": "Age validation (days before application)"
+        },
+        "AMT_ANNUITY": {
+          "min": 0,
+          "max": 1000000,
+          "description": "Annuity amount validation"
+        },
+        "DAYS_EMPLOYED": {
+          "min": -20000,
+          "max": 1,
+          "description": "Employment days validation"
+        }
+      },
+      "description": "Validate data in min and max range against each table"
+    }
+  },
+  "monitoring": {
+    "automated_schedule": "daily",
+    "alert_threshold": {
+      "failed_checks_percentage": 25.0,
+      "consecutive_failures": 3
+    },
+    "integrations": {
+      "dqops": {
+        "enabled": true,
+        "url": "http://localhost:8082",
+        "connection_name": "iceberg_warehouse"
+      },
+      "openrefine": {
+        "enabled": true,
+        "url": "http://localhost:3333",
+        "auto_create_projects": true
+      }
+    }
+  },
+  "reporting": {
+    "generate_html": true,
+    "generate_json": true,
+    "alert_on_failure": true,
+    "output_directory": "dq-results",
+    "retention_days": 30
+  },
+  "iceberg_config": {
+    "warehouse_path": "/warehouse",
+    "catalog_name": "iceberg",
+    "database_name": "dq_warehouse",
+    "table_properties": {
+      "write.format.default": "parquet",
+      "write.parquet.compression-codec": "snappy"
+    }
+  }
+}
