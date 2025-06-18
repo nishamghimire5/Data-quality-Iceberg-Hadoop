@@ -8,13 +8,13 @@ A comprehensive data quality monitoring system for Home Credit dataset using **A
 
 ## 📋 Task Requirements Completed (Scope 1-5)
 
-| #   | Requirement                      | Status | Implementation                                      |
-| --- | -------------------------------- | ------ | --------------------------------------------------- |
-| 1   | **Data source: Iceberg on HDFS** | ✅     | CSV data in HDFS → Fresh sampling → Analysis       |
-| 2   | **Daily data simulation script** | ✅     | Fresh random sampling from HDFS CSVs each run      |
-| 3   | **SQL-native DQ checks**         | ✅     | PySpark SQL functions for all DQ validations       |
-| 4   | **Volume/null/range monitoring** | ✅     | **Min/max/avg**, null %, alerts, range validation  |
-| 5   | **Automated DQ monitoring**      | ✅     | Comprehensive HTML/JSON/TXT reports with alerts    |
+| #   | Requirement                      | Status | Implementation                                    |
+| --- | -------------------------------- | ------ | ------------------------------------------------- |
+| 1   | **Data source: Iceberg on HDFS** | ✅     | CSV data in HDFS → Fresh sampling → Analysis      |
+| 2   | **Daily data simulation script** | ✅     | Fresh random sampling from HDFS CSVs each run     |
+| 3   | **SQL-native DQ checks**         | ✅     | PySpark SQL functions for all DQ validations      |
+| 4   | **Volume/null/range monitoring** | ✅     | **Min/max/avg**, null %, alerts, range validation |
+| 5   | **Automated DQ monitoring**      | ✅     | Comprehensive HTML/JSON/TXT reports with alerts   |
 
 **Note**: Tasks 6-10 (Schema Drift, CI/CD, Email alerts) are left for future scope as instructed.
 
@@ -23,12 +23,14 @@ A comprehensive data quality monitoring system for Home Credit dataset using **A
 ## 🚀 How to Run the System
 
 ### Step 1: Start Docker Environment
+
 ```bash
 cd N:\Projects\task2\docker-iceberg
 docker-compose up -d
 ```
 
 ### Step 2: Run Data Quality Analysis
+
 ```bash
 # Option A: Using demo runner (recommended)
 python run_demo.py
@@ -39,6 +41,7 @@ docker exec -it spark-iceberg python /opt/spark/daily_simulation_dq_system.py
 ```
 
 ### Step 3: Retrieve Generated Reports
+
 ```bash
 # Copy all reports from Docker to local machine
 docker cp spark-iceberg:/opt/spark/dq-results/. ./dq-results/
@@ -66,8 +69,9 @@ in HDFS         each run)       Alert system    Visual reports
 ### 📁 Data Loading Process
 
 1. **Source Data**: 8 CSV files uploaded to HDFS at `/data/home-credit-default-risk-dataset/`
+
    - `application_train.csv` (307,511 rows)
-   - `application_test.csv` (48,744 rows)  
+   - `application_test.csv` (48,744 rows)
    - `bureau.csv` (1,716,428 rows)
    - `bureau_balance.csv` (27,299,925 rows)
    - `credit_card_balance.csv` (3,840,312 rows)
@@ -76,6 +80,7 @@ in HDFS         each run)       Alert system    Visual reports
    - `previous_application.csv` (1,670,214 rows)
 
 2. **Daily Simulation**: System samples fresh data each run
+
    - **Random Sampling**: 1.5-2.5% of original data
    - **Unique Seed**: Different random seed each execution
    - **Metadata Addition**: Adds simulation_id, timestamp, random_seed
@@ -88,37 +93,44 @@ in HDFS         each run)       Alert system    Visual reports
 The system performs **6 comprehensive DQ check categories**:
 
 #### 1. **Volume Monitoring**
+
 - Row count validation per table
 - Volume change detection between runs
 - Critical alerts for empty datasets
 
 #### 2. **NULL Value Analysis**
+
 ```python
 null_count = df.filter(col(col_name).isNull()).count()
 null_percentage = (null_count / total_rows) * 100
 ```
+
 - Graduated alerts: >95% (CRITICAL), >50% (WARNING), >20% (INFO)
 - Pass/fail validation against thresholds
 
 #### 3. **Statistical Range Validation**
+
 ```python
 stats = df.agg(
     spark_min(col_name).alias("min_val"),
-    spark_max(col_name).alias("max_val"), 
+    spark_max(col_name).alias("max_val"),
     spark_avg(col_name).alias("avg_val")
 ).collect()[0]
 ```
+
 - Min/max/average calculations
 - Range span analysis
 - Business rule validation
 
 #### 4. **Business Rule Checks**
+
 - **TARGET column**: Must be [0,1] (binary classification)
-- **DAYS_* columns**: Should be negative (past dates)
-- **AMT_* columns**: Should be positive (monetary amounts)
-- **SK_ID_* columns**: Must be >95% unique (primary keys)
+- **DAYS\_\* columns**: Should be negative (past dates)
+- **AMT\_\* columns**: Should be positive (monetary amounts)
+- **SK*ID*\* columns**: Must be >95% unique (primary keys)
 
 #### 5. **String Analysis**
+
 ```python
 length_stats = df.agg(
     spark_min(length(col(col_name))).alias("min_len"),
@@ -126,11 +138,13 @@ length_stats = df.agg(
     spark_avg(length(col(col_name))).alias("avg_len")
 )
 ```
+
 - String length statistics
 - Empty string detection
 - Overly long string alerts
 
 #### 6. **Data Quality Scoring**
+
 ```python
 quality_score = 100
 quality_score -= critical_alerts * 30  # -30 for each critical
@@ -142,17 +156,20 @@ quality_score -= min(null_percentage / 2, 25)  # Null penalty
 ### 📈 Report Generation
 
 #### HTML Reports
+
 - **Interactive Dashboard**: Color-coded quality scores
 - **Statistics Tables**: Min/max/avg with visual formatting
 - **Alert System**: Critical/warning/info alerts with descriptions
 - **DQ Check Status**: Pass/fail indicators for each validation
 
 #### JSON Reports
+
 - **Structured Data**: For programmatic access and APIs
 - **Complete Analysis**: All statistics and check results
 - **Simulation Metadata**: Random seeds and timestamps
 
 #### TXT Summaries
+
 - **Quick Overview**: Row counts and basic status
 - **Operational Monitoring**: Easy-to-read format for daily checks
 
@@ -161,21 +178,24 @@ quality_score -= min(null_percentage / 2, 25)  # Null penalty
 ## 🎯 Why This Approach?
 
 ### Daily Simulation Benefits
+
 - **True Data Variation**: Different results each run demonstrate real monitoring
 - **Volume Drift Detection**: Track how data volumes change over time
 - **Statistical Drift**: Monitor min/max/avg changes across runs
 - **Quality Trend Analysis**: See how DQ scores evolve
 
 ### SQL-Native Implementation
+
 - **Performance**: Leverages Spark's distributed computing
 - **Scalability**: Handles large datasets efficiently
 - **Maintainability**: Standard SQL operations, no external dependencies
 - **Reliability**: Proven Spark SQL engine for data processing
 
 ### Comprehensive Coverage
+
 - **Completeness**: NULL analysis with threshold monitoring
 - **Validity**: Range and business rule validation
-- **Uniqueness**: Distinct count and ID validation  
+- **Uniqueness**: Distinct count and ID validation
 - **Accuracy**: Statistical validation and outlier detection
 - **Consistency**: Data type and format validation
 - **Volume**: Row count and change monitoring
@@ -185,16 +205,18 @@ quality_score -= min(null_percentage / 2, 25)  # Null penalty
 ## 📋 Sample Results
 
 ### Current Run Example (Seed: 738)
-| Table                       | Rows    | Quality Highlights                       |
-| --------------------------- | ------- | ---------------------------------------- |
-| application_train_daily     | 5,909   | ✅ TARGET [0,1], ✅ 100% unique IDs     |
-| bureau_daily                | 32,632  | ✅ ID uniqueness, ⚠️ Some null fields   |
-| credit_card_balance_daily   | 73,287  | ✅ Amount validation, ✅ Range checks   |
-| installments_payments_daily | 259,882 | ✅ Payment validation, ✅ Date logic    |
+
+| Table                       | Rows    | Quality Highlights                    |
+| --------------------------- | ------- | ------------------------------------- |
+| application_train_daily     | 5,909   | ✅ TARGET [0,1], ✅ 100% unique IDs   |
+| bureau_daily                | 32,632  | ✅ ID uniqueness, ⚠️ Some null fields |
+| credit_card_balance_daily   | 73,287  | ✅ Amount validation, ✅ Range checks |
+| installments_payments_daily | 259,882 | ✅ Payment validation, ✅ Date logic  |
 
 **Total Analyzed**: 1,115,879 rows across 8 tables, 339 business columns
 
 ### DQ Check Examples
+
 ```
 SK_ID_CURR (ID Column):
 ✅ Quality Score: 100.0
@@ -214,6 +236,7 @@ AMT_INCOME_TOTAL (Amount Column):
 ## 🔧 Technical Architecture
 
 ### Core Components
+
 - **Apache Spark 3.4.0** with Iceberg extensions
 - **HDFS Storage** for source CSV files and warehouse
 - **Docker Compose** for environment orchestration
@@ -221,11 +244,13 @@ AMT_INCOME_TOTAL (Amount Column):
 - **Random Sampling Engine** for daily simulation
 
 ### Integration Points
+
 - **DQOps Ready**: JSON output format compatible with DQOps ingestion
 - **OpenRefine Compatible**: CSV exports for data cleaning workflows
 - **API Ready**: Structured JSON for integration with other systems
 
 ### Performance Optimizations
+
 - **Adaptive Query Execution**: Spark AQE for optimal performance
 - **Column Pruning**: Analyze only business columns
 - **Sampling Strategy**: Configurable sample rates (1-3%)
@@ -257,6 +282,7 @@ docker-iceberg/
 ## 🎉 Demonstration Commands
 
 ### Run Fresh Analysis
+
 ```bash
 # Start environment
 docker-compose up -d
@@ -272,18 +298,20 @@ docker cp spark-iceberg:/opt/spark/dq-results/. ./dq-results/
 ```
 
 ### Verify Fresh Results
+
 ```bash
 # Run multiple times to see different results
 python run_demo.py  # Run 1: e.g., 1,115,879 rows, seed 738
-python run_demo.py  # Run 2: e.g., 950,662 rows, seed 265  
+python run_demo.py  # Run 2: e.g., 950,662 rows, seed 265
 python run_demo.py  # Run 3: e.g., 1,123,368 rows, seed 411
 ```
 
 ### Sample Output
+
 ```
 🚀 FRESH DAILY DATA QUALITY DEMO
 ✅ Comprehensive DQ checks (min/max/avg/range/null validation)
-✅ Fresh data sampling from HDFS each run  
+✅ Fresh data sampling from HDFS each run
 ✅ Different results every time
 ✅ Automated DQ monitoring with alerts
 
@@ -298,12 +326,14 @@ python run_demo.py  # Run 3: e.g., 1,123,368 rows, seed 411
 ## 📞 Support & Troubleshooting
 
 ### Common Issues
+
 1. **Docker not starting**: Ensure Docker Desktop is running
 2. **Permission errors**: Run PowerShell as Administrator
 3. **Port conflicts**: Stop other services on ports 8080, 9000, 4040
 4. **HDFS connection**: Wait 30 seconds after `docker-compose up -d`
 
 ### Validation Commands
+
 ```bash
 # Check container status
 docker ps
@@ -323,13 +353,15 @@ docker exec spark-iceberg python -c "from pyspark.sql import SparkSession; print
 ## 🏆 Success Metrics Achieved
 
 ### ✅ Functional Requirements
+
 - **Daily Simulation**: ✅ Fresh data sampling with different results each run
-- **HDFS Integration**: ✅ Data sourced from HDFS CSV files  
+- **HDFS Integration**: ✅ Data sourced from HDFS CSV files
 - **SQL-native**: ✅ All DQ checks use PySpark SQL functions
 - **Comprehensive Monitoring**: ✅ Volume, null, range, uniqueness validation
 - **Automated Reports**: ✅ HTML, JSON, TXT generation
 
 ### ✅ Technical Excellence
+
 - **Performance**: Processes 1M+ rows in under 10 minutes
 - **Reliability**: Zero-error execution with robust error handling
 - **Scalability**: Handles 2.6GB dataset efficiently
@@ -337,6 +369,7 @@ docker exec spark-iceberg python -c "from pyspark.sql import SparkSession; print
 - **Usability**: One-command demo execution
 
 ### ✅ Business Value
+
 - **Data Quality Visibility**: Clear quality scores and trends
 - **Issue Detection**: Automated alerts for data problems
 - **Operational Monitoring**: Daily DQ tracking capability

@@ -7,14 +7,17 @@
 ## 🎯 Project Overview & Approach
 
 ### Problem Statement
+
 Build a robust data quality monitoring system for Home Credit Default Risk dataset with:
+
 - Daily data ingestion simulation
-- SQL-native DQ checks  
+- SQL-native DQ checks
 - Volume/null/range monitoring
 - Automated reporting
 - Integration with DQOps and OpenRefine frameworks
 
 ### Solution Approach
+
 **Architecture**: Modern cloud-native DQ pipeline using Apache Iceberg on HDFS
 **Strategy**: Fresh daily simulation rather than static analysis for real-world applicability
 **Technology Stack**: Spark + HDFS + Docker for scalable, enterprise-ready solution
@@ -26,6 +29,7 @@ Build a robust data quality monitoring system for Home Credit Default Risk datas
 ### Technology Stack Breakdown
 
 #### 1. **Apache Spark 3.4.0** (Processing Engine)
+
 ```python
 SparkSession.builder \
     .appName("DailySimulationDQSystem") \
@@ -35,13 +39,16 @@ SparkSession.builder \
     .config("spark.sql.catalog.iceberg.warehouse", "hdfs://namenode:9000/warehouse") \
     .getOrCreate()
 ```
+
 **Why Spark?**
+
 - **Distributed Computing**: Handles 2.6GB+ datasets efficiently
 - **SQL-Native**: Built-in DataFrame operations for DQ checks
 - **Iceberg Integration**: Native support for Apache Iceberg tables
 - **Scalability**: Can scale from MB to TB datasets
 
 #### 2. **Apache Iceberg** (Table Format)
+
 ```python
 # Iceberg provides:
 # - ACID transactions
@@ -50,32 +57,38 @@ SparkSession.builder \
 # - Partition evolution
 table_path = f"hdfs://namenode:9000/warehouse/{table_name}"
 ```
+
 **Why Iceberg?**
+
 - **Schema Evolution**: Handle changing data structures over time
 - **ACID Properties**: Ensure data consistency
 - **Performance**: Optimized for analytics workloads
 - **Compatibility**: Works with Spark, Hadoop ecosystem
 
 #### 3. **HDFS** (Storage Layer)
+
 ```bash
 # Data stored at:
 hdfs://namenode:9000/data/home-credit-default-risk-dataset/
 hdfs://namenode:9000/warehouse/  # Iceberg tables
 ```
+
 **Why HDFS?**
+
 - **Fault Tolerance**: Data replication and recovery
 - **Scalability**: Petabyte-scale storage capability
 - **Integration**: Native Spark and Hadoop integration
 - **Cost Effective**: Open-source, commodity hardware
 
 #### 4. **Docker Compose** (Orchestration)
+
 ```yaml
 services:
-  spark-iceberg:    # Spark with Iceberg extensions
-  namenode:         # HDFS namenode
-  datanode:         # HDFS datanode  
-  dqops:           # DQ monitoring platform
-  openrefine:      # Data cleaning interface
+  spark-iceberg: # Spark with Iceberg extensions
+  namenode: # HDFS namenode
+  datanode: # HDFS datanode
+  dqops: # DQ monitoring platform
+  openrefine: # Data cleaning interface
 ```
 
 ---
@@ -85,6 +98,7 @@ services:
 ### Why Fresh Simulation vs Static Analysis?
 
 #### ❌ **Static Approach Problems**:
+
 ```python
 # OLD: Reading pre-created Iceberg tables
 df = spark.read.parquet("hdfs://namenode:9000/warehouse/application_train_daily")
@@ -92,6 +106,7 @@ df = spark.read.parquet("hdfs://namenode:9000/warehouse/application_train_daily"
 ```
 
 #### ✅ **Fresh Simulation Benefits**:
+
 ```python
 # NEW: Fresh sampling from source CSVs
 df = spark.read.csv("hdfs://namenode:9000/data/home-credit-default-risk-dataset/application_train.csv")
@@ -100,6 +115,7 @@ sampled_df = df.sample(fraction=random.uniform(0.015, 0.025), seed=random.randin
 ```
 
 ### Simulation Algorithm
+
 ```python
 def simulate_daily_data(self):
     # Step 1: Generate unique simulation parameters
@@ -108,43 +124,45 @@ def simulate_daily_data(self):
     base_fraction = 0.01  # 1% base sampling
     fraction_variance = random.uniform(0.005, 0.015)  # Add variance
     sample_fraction = base_fraction + fraction_variance
-    
+
     # Step 2: Process each CSV file
     for table_name, csv_path in self.csv_files.items():
         # Read original CSV from HDFS
         df = self.spark.read.option("header", "true").option("inferSchema", "true").csv(csv_path)
-        
+
         # Apply fresh sampling with unique seed
         sampled_df = df.sample(fraction=sample_fraction, seed=self.random_seed)
-        
+
         # Add metadata for tracking
         daily_df = sampled_df \
             .withColumn("ingestion_date", lit(self.simulation_date)) \
             .withColumn("simulation_id", lit(self.simulation_id)) \
             .withColumn("random_seed", lit(self.random_seed))
-        
+
         # Create temporary table for analysis
         daily_df.createOrReplaceTempView(f"{table_name}_daily_{self.simulation_id}")
 ```
 
 ### Sample Variations Across Runs
+
 | Run | Seed | Fraction | Total Rows | app_train | bureau | credit_card |
-|-----|------|----------|------------|-----------|---------|-------------|
-| 1   | 411  | 1.9%     | 1,123,368  | 5,825     | 33,139  | 73,966      |
-| 2   | 265  | 1.6%     | 950,662    | 5,109     | 28,311  | 62,736      |
-| 3   | 738  | 1.9%     | 1,115,879  | 5,909     | 32,632  | 73,287      |
+| --- | ---- | -------- | ---------- | --------- | ------ | ----------- |
+| 1   | 411  | 1.9%     | 1,123,368  | 5,825     | 33,139 | 73,966      |
+| 2   | 265  | 1.6%     | 950,662    | 5,109     | 28,311 | 62,736      |
+| 3   | 738  | 1.9%     | 1,115,879  | 5,909     | 32,632 | 73,287      |
 
 ---
 
 ## 🔍 Comprehensive DQ Engine Implementation
 
 ### 1. Volume Monitoring
+
 ```python
 def monitor_volume(self, df, table_name):
     total_rows = df.count()
     if total_rows == 0:
         return {"alert": "CRITICAL: No data found", "status": "FAIL"}
-    
+
     # Track volume changes (in production, compare with historical data)
     volume_metrics = {
         "current_rows": total_rows,
@@ -155,17 +173,18 @@ def monitor_volume(self, df, table_name):
 ```
 
 ### 2. NULL Value Analysis
+
 ```python
 def analyze_nulls(self, df, col_name, total_rows):
     null_count = df.filter(col(col_name).isNull()).count()
     null_percentage = (null_count / total_rows) * 100
-    
+
     # Graduated alert system
     if null_percentage > 95:
         alert_level = "CRITICAL"
         status = "FAIL"
     elif null_percentage > 50:
-        alert_level = "WARNING" 
+        alert_level = "WARNING"
         status = "FAIL"
     elif null_percentage > 20:
         alert_level = "INFO"
@@ -173,7 +192,7 @@ def analyze_nulls(self, df, col_name, total_rows):
     else:
         alert_level = None
         status = "PASS"
-    
+
     return {
         "null_count": null_count,
         "null_percentage": round(null_percentage, 2),
@@ -183,29 +202,30 @@ def analyze_nulls(self, df, col_name, total_rows):
 ```
 
 ### 3. Statistical Range Validation
+
 ```python
 def analyze_numeric_ranges(self, df, col_name):
     # Calculate comprehensive statistics
     stats = df.agg(
         spark_min(col_name).alias("min_val"),
-        spark_max(col_name).alias("max_val"), 
+        spark_max(col_name).alias("max_val"),
         spark_avg(col_name).alias("avg_val"),
         spark_stddev(col_name).alias("std_val")
     ).collect()[0]
-    
+
     min_val, max_val, avg_val = stats['min_val'], stats['max_val'], stats['avg_val']
-    
+
     # Business rule validation
     alerts = []
     if col_name == 'TARGET' and (min_val < 0 or max_val > 1):
         alerts.append("ERROR: TARGET values outside [0,1] range")
-    
+
     if 'DAYS_' in col_name and max_val > 0:
         alerts.append("WARNING: Positive days values detected (should be negative)")
-    
+
     if 'AMT_' in col_name and min_val < 0:
         alerts.append("WARNING: Negative amounts detected")
-    
+
     return {
         "min_value": min_val,
         "max_value": max_val,
@@ -216,11 +236,12 @@ def analyze_numeric_ranges(self, df, col_name):
 ```
 
 ### 4. Uniqueness Validation
+
 ```python
 def analyze_uniqueness(self, df, col_name, total_rows):
     distinct_count = df.select(col_name).distinct().count()
     uniqueness_percentage = (distinct_count / total_rows) * 100
-    
+
     # Special validation for ID columns
     if col_name.startswith('SK_ID_'):
         if uniqueness_percentage < 95:
@@ -230,7 +251,7 @@ def analyze_uniqueness(self, df, col_name, total_rows):
                 "status": "FAIL",
                 "alert": f"ID column {col_name} uniqueness only {uniqueness_percentage}%"
             }
-    
+
     return {
         "distinct_count": distinct_count,
         "uniqueness_percentage": round(uniqueness_percentage, 2),
@@ -239,22 +260,23 @@ def analyze_uniqueness(self, df, col_name, total_rows):
 ```
 
 ### 5. Data Quality Scoring Algorithm
+
 ```python
 def calculate_quality_score(self, analysis_result):
     quality_score = 100  # Start with perfect score
-    
+
     # Penalties
     critical_alerts = len([a for a in analysis_result['alerts'] if 'CRITICAL' in a])
     warning_alerts = len([a for a in analysis_result['alerts'] if 'WARNING' in a])
     failed_checks = len([c for c in analysis_result['dq_checks'] if c.get('status') == 'FAIL'])
     null_percentage = analysis_result['null_percentage']
-    
+
     # Apply penalties
     quality_score -= critical_alerts * 30  # -30 points per critical issue
     quality_score -= warning_alerts * 10   # -10 points per warning
     quality_score -= failed_checks * 20    # -20 points per failed check
     quality_score -= min(null_percentage / 2, 25)  # Up to -25 for high nulls
-    
+
     return max(round(quality_score, 1), 0)  # Minimum score is 0
 ```
 
@@ -265,6 +287,7 @@ def calculate_quality_score(self, analysis_result):
 ### Multi-Format Output Strategy
 
 #### 1. **HTML Reports** (Human Consumption)
+
 ```python
 def generate_html_report(self, results):
     html = f"""
@@ -283,7 +306,7 @@ def generate_html_report(self, results):
     <body>
         <h1>🔄 Fresh Daily Data Quality Report</h1>
         <p>Simulation ID: {self.simulation_id} | Random Seed: {self.random_seed}</p>
-        
+
         <table>
             <thead>
                 <tr>
@@ -304,6 +327,7 @@ def generate_html_report(self, results):
 ```
 
 #### 2. **JSON Reports** (API Integration)
+
 ```python
 def generate_json_report(self, results):
     report = {
@@ -324,6 +348,7 @@ def generate_json_report(self, results):
 ```
 
 #### 3. **TXT Summaries** (Operational Monitoring)
+
 ```python
 def generate_txt_summary(self, results):
     summary = f"""
@@ -341,7 +366,7 @@ Table Breakdown:
 """
     for result in results:
         summary += f"✅ {result['table_name']}: {result['total_rows']:,} rows\n"
-    
+
     return summary
 ```
 
@@ -352,7 +377,9 @@ Table Breakdown:
 ### DQOps Integration Strategy
 
 #### What is DQOps?
+
 **DQOps** is an enterprise data quality monitoring platform that provides:
+
 - Automated DQ rule execution
 - Data quality dashboards
 - Alert management
@@ -360,6 +387,7 @@ Table Breakdown:
 - Team collaboration features
 
 #### Integration Approach
+
 ```python
 # Our system generates DQOps-compatible output
 dqops_compatible_output = {
@@ -367,7 +395,7 @@ dqops_compatible_output = {
     "column_profiles": [
         {
             "column_name": "SK_ID_CURR",
-            "data_type": "INTEGER", 
+            "data_type": "INTEGER",
             "null_count": 0,
             "distinct_count": 5909,
             "min_value": 100070,
@@ -382,6 +410,7 @@ dqops_compatible_output = {
 ```
 
 #### DQOps Configuration
+
 ```yaml
 # dqops-config.yml (conceptual)
 checks:
@@ -390,7 +419,7 @@ checks:
       daily_row_count_anomaly:
         parameters:
           max_percent_change: 50
-    
+
   column:
     nulls:
       null_percent:
@@ -398,7 +427,7 @@ checks:
           max_percent: 95
         warning:
           max_percent: 50
-    
+
     numeric:
       mean_in_range:
         parameters:
@@ -409,25 +438,28 @@ checks:
 ### OpenRefine Integration
 
 #### What is OpenRefine?
+
 **OpenRefine** is a data cleaning and transformation tool that provides:
+
 - Data profiling and exploration
 - Pattern detection and clustering
 - Data transformation workflows
 - Quality assessment interfaces
 
 #### Integration Points
+
 ```python
 # Export data for OpenRefine analysis
 def export_for_openrefine(self, df, table_name):
     # Export sample data as CSV for manual inspection
     sample_data = df.limit(1000)  # First 1000 rows
     output_path = f"openrefine-workspace/{table_name}_sample.csv"
-    
+
     sample_data.coalesce(1).write \
         .mode("overwrite") \
         .option("header", "true") \
         .csv(output_path)
-    
+
     # Generate OpenRefine project configuration
     openrefine_config = {
         "projectName": f"DQ_Analysis_{table_name}",
@@ -440,6 +472,7 @@ def export_for_openrefine(self, df, table_name):
 ```
 
 #### Data Quality Workflow
+
 ```bash
 # 1. Our system generates CSV exports
 docker cp spark-iceberg:/opt/spark/openrefine-exports/. ./openrefine-workspace/
@@ -459,11 +492,12 @@ curl -X POST "http://localhost:3333/command/core/create-project-from-upload" \
 ### Home Credit Dataset Deep Dive
 
 #### 1. **Application Tables** (Core Loan Data)
+
 ```python
 # application_train.csv & application_test.csv
 main_features = {
     "SK_ID_CURR": "Unique loan application ID",
-    "TARGET": "1=defaulted, 0=repaid (train only)", 
+    "TARGET": "1=defaulted, 0=repaid (train only)",
     "NAME_CONTRACT_TYPE": "Cash/Revolving loan type",
     "AMT_INCOME_TOTAL": "Client income",
     "AMT_CREDIT": "Credit amount",
@@ -475,13 +509,14 @@ main_features = {
 # Business Rules for DQ Validation
 business_rules = {
     "TARGET": "Must be 0 or 1",
-    "AMT_*": "All amounts must be positive", 
+    "AMT_*": "All amounts must be positive",
     "DAYS_*": "All days must be negative (past dates)",
     "SK_ID_CURR": "Must be unique across dataset"
 }
 ```
 
 #### 2. **Bureau Tables** (External Credit History)
+
 ```python
 # bureau.csv - Other institutions' credit data
 bureau_features = {
@@ -493,7 +528,7 @@ bureau_features = {
     "AMT_CREDIT_SUM": "Current credit amount"
 }
 
-# bureau_balance.csv - Monthly behavior on bureau credits  
+# bureau_balance.csv - Monthly behavior on bureau credits
 bureau_balance_features = {
     "SK_ID_BUREAU": "Links to bureau record",
     "MONTHS_BALANCE": "Month of balance relative to application",
@@ -502,11 +537,12 @@ bureau_balance_features = {
 ```
 
 #### 3. **Previous Applications** (Internal History)
+
 ```python
 # previous_application.csv
 previous_app_features = {
     "SK_ID_PREV": "Previous application ID",
-    "SK_ID_CURR": "Current application ID",  
+    "SK_ID_CURR": "Current application ID",
     "NAME_CONTRACT_STATUS": "Approved/Cancelled/Refused/Unused",
     "AMT_APPLICATION": "Amount applied for",
     "AMT_CREDIT": "Amount approved",
@@ -522,6 +558,7 @@ behavioral_tables = {
 ```
 
 ### Data Relationships & Validation
+
 ```python
 # Primary relationships for referential integrity checks
 relationships = {
@@ -530,13 +567,13 @@ relationships = {
         "references": ["bureau", "previous_application"]
     },
     "bureau": {
-        "primary_key": "SK_ID_BUREAU", 
+        "primary_key": "SK_ID_BUREAU",
         "foreign_key": "SK_ID_CURR",
         "references": ["bureau_balance"]
     },
     "previous_application": {
         "primary_key": "SK_ID_PREV",
-        "foreign_key": "SK_ID_CURR", 
+        "foreign_key": "SK_ID_CURR",
         "references": ["POS_CASH_balance", "installments_payments", "credit_card_balance"]
     }
 }
@@ -547,7 +584,7 @@ def validate_referential_integrity(self):
     app_ids = self.spark.sql("SELECT DISTINCT SK_ID_CURR FROM application_train_daily")
     bureau_ids = self.spark.sql("SELECT DISTINCT SK_ID_CURR FROM bureau_daily")
     orphaned_bureau = bureau_ids.subtract(app_ids)
-    
+
     if orphaned_bureau.count() > 0:
         self.alerts.append("WARNING: Orphaned records in bureau table")
 ```
@@ -557,6 +594,7 @@ def validate_referential_integrity(self):
 ## 🚀 Performance Optimization Strategies
 
 ### 1. **Spark Configuration Tuning**
+
 ```python
 spark = SparkSession.builder \
     .config("spark.sql.adaptive.enabled", "true") \
@@ -568,6 +606,7 @@ spark = SparkSession.builder \
 ```
 
 ### 2. **Sampling Strategy Optimization**
+
 ```python
 # Stratified sampling for better representation
 def optimized_sampling(self, df, sample_fraction):
@@ -583,16 +622,17 @@ def optimized_sampling(self, df, sample_fraction):
 ```
 
 ### 3. **Column Analysis Parallelization**
+
 ```python
 from concurrent.futures import ThreadPoolExecutor
 
 def parallel_column_analysis(self, df, columns):
     with ThreadPoolExecutor(max_workers=4) as executor:
         futures = {
-            executor.submit(self.analyze_column_comprehensive, df, col, df.count()): col 
+            executor.submit(self.analyze_column_comprehensive, df, col, df.count()): col
             for col in columns
         }
-        
+
         results = []
         for future in futures:
             try:
@@ -600,26 +640,27 @@ def parallel_column_analysis(self, df, columns):
                 results.append(result)
             except Exception as e:
                 logger.error(f"Column analysis failed: {e}")
-        
+
         return results
 ```
 
 ### 4. **Memory Management**
+
 ```python
 # Efficient DataFrame operations
 def memory_optimized_analysis(self, df):
     # Cache frequently accessed DataFrames
     df.cache()
-    
+
     # Use broadcast joins for small lookup tables
     broadcast_df = self.spark.sql("SELECT * FROM small_lookup_table")
     broadcasted = broadcast(broadcast_df)
-    
+
     # Avoid wide transformations when possible
     # Use narrow transformations (filter, select) before wide ones (groupBy, join)
     filtered_df = df.filter(col("AMT_INCOME_TOTAL").isNotNull()) \
                    .select("SK_ID_CURR", "AMT_INCOME_TOTAL", "TARGET")
-    
+
     return filtered_df.groupBy("TARGET").agg(avg("AMT_INCOME_TOTAL"))
 ```
 
@@ -628,6 +669,7 @@ def memory_optimized_analysis(self, df):
 ## 🔧 Production Deployment Considerations
 
 ### 1. **Containerization Strategy**
+
 ```dockerfile
 # Production Dockerfile
 FROM apache/spark:3.4.0-scala2.12-java11-python3-ubuntu
@@ -650,6 +692,7 @@ CMD ["python", "daily_simulation_dq_system.py"]
 ```
 
 ### 2. **Configuration Management**
+
 ```yaml
 # config/production.yml
 spark:
@@ -676,6 +719,7 @@ alerts:
 ```
 
 ### 3. **Monitoring & Observability**
+
 ```python
 import logging
 from prometheus_client import Counter, Histogram, start_http_server
@@ -689,11 +733,11 @@ class ProductionDQSystem(DailySimulationDQSystem):
     def __init__(self):
         super().__init__()
         self.setup_monitoring()
-    
+
     def setup_monitoring(self):
         # Start Prometheus metrics server
         start_http_server(8000)
-        
+
         # Configure structured logging
         logging.basicConfig(
             level=logging.INFO,
@@ -703,7 +747,7 @@ class ProductionDQSystem(DailySimulationDQSystem):
                 logging.StreamHandler()
             ]
         )
-    
+
     @DQ_CHECK_DURATION.time()
     def analyze_column_comprehensive(self, df, col_name, total_rows):
         DQ_CHECKS_TOTAL.inc()
@@ -713,12 +757,13 @@ class ProductionDQSystem(DailySimulationDQSystem):
 ```
 
 ### 4. **Error Handling & Recovery**
+
 ```python
 class RobustDQSystem(DailySimulationDQSystem):
     def __init__(self, max_retries=3):
         super().__init__()
         self.max_retries = max_retries
-    
+
     def resilient_analysis(self, table_name):
         for attempt in range(self.max_retries):
             try:
@@ -742,15 +787,17 @@ class RobustDQSystem(DailySimulationDQSystem):
 ### Key Demo Points
 
 #### 1. **Problem Statement** (2 minutes)
+
 "Traditional DQ systems analyze static data, giving identical results each run. Our system simulates real daily data ingestion with varying volumes and characteristics, demonstrating how DQ metrics evolve over time."
 
 #### 2. **Live Demonstration** (5 minutes)
+
 ```bash
 # Show different results across runs
 echo "=== Run 1 ==="
 python run_demo.py | grep "Total Rows"
 
-echo "=== Run 2 ==="  
+echo "=== Run 2 ==="
 python run_demo.py | grep "Total Rows"
 
 echo "=== Run 3 ==="
@@ -762,6 +809,7 @@ start $(ls -t dq-results/fresh_daily_dq_report_*.html | head -1)
 ```
 
 #### 3. **Technical Deep Dive** (3 minutes)
+
 - Architecture: Spark + Iceberg + HDFS
 - DQ Engine: 6 comprehensive check categories
 - Business Rules: Domain-specific validations
@@ -770,23 +818,29 @@ start $(ls -t dq-results/fresh_daily_dq_report_*.html | head -1)
 ### Common Supervisor Questions & Answers
 
 #### Q: "Why use Spark instead of simpler tools like Pandas?"
+
 **A**: "Spark provides distributed computing for large datasets (our 2.6GB grows to 100GB+ in production), SQL-native operations for maintainable DQ logic, and seamless integration with Hadoop ecosystem. Pandas would struggle with memory limitations on enterprise datasets."
 
 #### Q: "How does this integrate with existing DQ tools?"
+
 **A**: "Our system generates JSON output compatible with DQOps ingestion APIs, CSV exports for OpenRefine data cleaning workflows, and REST API endpoints for custom integrations. The modular design allows plugging into any DQ platform."
 
 #### Q: "What makes this 'production-ready'?"
+
 **A**: "Comprehensive error handling, configurable sampling strategies, multi-format reporting, Docker containerization, monitoring hooks, and proven technology stack (Spark/HDFS). The system handles TB-scale datasets and provides enterprise-grade reliability."
 
 #### Q: "How do you ensure data quality rule accuracy?"
+
 **A**: "Business rules are derived from domain knowledge (e.g., TARGET must be binary, amounts must be positive), statistical validation (outlier detection via Z-scores), and configurable thresholds based on business requirements. The system provides audit trails for all decisions."
 
 #### Q: "What's the performance profile?"
+
 **A**: "Current: 2.6GB dataset processed in 8-10 minutes on 4-core setup. Production scaling: Linear scaling with cluster size, typically 1TB/hour on 50-node cluster. Memory usage: 2-4GB per executor, configurable based on data size."
 
 ### Technical Challenges Overcome
 
 #### 1. **HDFS Connectivity Issues**
+
 ```bash
 # Problem: Container networking between Spark and HDFS
 # Solution: Proper Docker network configuration
@@ -796,6 +850,7 @@ networks:
 ```
 
 #### 2. **Iceberg Schema Evolution**
+
 ```python
 # Problem: Changing data schemas break existing tables
 # Solution: Schema-aware table creation
@@ -805,6 +860,7 @@ df.write.mode("overwrite") \
 ```
 
 #### 3. **Memory Optimization**
+
 ```python
 # Problem: Large DataFrames cause OOM errors
 # Solution: Streaming analysis and caching strategy
@@ -818,12 +874,13 @@ spark.conf.set("spark.sql.adaptive.coalescePartitions.enabled", "true")
 ## 🎯 Future Enhancements (Scope 6-10)
 
 ### Schema Drift Detection
+
 ```python
 class SchemaDriftDetector:
     def detect_schema_changes(self, current_schema, historical_schema):
         added_columns = set(current_schema.fieldNames()) - set(historical_schema.fieldNames())
         removed_columns = set(historical_schema.fieldNames()) - set(current_schema.fieldNames())
-        
+
         type_changes = []
         for field in current_schema.fields:
             if field.name in historical_schema.fieldNames():
@@ -834,22 +891,23 @@ class SchemaDriftDetector:
                         "old_type": str(old_type),
                         "new_type": str(field.dataType)
                     })
-        
+
         return {
             "added_columns": list(added_columns),
-            "removed_columns": list(removed_columns), 
+            "removed_columns": list(removed_columns),
             "type_changes": type_changes
         }
 ```
 
 ### CI/CD Pipeline Integration
+
 ```yaml
 # .github/workflows/dq-pipeline.yml
 name: Data Quality Pipeline
 on:
   push:
-    paths: ['data/**', 'schemas/**']
-    
+    paths: ["data/**", "schemas/**"]
+
 jobs:
   data-quality-check:
     runs-on: ubuntu-latest
@@ -868,6 +926,7 @@ jobs:
 ```
 
 ### Email Alert System
+
 ```python
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -879,30 +938,30 @@ class DQAlertSystem:
         self.smtp_port = smtp_port
         self.username = username
         self.password = password
-    
+
     def send_critical_alert(self, dq_results):
         critical_issues = [
-            issue for result in dq_results 
+            issue for result in dq_results
             for issue in result.get('alerts', [])
             if 'CRITICAL' in issue
         ]
-        
+
         if critical_issues:
             msg = MIMEMultipart()
             msg['From'] = self.username
             msg['To'] = "dq-team@company.com"
             msg['Subject'] = f"CRITICAL DQ Issues Detected - {datetime.now().strftime('%Y-%m-%d')}"
-            
+
             body = f"""
             Critical Data Quality Issues Detected:
-            
+
             {chr(10).join(critical_issues)}
-            
+
             Please review the full report: {self.get_latest_report_url()}
             """
-            
+
             msg.attach(MIMEText(body, 'plain'))
-            
+
             server = smtplib.SMTP(self.smtp_server, self.smtp_port)
             server.starttls()
             server.login(self.username, self.password)
@@ -912,6 +971,6 @@ class DQAlertSystem:
 
 ---
 
-**📚 End of Technical Deep Dive** 
+**📚 End of Technical Deep Dive**
 
 This document provides comprehensive coverage for supervisor demos, technical interviews, and system understanding. The implementation demonstrates enterprise-grade data quality engineering with modern cloud-native technologies.
