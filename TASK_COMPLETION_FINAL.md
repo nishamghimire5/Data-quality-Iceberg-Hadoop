@@ -173,6 +173,14 @@ n:\Projects\task2\
 ├── TASK_COMPLETION_FINAL.md         # Final submission report
 ├── docs/                            # Technical documentation
 │   └── TECHNICAL_DEEP_DIVE.md          # Technical review guide
+├── Mind mapping/                   # Visual system architecture
+│   ├── data_quality_analysis_engine.png   # DQ analysis workflow
+│   ├── dataset_description.png            # Home Credit dataset overview
+│   ├── demonstration.png                  # System demonstration flow
+│   ├── key_achievements.png               # Project accomplishments
+│   ├── reports_generated.png              # Report types and formats
+│   ├── system_architecture.png            # Technical architecture
+│   └── task_requirement.png               # Requirements breakdown
 └── docker-iceberg/                  # Main system implementation
     ├── daily_simulation_dq_system.py   # MAIN SYSTEM (Final)
     ├── docker-compose.yml              # Environment orchestration

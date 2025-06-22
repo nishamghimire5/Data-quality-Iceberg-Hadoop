@@ -4,6 +4,24 @@ A comprehensive data quality monitoring system for Home Credit dataset using Apa
 
 **📖 For comprehensive technical details, architecture deep dive, and demo Q&A preparation, see: [`docs/TECHNICAL_DEEP_DIVE.md`](docs/TECHNICAL_DEEP_DIVE.md)**
 
+**🗺️ For visual system architecture and mind maps, see: [`Mind mapping/`](Mind%20mapping/) folder with detailed visual breakdowns of all system components**
+
+---
+
+## Visual Architecture Overview
+
+The `Mind mapping/` folder contains comprehensive visual breakdowns of the entire system:
+
+- **[system_architecture.png](Mind%20mapping/system_architecture.png)** - Complete technical architecture overview
+- **[data_quality_analysis_engine.png](Mind%20mapping/data_quality_analysis_engine.png)** - DQ analysis workflow and engine details
+- **[task_requirement.png](Mind%20mapping/task_requirement.png)** - Core requirements breakdown and implementation status
+- **[dataset_description.png](Mind%20mapping/dataset_description.png)** - Home Credit dataset structure and relationships
+- **[demonstration.png](Mind%20mapping/demonstration.png)** - System demonstration and execution flow
+- **[reports_generated.png](Mind%20mapping/reports_generated.png)** - Report types, formats, and contents
+- **[key_achievements.png](Mind%20mapping/key_achievements.png)** - Project accomplishments and success metrics
+
+These mind maps provide an easy-to-understand visual representation of the complex data quality system architecture and implementation.
+
 ---
 
 ## Task Requirements Completed
@@ -335,6 +353,14 @@ n:\Projects\task2\
 │   └── warehouse/                      # Iceberg warehouse directory
 ├── docs/                               # Technical documentation
 │   └── TECHNICAL_DEEP_DIVE.md          # Technical review guide
+├── Mind mapping/                       # Visual system architecture
+│   ├── data_quality_analysis_engine.png   # DQ analysis workflow
+│   ├── dataset_description.png            # Home Credit dataset overview
+│   ├── demonstration.png                  # System demonstration flow
+│   ├── key_achievements.png               # Project accomplishments
+│   ├── reports_generated.png              # Report types and formats
+│   ├── system_architecture.png            # Technical architecture
+│   └── task_requirement.png               # Requirements breakdown
 └── home-credit-default-risk-dataset/   # Source data (2.6GB)
 ```
 
