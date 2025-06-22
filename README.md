@@ -12,6 +12,16 @@ A comprehensive data quality monitoring system for Home Credit dataset using Apa
 
 The `Mind mapping/` folder contains comprehensive visual breakdowns of the entire system:
 
+### Key Achievements
+
+![Key Achievements](Mind%20mapping/key_achievements.png)
+_Project accomplishments and success metrics_
+
+### Task Requirements
+
+![Task Requirements](Mind%20mapping/task_requirement.png)
+_Core requirements breakdown and implementation status_
+
 ### System Architecture
 
 ![System Architecture](Mind%20mapping/system_architecture.png)
@@ -22,30 +32,20 @@ _Complete technical architecture overview_
 ![Data Quality Analysis Engine](Mind%20mapping/data_quality_analysis_engine.png)
 _DQ analysis workflow and engine details_
 
-### Task Requirements
-
-![Task Requirements](Mind%20mapping/task_requirement.png)
-_Core requirements breakdown and implementation status_
-
 ### Dataset Description
 
 ![Dataset Description](Mind%20mapping/dataset_description.png)
 _Home Credit dataset structure and relationships_
-
-### System Demonstration
-
-![System Demonstration](Mind%20mapping/demonstration.png)
-_System demonstration and execution flow_
 
 ### Reports Generated
 
 ![Reports Generated](Mind%20mapping/reports_generated.png)
 _Report types, formats, and contents_
 
-### Key Achievements
+### System Demonstration
 
-![Key Achievements](Mind%20mapping/key_achievements.png)
-_Project accomplishments and success metrics_
+![System Demonstration](Mind%20mapping/demonstration.png)
+_System demonstration and execution flow_
 
 These mind maps provide an easy-to-understand visual representation of the complex data quality system architecture and implementation.
 
