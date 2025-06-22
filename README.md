@@ -4,8 +4,6 @@ A comprehensive data quality monitoring system for Home Credit dataset using Apa
 
 **📖 For comprehensive technical details, architecture deep dive, and Q&A, see: [`docs/TECHNICAL_DEEP_DIVE.md`](docs/TECHNICAL_DEEP_DIVE.md)**
 
-**🗺️ For visual system architecture and mind maps, see: [`Mind mapping/`](Mind%20mapping/) folder with detailed visual breakdowns of all system components**
-
 ---
 
 ## Visual Architecture Overview
