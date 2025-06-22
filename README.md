@@ -1,6 +1,6 @@
-# 🏠 Home Credit Data Quality System - Final Submission
+# Home Credit Data Quality System - Final Submission
 
-**Status: ✅ PRODUCTION READY - Final Submission**
+**Status: Working 
 
 A comprehensive data quality monitoring system for Home Credit dataset using **Apache Iceberg on HDFS** with **daily simulation**, **SQL-native DQ checks**, and **automated monitoring**.
 
@@ -27,7 +27,7 @@ n:\Projects\task2\
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 **Navigate to the main implementation:**
 
@@ -43,7 +43,7 @@ cd n:\Projects\task2\docker-iceberg
 
 ---
 
-## ✅ Requirements Completed
+## Requirements Completed
 
 | Requirement                      | Status | Implementation                            |
 | -------------------------------- | ------ | ----------------------------------------- |
@@ -55,7 +55,7 @@ cd n:\Projects\task2\docker-iceberg
 
 ---
 
-## 🎯 Demo Commands
+## Demo Commands
 
 ```bash
 # Navigate to main implementation
@@ -99,7 +99,7 @@ docker cp spark-iceberg:/opt/spark/dq-results/. ./dq-results/
 
 ---
 
-## 📞 Support
+## Support
 
 For detailed instructions, troubleshooting, and technical deep-dive:
 
@@ -109,7 +109,7 @@ For detailed instructions, troubleshooting, and technical deep-dive:
 
 ---
 
-**🏠 Home Credit Data Quality System - Ready for Final Submission!** ✨
+** Home Credit Data Quality System - Ready for Final Submission!** ✨
 
 **Demo**: Run `cd docker-iceberg && python run_demo.py` for immediate results! 🎲
 │ Data Quality Stack │
@@ -132,7 +132,7 @@ For detailed instructions, troubleshooting, and technical deep-dive:
 - **MinIO**: S3-compatible object storage (available for future S3 integration)
 - **REST Catalog**: Iceberg catalog service for advanced table management
 
-## 🔄 Data Processing Workflow
+## Data Processing Workflow
 
 ### 1. **Data Preparation** (`prepare-daily-data.ps1`)
 
@@ -168,7 +168,7 @@ For detailed instructions, troubleshooting, and technical deep-dive:
   4. Data quality checks execution
 - **Configuration**: Supports skip flags, sample percentages, optimization toggles
 
-## 🔍 Data Quality System - **Multi-Platform Approach**
+## Data Quality System - **Multi-Platform Approach**
 
 ### **1. Custom PySpark DQ Engine** (`run_dq_checks_local.py`)
 
@@ -294,14 +294,7 @@ docker-iceberg/
 └── docker-compose.yml                # Complete infrastructure setup
 ```
 
-**Removed Files** (Cleanup completed):
-
-- ❌ `run_dq_checks_fixed.py` (outdated catalog references)
-- ❌ `quick-data-load.ps1`, `fix-data-load.ps1` (temporary test scripts)
-- ❌ `openrefine-integration.ps1`, `dqops-integration.ps1` (basic versions)
-- ❌ Older DQ reports from testing phases
-
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 ### Prerequisites
 
@@ -471,9 +464,9 @@ docker exec -it spark-iceberg spark-sql
 
 ---
 
-## 🎯 **Project Achievement Summary**
+## **Project Achievement Summary**
 
-### ✅ **Fully Implemented Requirements:**
+### **Fully Implemented Requirements:**
 
 1. **Data Source**: Apache Iceberg on Hadoop HDFS with local catalog ✅
 2. **Daily Data Simulation**: PowerShell scripts for data ingestion simulation ✅
@@ -481,7 +474,7 @@ docker exec -it spark-iceberg spark-sql
 4. **Data Validation**: 4 check types (freshness, null, range, volume) with alerting ✅
 5. **Automated Monitoring**: Comprehensive reporting and CSV exports ✅
 
-### 🏆 **Additional Value-Added Features:**
+### **Additional Value-Added Features:**
 
 - **Multi-Platform DQ**: Custom PySpark + DQOps + OpenRefine integration
 - **Production-Ready**: Docker-based infrastructure with 10 integrated services
@@ -489,7 +482,7 @@ docker exec -it spark-iceberg spark-sql
 - **Clean Codebase**: Outdated/temporary files removed, maintained only working versions
 - **Web Interfaces**: Professional monitoring and data exploration tools
 
-### 🚀 **Current System Capabilities:**
+### **Current System Capabilities:**
 
 The data quality assurance system is **fully operational** and successfully validates:
 
@@ -500,4 +493,4 @@ The data quality assurance system is **fully operational** and successfully vali
 - Automated alerting with severity levels (high/medium)
 - Multi-format reporting (text summaries + CSV exports)
 
-**Status**: ✅ **PRODUCTION READY** - All core requirements implemented and validated.
+**Status**: All core requirements implemented and validated.
