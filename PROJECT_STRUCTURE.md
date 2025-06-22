@@ -1,4 +1,4 @@
-# 🏠 Home Credit Data Quality System - Project Structure
+# Home Credit Data Quality System - Project Structure
 
 ## 📁 **Final Clean Structure**
 
@@ -31,7 +31,7 @@ task2/
 └── 📁 dq-results/                  # Additional results
 ```
 
-## 🎯 **Key Files for Operation**
+## **Key Files for Operation**
 
 | File                                  | Purpose           | Status                  |
 | ------------------------------------- | ----------------- | ----------------------- |
@@ -41,7 +41,7 @@ task2/
 | `docker-iceberg/README.md`            | System docs       | ✅ Updated              |
 | `docker-iceberg/dq-results/`          | Generated reports | ✅ HTML, CSV, JSON, TXT |
 
-## 🚀 **How to Use**
+## **How to Use**
 
 ```bash
 # Navigate to main system directory
@@ -56,14 +56,3 @@ python run_demo.py
 # - JSON: dq-results/working_dq_data_*.json (programmatic)
 # - TXT: dq-results/working_summary_*.txt (executive summary)
 ```
-
-## ✅ **Cleanup Completed**
-
-- ✅ Moved 15+ old DQ system files to `archive/`
-- ✅ Moved 5 documentation files to `docs/`
-- ✅ Removed duplicate/broken files
-- ✅ Fixed final_dq_system.py (was empty)
-- ✅ Updated run_demo.py to use working system
-- ✅ Clean main directory with only essential files
-
-**Result: Clean, organized, production-ready structure!** 🎉
