@@ -12,13 +12,40 @@ A comprehensive data quality monitoring system for Home Credit dataset using Apa
 
 The `Mind mapping/` folder contains comprehensive visual breakdowns of the entire system:
 
-- **[system_architecture.png](Mind%20mapping/system_architecture.png)** - Complete technical architecture overview
-- **[data_quality_analysis_engine.png](Mind%20mapping/data_quality_analysis_engine.png)** - DQ analysis workflow and engine details
-- **[task_requirement.png](Mind%20mapping/task_requirement.png)** - Core requirements breakdown and implementation status
-- **[dataset_description.png](Mind%20mapping/dataset_description.png)** - Home Credit dataset structure and relationships
-- **[demonstration.png](Mind%20mapping/demonstration.png)** - System demonstration and execution flow
-- **[reports_generated.png](Mind%20mapping/reports_generated.png)** - Report types, formats, and contents
-- **[key_achievements.png](Mind%20mapping/key_achievements.png)** - Project accomplishments and success metrics
+### System Architecture
+
+![System Architecture](Mind%20mapping/system_architecture.png)
+_Complete technical architecture overview_
+
+### Data Quality Analysis Engine
+
+![Data Quality Analysis Engine](Mind%20mapping/data_quality_analysis_engine.png)
+_DQ analysis workflow and engine details_
+
+### Task Requirements
+
+![Task Requirements](Mind%20mapping/task_requirement.png)
+_Core requirements breakdown and implementation status_
+
+### Dataset Description
+
+![Dataset Description](Mind%20mapping/dataset_description.png)
+_Home Credit dataset structure and relationships_
+
+### System Demonstration
+
+![System Demonstration](Mind%20mapping/demonstration.png)
+_System demonstration and execution flow_
+
+### Reports Generated
+
+![Reports Generated](Mind%20mapping/reports_generated.png)
+_Report types, formats, and contents_
+
+### Key Achievements
+
+![Key Achievements](Mind%20mapping/key_achievements.png)
+_Project accomplishments and success metrics_
 
 These mind maps provide an easy-to-understand visual representation of the complex data quality system architecture and implementation.
 
