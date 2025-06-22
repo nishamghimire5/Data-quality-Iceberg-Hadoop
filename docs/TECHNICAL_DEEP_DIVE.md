@@ -377,7 +377,7 @@ metrics = {
 
 ---
 
-## Demo Q&A Preparation
+## Q&A 
 
 ### Technical Questions
 
