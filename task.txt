@@ -1,0 +1,16 @@
+# Task – Data Quality Assurance by Tool
+
+Implement DQOps and OpenRefine to apply the following features against dataset provided in the following section.
+
+1. Data source ICEBerg on top of HDFS  
+2. Prepare script that simulate data added everyday  
+
+## Task 1.1 – Data Drift
+
+3. SQL-native DQ checks by establishing checks as a configurations (example - alert if data is older than 24h)  
+4. Volume count monitoring, reject if NULL values, validate the data in min and max range against each table  
+5. Automated DQ monitoring  
+
+## Dataset
+
+📂 https://drive.google.com/file/d/1XVvaJrxAqNuoOGNESgXG98bnvNOsbbD7/view?usp=drive_link
