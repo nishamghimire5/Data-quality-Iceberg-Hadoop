@@ -2,7 +2,7 @@
 
 A comprehensive data quality monitoring system for Home Credit dataset using Apache Iceberg on HDFS with daily simulation, SQL-native DQ checks, and automated monitoring.
 
-**📖 For comprehensive technical details, architecture deep dive, and Q&A, see: [`docs/TECHNICAL_DEEP_DIVE.md`](docs/TECHNICAL_DEEP_DIVE.md)**
+** For comprehensive technical details, architecture deep dive, and Q&A, see: [`docs/TECHNICAL_DEEP_DIVE.md`](docs/TECHNICAL_DEEP_DIVE.md)**
 
 ---
 
