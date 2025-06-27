@@ -12,7 +12,7 @@ This project provides a robust data quality monitoring system for the Home Credi
 
 - **What was tried:** I attempted direct integration of DQOps (via Spark Thrift Server, JDBC, and local Parquet) and OpenRefine (via Parquet, CSV, and HDFS connectors) for automated profiling and cleaning.
 - **What worked:** DQOps manual profiling via Parquet export and OpenRefine manual QA via CSV export provided valuable insights and data cleaning capabilities.
-- **What failed:** Direct automation failed due to catalog/metastore issues, resource exhaustion, and lack of native Parquet/HDFS support in OpenRefine.
+- **What failed:** Direct automation failed due to catalog/metastore issues, resource exhaustion, lack of native Parquet/HDFS support in OpenRefine, and DQOps Cloud API key/trial period limitations ("DQOps Cloud Pairing API Key is invalid. Your trial period has expired. or your FREE account was not granted free access to the Data Quality Data Lake due to daily limits.").
 - **Current solution:** Core DQ logic implemented in PySpark scripts running on Iceberg/HDFS, with manual exports enabling DQOps profiling and OpenRefine cleaning. This hybrid approach provides comprehensive data quality coverage.
 
 ---

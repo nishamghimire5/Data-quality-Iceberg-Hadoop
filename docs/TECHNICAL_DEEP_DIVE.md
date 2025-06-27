@@ -307,12 +307,33 @@ def check_data_freshness(self, df):
 
 ## Integration Capabilities
 
+### Data Drift Monitoring
+
+- **Automated drift detection** is implemented via PySpark scripts that compare daily analysis files.
+- Scripts generate both JSON and HTML reports showing statistical changes between runs.
+- This enables monitoring of data quality trends over time, even with the manual integration approach.
+
 ### DQOps (Manual Profiling & Monitoring)
 
-- DQOps was used for automated data profiling, monitoring, and issue detection, but only in a manual way via Parquet export due to multiple technical complexities and integration limitations (e.g., Spark Thrift Server, JDBC, catalog/metastore issues, and resource constraints).
+- DQOps was used for automated data profiling, monitoring, and issue detection, but only in a manual way via Parquet export due to multiple technical complexities and integration limitations.
+- **Technical challenges encountered:**
+  - Spark Thrift Server integration failed due to catalog/metastore configuration issues
+  - JDBC connections to Iceberg-on-HDFS were unsuccessful despite multiple configuration attempts
+  - Resource exhaustion when attempting direct integration
+  - Community Edition limitations for certain advanced features
+  - **DQOps Cloud API Key issues:** "DQOps Cloud Pairing API Key is invalid. Your trial period has expired. or your FREE account was not granted free access to the Data Quality Data Lake due to daily limits. or a new DQOps version was released."
+- **Attempted solutions that didn't work:**
+  - Multiple catalog/metastore configurations
+  - Different Spark Thrift Server modes
+  - Various JDBC connection strings and parameters
+  - Resource allocation adjustments
+  - **Cloud API key fixes:** Attempted to fix cloud API keys and other configurations
+  - Running `cloud login` from DQOps shell to get new keys
+  - Contacting DQOps support for data lake access
+  - Multiple DQOps version configurations
 - Manual Parquet export (via script) enables profiling and monitoring in DQOps Community Edition.
 - What worked: Profiling, monitoring, and rule checks in DQOps using manually exported Parquet files.
-- What did not work: Direct, automated integration with Iceberg-on-HDFS.
+- What did not work: Direct, automated integration with Iceberg-on-HDFS and cloud-based features.
 - See README and screenshots for DQOps dashboards and profiling examples.
 
 ### OpenRefine (Manual QA & Cleaning)
