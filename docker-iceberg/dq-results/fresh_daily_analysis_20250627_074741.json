@@ -1,0 +1,2460 @@
+{
+  "timestamp": "2025-06-27T08:09:24.041256",
+  "simulation_id": "20250627_074515",
+  "random_seed": 330,
+  "simulation_date": "2025-06-27",
+  "summary": {
+    "total_tables": 8,
+    "total_rows": 883338,
+    "total_columns": 339
+  },
+  "table_results": [
+    {
+      "table_name": "application_train_daily",
+      "simulation_id": "20250627_074515",
+      "random_seed": 330,
+      "total_rows": 4726,
+      "total_columns": 128,
+      "business_columns": 122,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "PASS",
+              "threshold": "\u226595%",
+              "actual": "100.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 100024,
+              "max_value": 456232,
+              "average_value": 277959.48
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 4726,
+            "uniqueness_percentage": 100.0,
+            "min_value": 100024,
+            "max_value": 456232,
+            "average_value": 277959.48,
+            "range_span": 356208
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "TARGET",
+          "data_type": "IntegerType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0,
+              "max_value": 1,
+              "average_value": 0.08
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2,
+            "uniqueness_percentage": 0.04,
+            "min_value": 0,
+            "max_value": 1,
+            "average_value": 0.08,
+            "range_span": 1
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "NAME_CONTRACT_TYPE",
+          "data_type": "StringType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 10,
+              "max_length": 15
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2,
+            "uniqueness_percentage": 0.04,
+            "min_length": 10,
+            "max_length": 15,
+            "avg_length": 10.46
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CODE_GENDER",
+          "data_type": "StringType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 1,
+              "max_length": 1
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2,
+            "uniqueness_percentage": 0.04,
+            "min_length": 1,
+            "max_length": 1,
+            "avg_length": 1.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "FLAG_OWN_CAR",
+          "data_type": "StringType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 1,
+              "max_length": 1
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2,
+            "uniqueness_percentage": 0.04,
+            "min_length": 1,
+            "max_length": 1,
+            "avg_length": 1.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "FLAG_OWN_REALTY",
+          "data_type": "StringType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 1,
+              "max_length": 1
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2,
+            "uniqueness_percentage": 0.04,
+            "min_length": 1,
+            "max_length": 1,
+            "avg_length": 1.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CNT_CHILDREN",
+          "data_type": "IntegerType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0,
+              "max_value": 5,
+              "average_value": 0.42
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 6,
+            "uniqueness_percentage": 0.13,
+            "min_value": 0,
+            "max_value": 5,
+            "average_value": 0.42,
+            "range_span": 5
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_INCOME_TOTAL",
+          "data_type": "DoubleType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 27000.0,
+              "max_value": 4500000.0,
+              "average_value": 169279.18
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 204,
+            "uniqueness_percentage": 4.32,
+            "min_value": 27000.0,
+            "max_value": 4500000.0,
+            "average_value": 169279.18,
+            "range_span": 4473000.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_CREDIT",
+          "data_type": "DoubleType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 45000.0,
+              "max_value": 3150000.0,
+              "average_value": 601508.81
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 1197,
+            "uniqueness_percentage": 25.33,
+            "min_value": 45000.0,
+            "max_value": 3150000.0,
+            "average_value": 601508.81,
+            "range_span": 3105000.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_ANNUITY",
+          "data_type": "DoubleType()",
+          "total_rows": 4726,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 4726,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 3006.0,
+              "max_value": 206167.5,
+              "average_value": 26908.71
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2591,
+            "uniqueness_percentage": 54.82,
+            "min_value": 3006.0,
+            "max_value": 206167.5,
+            "average_value": 26908.71,
+            "range_span": 203161.5
+          },
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-27T07:47:43.821935"
+    },
+    {
+      "table_name": "application_test_daily",
+      "simulation_id": "20250627_074515",
+      "random_seed": 330,
+      "total_rows": 732,
+      "total_columns": 127,
+      "business_columns": 121,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "PASS",
+              "threshold": "\u226595%",
+              "actual": "100.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 100150,
+              "max_value": 456114,
+              "average_value": 270572.35
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 732,
+            "uniqueness_percentage": 100.0,
+            "min_value": 100150,
+            "max_value": 456114,
+            "average_value": 270572.35,
+            "range_span": 355964
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "NAME_CONTRACT_TYPE",
+          "data_type": "StringType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 10,
+              "max_length": 15
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2,
+            "uniqueness_percentage": 0.27,
+            "min_length": 10,
+            "max_length": 15,
+            "avg_length": 10.03
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CODE_GENDER",
+          "data_type": "StringType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 1,
+              "max_length": 1
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2,
+            "uniqueness_percentage": 0.27,
+            "min_length": 1,
+            "max_length": 1,
+            "avg_length": 1.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "FLAG_OWN_CAR",
+          "data_type": "StringType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 1,
+              "max_length": 1
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2,
+            "uniqueness_percentage": 0.27,
+            "min_length": 1,
+            "max_length": 1,
+            "avg_length": 1.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "FLAG_OWN_REALTY",
+          "data_type": "StringType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 1,
+              "max_length": 1
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2,
+            "uniqueness_percentage": 0.27,
+            "min_length": 1,
+            "max_length": 1,
+            "avg_length": 1.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CNT_CHILDREN",
+          "data_type": "IntegerType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0,
+              "max_value": 3,
+              "average_value": 0.4
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 4,
+            "uniqueness_percentage": 0.55,
+            "min_value": 0,
+            "max_value": 3,
+            "average_value": 0.4,
+            "range_span": 3
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_INCOME_TOTAL",
+          "data_type": "DoubleType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 32400.0,
+              "max_value": 1710000.0,
+              "average_value": 180205.49
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 81,
+            "uniqueness_percentage": 11.07,
+            "min_value": 32400.0,
+            "max_value": 1710000.0,
+            "average_value": 180205.49,
+            "range_span": 1677600.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_CREDIT",
+          "data_type": "DoubleType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 45000.0,
+              "max_value": 2156400.0,
+              "average_value": 501941.99
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 351,
+            "uniqueness_percentage": 47.95,
+            "min_value": 45000.0,
+            "max_value": 2156400.0,
+            "average_value": 501941.99,
+            "range_span": 2111400.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_ANNUITY",
+          "data_type": "DoubleType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 3321.0,
+              "max_value": 138555.0,
+              "average_value": 29437.36
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 596,
+            "uniqueness_percentage": 81.42,
+            "min_value": 3321.0,
+            "max_value": 138555.0,
+            "average_value": 29437.36,
+            "range_span": 135234.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_GOODS_PRICE",
+          "data_type": "DoubleType()",
+          "total_rows": 732,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 732,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 45000.0,
+              "max_value": 1800000.0,
+              "average_value": 451530.42
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 150,
+            "uniqueness_percentage": 20.49,
+            "min_value": 45000.0,
+            "max_value": 1800000.0,
+            "average_value": 451530.42,
+            "range_span": 1755000.0
+          },
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-27T07:48:51.973217"
+    },
+    {
+      "table_name": "bureau_daily",
+      "simulation_id": "20250627_074515",
+      "random_seed": 330,
+      "total_rows": 25785,
+      "total_columns": 23,
+      "business_columns": 17,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 25785,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25785,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "FAIL",
+              "threshold": "\u226595%",
+              "actual": "94.26410703897615%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 100008,
+              "max_value": 456227,
+              "average_value": 277606.32
+            }
+          ],
+          "alerts": [
+            "WARNING: ID column SK_ID_CURR uniqueness only 94.26410703897615%"
+          ],
+          "statistics": {
+            "distinct_count": 24306,
+            "uniqueness_percentage": 94.26,
+            "min_value": 100008,
+            "max_value": 456227,
+            "average_value": 277606.32,
+            "range_span": 356219
+          },
+          "data_quality_score": 70.0
+        },
+        {
+          "column_name": "SK_ID_BUREAU",
+          "data_type": "IntegerType()",
+          "total_rows": 25785,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25785,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "PASS",
+              "threshold": "\u226595%",
+              "actual": "100.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 5000017,
+              "max_value": 6843359,
+              "average_value": 5920161.79
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 25785,
+            "uniqueness_percentage": 100.0,
+            "min_value": 5000017,
+            "max_value": 6843359,
+            "average_value": 5920161.79,
+            "range_span": 1843342
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CREDIT_ACTIVE",
+          "data_type": "StringType()",
+          "total_rows": 25785,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25785,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 4,
+              "max_length": 8
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 4,
+            "uniqueness_percentage": 0.02,
+            "min_length": 4,
+            "max_length": 8,
+            "avg_length": 5.99
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CREDIT_CURRENCY",
+          "data_type": "StringType()",
+          "total_rows": 25785,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25785,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 10,
+              "max_length": 10
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 4,
+            "uniqueness_percentage": 0.02,
+            "min_length": 10,
+            "max_length": 10,
+            "avg_length": 10.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "DAYS_CREDIT",
+          "data_type": "IntegerType()",
+          "total_rows": 25785,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25785,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": -2922,
+              "max_value": 0,
+              "average_value": -1146.27
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2908,
+            "uniqueness_percentage": 11.28,
+            "min_value": -2922,
+            "max_value": 0,
+            "average_value": -1146.27,
+            "range_span": 2922
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CREDIT_DAY_OVERDUE",
+          "data_type": "IntegerType()",
+          "total_rows": 25785,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25785,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0,
+              "max_value": 1634,
+              "average_value": 0.53
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 59,
+            "uniqueness_percentage": 0.23,
+            "min_value": 0,
+            "max_value": 1634,
+            "average_value": 0.53,
+            "range_span": 1634
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "DAYS_CREDIT_ENDDATE",
+          "data_type": "DoubleType()",
+          "total_rows": 25785,
+          "null_count": 1562,
+          "null_percentage": 6.06,
+          "non_null_count": 24223,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "6.057785534225324%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": -41847.0,
+              "max_value": 31198.0,
+              "average_value": 538.21
+            }
+          ],
+          "alerts": [
+            "WARNING: DAYS_CREDIT_ENDDATE has positive days values: max=31198.0"
+          ],
+          "statistics": {
+            "distinct_count": 5455,
+            "uniqueness_percentage": 21.16,
+            "min_value": -41847.0,
+            "max_value": 31198.0,
+            "average_value": 538.21,
+            "range_span": 73045.0
+          },
+          "data_quality_score": 87.0
+        },
+        {
+          "column_name": "DAYS_ENDDATE_FACT",
+          "data_type": "DoubleType()",
+          "total_rows": 25785,
+          "null_count": 9427,
+          "null_percentage": 36.56,
+          "non_null_count": 16358,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "36.56001551289509%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": -2890.0,
+              "max_value": -1.0,
+              "average_value": -1016.88
+            }
+          ],
+          "alerts": [
+            "INFO: 36.56001551289509% null values - moderate null rate"
+          ],
+          "statistics": {
+            "distinct_count": 2708,
+            "uniqueness_percentage": 10.5,
+            "min_value": -2890.0,
+            "max_value": -1.0,
+            "average_value": -1016.88,
+            "range_span": 2889.0
+          },
+          "data_quality_score": 81.7
+        },
+        {
+          "column_name": "AMT_CREDIT_MAX_OVERDUE",
+          "data_type": "DoubleType()",
+          "total_rows": 25785,
+          "null_count": 16916,
+          "null_percentage": 65.6,
+          "non_null_count": 8869,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "FAIL",
+              "threshold": "\u226450%",
+              "actual": "65.60403335272446%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 8381349.0,
+              "average_value": 3734.74
+            }
+          ],
+          "alerts": [
+            "WARNING: 65.60403335272446% null values - high null rate"
+          ],
+          "statistics": {
+            "distinct_count": 1716,
+            "uniqueness_percentage": 6.66,
+            "min_value": 0.0,
+            "max_value": 8381349.0,
+            "average_value": 3734.74,
+            "range_span": 8381349.0
+          },
+          "data_quality_score": 45
+        },
+        {
+          "column_name": "CNT_CREDIT_PROLONG",
+          "data_type": "IntegerType()",
+          "total_rows": 25785,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25785,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0,
+              "max_value": 4,
+              "average_value": 0.01
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 5,
+            "uniqueness_percentage": 0.02,
+            "min_value": 0,
+            "max_value": 4,
+            "average_value": 0.01,
+            "range_span": 4
+          },
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-27T07:49:13.963353"
+    },
+    {
+      "table_name": "bureau_balance_daily",
+      "simulation_id": "20250627_074515",
+      "random_seed": 330,
+      "total_rows": 412889,
+      "total_columns": 9,
+      "business_columns": 3,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_BUREAU",
+          "data_type": "IntegerType()",
+          "total_rows": 412889,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 412889,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "FAIL",
+              "threshold": "\u226595%",
+              "actual": "70.69430282715209%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 5001709,
+              "max_value": 6842885,
+              "average_value": 6036017.72
+            }
+          ],
+          "alerts": [
+            "WARNING: ID column SK_ID_BUREAU uniqueness only 70.69430282715209%"
+          ],
+          "statistics": {
+            "distinct_count": 291889,
+            "uniqueness_percentage": 70.69,
+            "min_value": 5001709,
+            "max_value": 6842885,
+            "average_value": 6036017.72,
+            "range_span": 1841176
+          },
+          "data_quality_score": 70.0
+        },
+        {
+          "column_name": "MONTHS_BALANCE",
+          "data_type": "IntegerType()",
+          "total_rows": 412889,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 412889,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": -96,
+              "max_value": 0,
+              "average_value": -30.7
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 97,
+            "uniqueness_percentage": 0.02,
+            "min_value": -96,
+            "max_value": 0,
+            "average_value": -30.7,
+            "range_span": 96
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "STATUS",
+          "data_type": "StringType()",
+          "total_rows": 412889,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 412889,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 1,
+              "max_length": 1
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 8,
+            "uniqueness_percentage": 0.0,
+            "min_length": 1,
+            "max_length": 1,
+            "avg_length": 1.0
+          },
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-27T07:50:52.738879"
+    },
+    {
+      "table_name": "credit_card_balance_daily",
+      "simulation_id": "20250627_074515",
+      "random_seed": 330,
+      "total_rows": 57736,
+      "total_columns": 29,
+      "business_columns": 23,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_PREV",
+          "data_type": "IntegerType()",
+          "total_rows": 57736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 57736,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "FAIL",
+              "threshold": "\u226595%",
+              "actual": "65.5085215463489%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 1000018,
+              "max_value": 2843496,
+              "average_value": 1905365.31
+            }
+          ],
+          "alerts": [
+            "WARNING: ID column SK_ID_PREV uniqueness only 65.5085215463489%"
+          ],
+          "statistics": {
+            "distinct_count": 37822,
+            "uniqueness_percentage": 65.51,
+            "min_value": 1000018,
+            "max_value": 2843496,
+            "average_value": 1905365.31,
+            "range_span": 1843478
+          },
+          "data_quality_score": 70.0
+        },
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 57736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 57736,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "FAIL",
+              "threshold": "\u226595%",
+              "actual": "65.40806429264238%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 100011,
+              "max_value": 456247,
+              "average_value": 278393.32
+            }
+          ],
+          "alerts": [
+            "WARNING: ID column SK_ID_CURR uniqueness only 65.40806429264238%"
+          ],
+          "statistics": {
+            "distinct_count": 37764,
+            "uniqueness_percentage": 65.41,
+            "min_value": 100011,
+            "max_value": 456247,
+            "average_value": 278393.32,
+            "range_span": 356236
+          },
+          "data_quality_score": 70.0
+        },
+        {
+          "column_name": "MONTHS_BALANCE",
+          "data_type": "IntegerType()",
+          "total_rows": 57736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 57736,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": -96,
+              "max_value": -1,
+              "average_value": -34.54
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 96,
+            "uniqueness_percentage": 0.17,
+            "min_value": -96,
+            "max_value": -1,
+            "average_value": -34.54,
+            "range_span": 95
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_BALANCE",
+          "data_type": "DoubleType()",
+          "total_rows": 57736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 57736,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": -47890.485,
+              "max_value": 961263.765,
+              "average_value": 58256.53
+            }
+          ],
+          "alerts": [
+            "WARNING: AMT_BALANCE has negative amounts: min=-47890.485"
+          ],
+          "statistics": {
+            "distinct_count": 24534,
+            "uniqueness_percentage": 42.49,
+            "min_value": -47890.485,
+            "max_value": 961263.765,
+            "average_value": 58256.53,
+            "range_span": 1009154.25
+          },
+          "data_quality_score": 90.0
+        },
+        {
+          "column_name": "AMT_CREDIT_LIMIT_ACTUAL",
+          "data_type": "IntegerType()",
+          "total_rows": 57736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 57736,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0,
+              "max_value": 1350000,
+              "average_value": 153938.25
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 106,
+            "uniqueness_percentage": 0.18,
+            "min_value": 0,
+            "max_value": 1350000,
+            "average_value": 153938.25,
+            "range_span": 1350000
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_DRAWINGS_ATM_CURRENT",
+          "data_type": "DoubleType()",
+          "total_rows": 57736,
+          "null_count": 11297,
+          "null_percentage": 19.57,
+          "non_null_count": 46439,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "19.566648191769435%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 900000.0,
+              "average_value": 5855.94
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 378,
+            "uniqueness_percentage": 0.65,
+            "min_value": 0.0,
+            "max_value": 900000.0,
+            "average_value": 5855.94,
+            "range_span": 900000.0
+          },
+          "data_quality_score": 90.2
+        },
+        {
+          "column_name": "AMT_DRAWINGS_CURRENT",
+          "data_type": "DoubleType()",
+          "total_rows": 57736,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 57736,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 1840173.57,
+              "average_value": 7442.03
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 4166,
+            "uniqueness_percentage": 7.22,
+            "min_value": 0.0,
+            "max_value": 1840173.57,
+            "average_value": 7442.03,
+            "range_span": 1840173.57
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_DRAWINGS_OTHER_CURRENT",
+          "data_type": "DoubleType()",
+          "total_rows": 57736,
+          "null_count": 11297,
+          "null_percentage": 19.57,
+          "non_null_count": 46439,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "19.566648191769435%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 753637.5,
+              "average_value": 294.9
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 126,
+            "uniqueness_percentage": 0.22,
+            "min_value": 0.0,
+            "max_value": 753637.5,
+            "average_value": 294.9,
+            "range_span": 753637.5
+          },
+          "data_quality_score": 90.2
+        },
+        {
+          "column_name": "AMT_DRAWINGS_POS_CURRENT",
+          "data_type": "DoubleType()",
+          "total_rows": 57736,
+          "null_count": 11297,
+          "null_percentage": 19.57,
+          "non_null_count": 46439,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "19.566648191769435%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 1840173.57,
+              "average_value": 3078.75
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 3686,
+            "uniqueness_percentage": 6.38,
+            "min_value": 0.0,
+            "max_value": 1840173.57,
+            "average_value": 3078.75,
+            "range_span": 1840173.57
+          },
+          "data_quality_score": 90.2
+        },
+        {
+          "column_name": "AMT_INST_MIN_REGULARITY",
+          "data_type": "DoubleType()",
+          "total_rows": 57736,
+          "null_count": 4577,
+          "null_percentage": 7.93,
+          "non_null_count": 53159,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "7.9274629347374255%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 76429.53,
+              "average_value": 3543.68
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 7859,
+            "uniqueness_percentage": 13.61,
+            "min_value": 0.0,
+            "max_value": 76429.53,
+            "average_value": 3543.68,
+            "range_span": 76429.53
+          },
+          "data_quality_score": 96.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-27T07:54:12.080977"
+    },
+    {
+      "table_name": "installments_payments_daily",
+      "simulation_id": "20250627_074515",
+      "random_seed": 330,
+      "total_rows": 205511,
+      "total_columns": 14,
+      "business_columns": 8,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_PREV",
+          "data_type": "IntegerType()",
+          "total_rows": 205511,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 205511,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "FAIL",
+              "threshold": "\u226595%",
+              "actual": "80.90223880960143%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 1000019,
+              "max_value": 2843498,
+              "average_value": 1903883.96
+            }
+          ],
+          "alerts": [
+            "WARNING: ID column SK_ID_PREV uniqueness only 80.90223880960143%"
+          ],
+          "statistics": {
+            "distinct_count": 166263,
+            "uniqueness_percentage": 80.9,
+            "min_value": 1000019,
+            "max_value": 2843498,
+            "average_value": 1903883.96,
+            "range_span": 1843479
+          },
+          "data_quality_score": 70.0
+        },
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 205511,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 205511,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "FAIL",
+              "threshold": "\u226595%",
+              "actual": "62.341675141476614%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 100007,
+              "max_value": 456250,
+              "average_value": 278807.42
+            }
+          ],
+          "alerts": [
+            "WARNING: ID column SK_ID_CURR uniqueness only 62.341675141476614%"
+          ],
+          "statistics": {
+            "distinct_count": 128119,
+            "uniqueness_percentage": 62.34,
+            "min_value": 100007,
+            "max_value": 456250,
+            "average_value": 278807.42,
+            "range_span": 356243
+          },
+          "data_quality_score": 70.0
+        },
+        {
+          "column_name": "NUM_INSTALMENT_VERSION",
+          "data_type": "DoubleType()",
+          "total_rows": 205511,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 205511,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 42.0,
+              "average_value": 0.86
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 38,
+            "uniqueness_percentage": 0.02,
+            "min_value": 0.0,
+            "max_value": 42.0,
+            "average_value": 0.86,
+            "range_span": 42.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "NUM_INSTALMENT_NUMBER",
+          "data_type": "IntegerType()",
+          "total_rows": 205511,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 205511,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 1,
+              "max_value": 250,
+              "average_value": 18.93
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 225,
+            "uniqueness_percentage": 0.11,
+            "min_value": 1,
+            "max_value": 250,
+            "average_value": 18.93,
+            "range_span": 249
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "DAYS_INSTALMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 205511,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 205511,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": -2922.0,
+              "max_value": -2.0,
+              "average_value": -1040.01
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2921,
+            "uniqueness_percentage": 1.42,
+            "min_value": -2922.0,
+            "max_value": -2.0,
+            "average_value": -1040.01,
+            "range_span": 2920.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "DAYS_ENTRY_PAYMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 205511,
+          "null_count": 46,
+          "null_percentage": 0.02,
+          "non_null_count": 205465,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.022383230094739453%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": -3030.0,
+              "max_value": -2.0,
+              "average_value": -1048.79
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 2962,
+            "uniqueness_percentage": 1.44,
+            "min_value": -3030.0,
+            "max_value": -2.0,
+            "average_value": -1048.79,
+            "range_span": 3028.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_INSTALMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 205511,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 205511,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 2558800.53,
+              "average_value": 17085.48
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 113456,
+            "uniqueness_percentage": 55.21,
+            "min_value": 0.0,
+            "max_value": 2558800.53,
+            "average_value": 17085.48,
+            "range_span": 2558800.53
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_PAYMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 205511,
+          "null_count": 46,
+          "null_percentage": 0.02,
+          "non_null_count": 205465,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.022383230094739453%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 2558800.53,
+              "average_value": 17276.19
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 115744,
+            "uniqueness_percentage": 56.32,
+            "min_value": 0.0,
+            "max_value": 2558800.53,
+            "average_value": 17276.19,
+            "range_span": 2558800.53
+          },
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-27T07:57:13.826438"
+    },
+    {
+      "table_name": "POS_CASH_balance_daily",
+      "simulation_id": "20250627_074515",
+      "random_seed": 330,
+      "total_rows": 150879,
+      "total_columns": 14,
+      "business_columns": 8,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_PREV",
+          "data_type": "IntegerType()",
+          "total_rows": 150879,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 150879,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "FAIL",
+              "threshold": "\u226595%",
+              "actual": "90.43670756036293%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 1000005,
+              "max_value": 2843490,
+              "average_value": 1902120.28
+            }
+          ],
+          "alerts": [
+            "WARNING: ID column SK_ID_PREV uniqueness only 90.43670756036293%"
+          ],
+          "statistics": {
+            "distinct_count": 136450,
+            "uniqueness_percentage": 90.44,
+            "min_value": 1000005,
+            "max_value": 2843490,
+            "average_value": 1902120.28,
+            "range_span": 1843485
+          },
+          "data_quality_score": 70.0
+        },
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 150879,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 150879,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "FAIL",
+              "threshold": "\u226595%",
+              "actual": "72.76691918689812%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 100001,
+              "max_value": 456255,
+              "average_value": 278135.71
+            }
+          ],
+          "alerts": [
+            "WARNING: ID column SK_ID_CURR uniqueness only 72.76691918689812%"
+          ],
+          "statistics": {
+            "distinct_count": 109790,
+            "uniqueness_percentage": 72.77,
+            "min_value": 100001,
+            "max_value": 456255,
+            "average_value": 278135.71,
+            "range_span": 356254
+          },
+          "data_quality_score": 70.0
+        },
+        {
+          "column_name": "MONTHS_BALANCE",
+          "data_type": "IntegerType()",
+          "total_rows": 150879,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 150879,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": -96,
+              "max_value": -1,
+              "average_value": -35.07
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 96,
+            "uniqueness_percentage": 0.06,
+            "min_value": -96,
+            "max_value": -1,
+            "average_value": -35.07,
+            "range_span": 95
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "CNT_INSTALMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 150879,
+          "null_count": 392,
+          "null_percentage": 0.26,
+          "non_null_count": 150487,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.25981084180038305%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 1.0,
+              "max_value": 72.0,
+              "average_value": 17.1
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 60,
+            "uniqueness_percentage": 0.04,
+            "min_value": 1.0,
+            "max_value": 72.0,
+            "average_value": 17.1,
+            "range_span": 71.0
+          },
+          "data_quality_score": 99.9
+        },
+        {
+          "column_name": "CNT_INSTALMENT_FUTURE",
+          "data_type": "DoubleType()",
+          "total_rows": 150879,
+          "null_count": 393,
+          "null_percentage": 0.26,
+          "non_null_count": 150486,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.26047362456007794%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 72.0,
+              "average_value": 10.49
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 69,
+            "uniqueness_percentage": 0.05,
+            "min_value": 0.0,
+            "max_value": 72.0,
+            "average_value": 10.49,
+            "range_span": 72.0
+          },
+          "data_quality_score": 99.9
+        },
+        {
+          "column_name": "NAME_CONTRACT_STATUS",
+          "data_type": "StringType()",
+          "total_rows": 150879,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 150879,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 6,
+              "max_length": 21
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 7,
+            "uniqueness_percentage": 0.0,
+            "min_length": 6,
+            "max_length": 21,
+            "avg_length": 6.24
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_DPD",
+          "data_type": "IntegerType()",
+          "total_rows": 150879,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 150879,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0,
+              "max_value": 3775,
+              "average_value": 11.6
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 1268,
+            "uniqueness_percentage": 0.84,
+            "min_value": 0,
+            "max_value": 3775,
+            "average_value": 11.6,
+            "range_span": 3775
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_DPD_DEF",
+          "data_type": "IntegerType()",
+          "total_rows": 150879,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 150879,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0,
+              "max_value": 3208,
+              "average_value": 0.55
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 115,
+            "uniqueness_percentage": 0.08,
+            "min_value": 0,
+            "max_value": 3208,
+            "average_value": 0.55,
+            "range_span": 3208
+          },
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-27T08:03:50.551593"
+    },
+    {
+      "table_name": "previous_application_daily",
+      "simulation_id": "20250627_074515",
+      "random_seed": 330,
+      "total_rows": 25080,
+      "total_columns": 43,
+      "business_columns": 37,
+      "column_analysis": [
+        {
+          "column_name": "SK_ID_PREV",
+          "data_type": "IntegerType()",
+          "total_rows": 25080,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25080,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "PASS",
+              "threshold": "\u226595%",
+              "actual": "100.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 1000015,
+              "max_value": 2845297,
+              "average_value": 1921630.96
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 25080,
+            "uniqueness_percentage": 100.0,
+            "min_value": 1000015,
+            "max_value": 2845297,
+            "average_value": 1921630.96,
+            "range_span": 1845282
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "SK_ID_CURR",
+          "data_type": "IntegerType()",
+          "total_rows": 25080,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25080,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "id_uniqueness",
+              "status": "FAIL",
+              "threshold": "\u226595%",
+              "actual": "94.62121212121211%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 100030,
+              "max_value": 456255,
+              "average_value": 278124.42
+            }
+          ],
+          "alerts": [
+            "WARNING: ID column SK_ID_CURR uniqueness only 94.62121212121211%"
+          ],
+          "statistics": {
+            "distinct_count": 23731,
+            "uniqueness_percentage": 94.62,
+            "min_value": 100030,
+            "max_value": 456255,
+            "average_value": 278124.42,
+            "range_span": 356225
+          },
+          "data_quality_score": 70.0
+        },
+        {
+          "column_name": "NAME_CONTRACT_TYPE",
+          "data_type": "StringType()",
+          "total_rows": 25080,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25080,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 3,
+              "max_length": 15
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 4,
+            "uniqueness_percentage": 0.02,
+            "min_length": 3,
+            "max_length": 15,
+            "avg_length": 12.32
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_ANNUITY",
+          "data_type": "DoubleType()",
+          "total_rows": 25080,
+          "null_count": 5642,
+          "null_percentage": 22.5,
+          "non_null_count": 19438,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "22.496012759170654%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 208215.0,
+              "average_value": 15881.94
+            }
+          ],
+          "alerts": [
+            "INFO: 22.496012759170654% null values - moderate null rate"
+          ],
+          "statistics": {
+            "distinct_count": 14841,
+            "uniqueness_percentage": 59.17,
+            "min_value": 0.0,
+            "max_value": 208215.0,
+            "average_value": 15881.94,
+            "range_span": 208215.0
+          },
+          "data_quality_score": 88.8
+        },
+        {
+          "column_name": "AMT_APPLICATION",
+          "data_type": "DoubleType()",
+          "total_rows": 25080,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25080,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 3982500.0,
+              "average_value": 173881.71
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 7554,
+            "uniqueness_percentage": 30.12,
+            "min_value": 0.0,
+            "max_value": 3982500.0,
+            "average_value": 173881.71,
+            "range_span": 3982500.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_CREDIT",
+          "data_type": "DoubleType()",
+          "total_rows": 25080,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25080,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 3524220.0,
+              "average_value": 194910.18
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 10745,
+            "uniqueness_percentage": 42.84,
+            "min_value": 0.0,
+            "max_value": 3524220.0,
+            "average_value": 194910.18,
+            "range_span": 3524220.0
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "AMT_DOWN_PAYMENT",
+          "data_type": "DoubleType()",
+          "total_rows": 25080,
+          "null_count": 13530,
+          "null_percentage": 53.95,
+          "non_null_count": 11550,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "FAIL",
+              "threshold": "\u226450%",
+              "actual": "53.94736842105263%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 1800000.0,
+              "average_value": 6785.38
+            }
+          ],
+          "alerts": [
+            "WARNING: 53.94736842105263% null values - high null rate"
+          ],
+          "statistics": {
+            "distinct_count": 2619,
+            "uniqueness_percentage": 10.44,
+            "min_value": 0.0,
+            "max_value": 1800000.0,
+            "average_value": 6785.38,
+            "range_span": 1800000.0
+          },
+          "data_quality_score": 45
+        },
+        {
+          "column_name": "AMT_GOODS_PRICE",
+          "data_type": "DoubleType()",
+          "total_rows": 25080,
+          "null_count": 5836,
+          "null_percentage": 23.27,
+          "non_null_count": 19244,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "23.269537480063796%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0.0,
+              "max_value": 3982500.0,
+              "average_value": 226649.9
+            }
+          ],
+          "alerts": [
+            "INFO: 23.269537480063796% null values - moderate null rate"
+          ],
+          "statistics": {
+            "distinct_count": 7555,
+            "uniqueness_percentage": 30.12,
+            "min_value": 0.0,
+            "max_value": 3982500.0,
+            "average_value": 226649.9,
+            "range_span": 3982500.0
+          },
+          "data_quality_score": 88.4
+        },
+        {
+          "column_name": "WEEKDAY_APPR_PROCESS_START",
+          "data_type": "StringType()",
+          "total_rows": 25080,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25080,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "string_length_validation",
+              "status": "PASS",
+              "min_length": 6,
+              "max_length": 9
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 7,
+            "uniqueness_percentage": 0.03,
+            "min_length": 6,
+            "max_length": 9,
+            "avg_length": 7.19
+          },
+          "data_quality_score": 100.0
+        },
+        {
+          "column_name": "HOUR_APPR_PROCESS_START",
+          "data_type": "IntegerType()",
+          "total_rows": 25080,
+          "null_count": 0,
+          "null_percentage": 0.0,
+          "non_null_count": 25080,
+          "dq_checks": [
+            {
+              "check_name": "null_validation",
+              "status": "PASS",
+              "threshold": "\u226450%",
+              "actual": "0.0%"
+            },
+            {
+              "check_name": "numeric_range_validation",
+              "status": "PASS",
+              "min_value": 0,
+              "max_value": 23,
+              "average_value": 12.48
+            }
+          ],
+          "alerts": [],
+          "statistics": {
+            "distinct_count": 24,
+            "uniqueness_percentage": 0.1,
+            "min_value": 0,
+            "max_value": 23,
+            "average_value": 12.48,
+            "range_span": 23
+          },
+          "data_quality_score": 100.0
+        }
+      ],
+      "analysis_timestamp": "2025-06-27T08:07:28.882360"
+    }
+  ]
+}

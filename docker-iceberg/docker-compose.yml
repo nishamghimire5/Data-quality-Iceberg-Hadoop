@@ -14,6 +14,7 @@ services:
       - ./notebooks:/home/iceberg/notebooks/notebooks
       - ..:/data
       - ./config:/opt/spark/conf-hdfs
+      - /mnt/n/Projects/task2/docker-iceberg/warehouse:/warehouse
     environment:
       - AWS_ACCESS_KEY_ID=admin
       - AWS_SECRET_ACCESS_KEY=password
@@ -24,11 +25,11 @@ services:
       - HDFS_CONF_dfs_namenode_rpc_address_namenode=namenode:9000
       - HDFS_CONF_dfs_namenode_http_address_namenode=namenode:9870
     ports:
-      - 8888:8888  # Jupyter notebook
-      - 8080:8080  # Spark UI
-      - 10000:10000  # Spark Thrift server
-      - 10001:10001  # Spark Thrift server (SSL)
-  
+      - 8888:8888 # Jupyter notebook
+      - 8080:8080 # Spark UI
+      - 10000:10000 # Spark Thrift server
+      - 10001:10001 # Spark Thrift server (SSL)
+
   rest:
     image: apache/iceberg-rest-fixture
     container_name: iceberg-rest
@@ -59,7 +60,7 @@ services:
       - 9001:9001
       - 9010:9000
     command: ["server", "/data", "--console-address", ":9001"]
-  
+
   mc:
     depends_on:
       - minio
@@ -91,7 +92,7 @@ services:
     volumes:
       - ./openrefine-workspace:/workspace
       - ..:/data
-      - ./warehouse:/warehouse
+      - /mnt/n/Projects/task2/docker-iceberg/warehouse:/warehouse
     environment:
       - OPENREFINE_MEMORY=2G
 
@@ -106,13 +107,64 @@ services:
     volumes:
       - ./dqops-home:/dqo/userhome
       - ..:/data
-      - ./warehouse:/warehouse
+      - /mnt/n/Projects/task2/docker-iceberg/warehouse:/warehouse
     environment:
       - DQO_USER_HOME=/dqo/userhome
       - DQO_USER_NAME=admin
       - DQO_USER_EMAIL=admin@localhost
       - DQO_CLOUD_LOGIN=false
     command: ["run", "--headless", "--server.port=8888"]
+
+  spark-thrift:
+    image: tabulario/spark-iceberg
+    container_name: spark-thrift
+    networks:
+      - iceberg_net
+      - hadoop_network
+    depends_on:
+      - rest
+      - minio
+    environment:
+      - SPARK_NO_DAEMONIZE=true
+      - HADOOP_CONF_DIR=/opt/spark/conf-hdfs
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=password
+      - AWS_REGION=us-east-1
+      - HADOOP_NAMENODE_HOST=namenode
+      - CORE_CONF_fs_defaultFS=hdfs://namenode:9000
+      - HDFS_CONF_dfs_nameservices=namenode
+      - HDFS_CONF_dfs_namenode_rpc_address_namenode=namenode:9000
+      - HDFS_CONF_dfs_namenode_http_address_namenode=namenode:9870
+    ports:
+      - "10010:10000"
+    volumes:
+      - ./notebooks:/home/iceberg/notebooks/notebooks
+      - ..:/data
+      - ./config:/opt/spark/conf-hdfs
+      - /mnt/n/Projects/task2/docker-iceberg/warehouse:/warehouse
+    entrypoint:
+      [
+        "/opt/spark/bin/spark-submit",
+        "--class",
+        "org.apache.spark.sql.hive.thriftserver.HiveThriftServer2",
+        "--master",
+        "local[*]",
+        "--deploy-mode",
+        "client",
+        "--packages",
+        "org.apache.iceberg:iceberg-spark-runtime-3.4_2.12:1.4.2",
+        "--conf",
+        "spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions",
+        "--conf",
+        "spark.sql.catalog.iceberg=org.apache.iceberg.spark.SparkCatalog",
+        "--conf",
+        "spark.sql.catalog.iceberg.type=hadoop",
+        "--conf",
+        "spark.sql.catalog.iceberg.warehouse=hdfs://namenode:9000/warehouse",
+        "--conf",
+        "spark.sql.catalog.iceberg.hadoop.fs.defaultFS=hdfs://namenode:9000",
+        "/opt/spark/examples/jars/spark-examples_2.12-3.4.1.jar",
+      ]
 
 networks:
   iceberg_net:

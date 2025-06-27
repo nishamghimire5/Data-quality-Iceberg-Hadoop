@@ -1,6 +1,6 @@
 # Technical Deep Dive - Home Credit DQ System
 
-**Document Purpose**: Comprehensive technical guide for demos and technical discussions.
+**Document Purpose**: Comprehensive technical guide for technical discussions.
 
 ---
 
@@ -12,7 +12,7 @@
 4. [DQ Analysis Engine](#dq-analysis-engine)
 5. [Integration Capabilities](#integration-capabilities)
 6. [Performance & Scalability](#performance--scalability)
-7. [Demo Q&A Preparation](#demo-qa-preparation)
+7. [Frequently Asked Questions](#frequently-asked-questions)
 8. [Business Impact](#business-impact)
 
 ---
@@ -21,11 +21,11 @@
 
 ### Mission Statement
 
-The Home Credit Data Quality System is a **production-ready**, **automated data quality monitoring solution** that demonstrates advanced data engineering principles using modern big data technologies.
+The Home Credit Data Quality System is a **hybrid data quality monitoring solution** that demonstrates advanced data engineering principles using modern big data technologies. All daily simulation, DQ checks, and reporting are performed via PySpark scripts, not a fully automated pipeline.
 
 ### Core Achievement
 
-**Real Daily Simulation**: Unlike static systems, this solution generates **different results every time** it runs, simulating true daily data ingestion with statistical variation.
+**Real Daily Simulation via Scripts**: Unlike static systems, this solution generates **different results every time** it runs, simulating true daily data ingestion with statistical variation. All logic is implemented in Python/PySpark scripts.
 
 ### Technology Stack
 
@@ -33,8 +33,9 @@ The Home Credit Data Quality System is a **production-ready**, **automated data 
 - **Hadoop HDFS** for distributed storage
 - **Apache Iceberg** for ACID table format
 - **Docker Compose** for environment orchestration
-- **Python/PySpark** for data processing
+- **Python/PySpark scripts** for data processing and reporting
 - **HTML/JSON/TXT** for multi-format reporting
+- **Manual Parquet/CSV export** for DQOps and OpenRefine integration
 
 ---
 
@@ -306,43 +307,26 @@ def check_data_freshness(self, df):
 
 ## Integration Capabilities
 
-### DQOps Integration
+### DQOps (Manual Profiling & Monitoring)
 
-```json
-{
-  "table_name": "application_train_daily",
-  "execution_id": "DEMO_20250618_065034",
-  "checks": [
-    {
-      "check_name": "null_validation",
-      "column": "SK_ID_CURR",
-      "status": "PASS",
-      "metric_value": 0.0,
-      "threshold": 5.0,
-      "quality_score": 100.0
-    },
-    {
-      "check_name": "range_validation",
-      "column": "TARGET",
-      "status": "PASS",
-      "metric_value": "0-1",
-      "threshold": "0-1",
-      "quality_score": 100.0
-    }
-  ],
-  "overall_quality_score": 100.0,
-  "execution_time": "2025-06-18T07:23:59"
-}
-```
+- DQOps was used for automated data profiling, monitoring, and issue detection, but only in a manual way via Parquet export due to multiple technical complexities and integration limitations (e.g., Spark Thrift Server, JDBC, catalog/metastore issues, and resource constraints).
+- Manual Parquet export (via script) enables profiling and monitoring in DQOps Community Edition.
+- What worked: Profiling, monitoring, and rule checks in DQOps using manually exported Parquet files.
+- What did not work: Direct, automated integration with Iceberg-on-HDFS.
+- See README and screenshots for DQOps dashboards and profiling examples.
 
-### OpenRefine Integration
+### OpenRefine (Manual QA & Cleaning)
 
-```csv
-table,column,quality_score,null_pct,min_val,max_val,alerts,recommendations
-application_train,SK_ID_CURR,100.0,0.0,100070,456255,"","None"
-application_train,TARGET,100.0,0.0,0,1,"","None"
-application_train,AMT_INCOME_TOTAL,85.0,5.2,25650,4050000,"High variance","Review income validation rules"
-```
+- OpenRefine was used for manual QA and inspection, enabled by script-based CSV export.
+- What worked: Data import, profiling, and cleaning in OpenRefine using manually exported CSV files.
+- What did not work: Direct, automated integration with Parquet or HDFS due to tool limitations and resource constraints.
+- See README and screenshots for OpenRefine usage.
+
+### PySpark Scripts (Core Automation)
+
+- All daily simulation, DQ checks, and reporting are implemented in Python/PySpark scripts.
+- Scripts generate all required outputs (HTML, JSON, TXT) and enable manual integration with external tools.
+- Data drift detection and reporting are also implemented as scripts, with HTML visualization.
 
 ---
 
@@ -377,7 +361,7 @@ metrics = {
 
 ---
 
-## Q&A 
+## Frequently Asked Questions
 
 ### Technical Questions
 
@@ -414,7 +398,7 @@ metrics = {
 
 ## Conclusion
 
-This Home Credit Data Quality System represents a **production-ready solution** that demonstrates:
+This Home Credit Data Quality System represents a **solution** that demonstrates:
 
 - **Technical Excellence**: Modern big data stack with proven technologies
 - **Innovation**: True daily simulation with statistical variation
@@ -422,8 +406,6 @@ This Home Credit Data Quality System represents a **production-ready solution** 
 - **Scalability**: Designed for enterprise-scale data volumes
 - **Integration**: Ready for existing data infrastructure
 
-The system is **immediately deployable** and provides **measurable business impact** through automated data quality assurance, comprehensive monitoring, and intelligent alerting.
+The system provides **measurable business impact** through automated data quality assurance, comprehensive monitoring, and intelligent alerting.
 
 ---
-
-**Ready for production deployment and enterprise integration!**

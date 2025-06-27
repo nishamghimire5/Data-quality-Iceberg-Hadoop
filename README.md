@@ -1,361 +1,131 @@
 # Home Credit Data Quality System
 
-A comprehensive data quality monitoring system for Home Credit dataset using Apache Iceberg on HDFS with daily simulation, SQL-native DQ checks, and automated monitoring.
-
-** For comprehensive technical details, architecture deep dive, and Q&A, see: [`docs/TECHNICAL_DEEP_DIVE.md`](docs/TECHNICAL_DEEP_DIVE.md)**
-
 ---
 
-## Visual Architecture Overview
+## Project Summary & Key Limitations
 
-The `Mind mapping/` folder contains comprehensive visual breakdowns of the entire system:
-
-### Key Achievements
-
-![Key Achievements](Mind%20mapping/key_achievements.png)
-_Project accomplishments and success metrics_
-
-### Task Requirements
-
-![Task Requirements](Mind%20mapping/task_requirement.png)
-_Core requirements breakdown and implementation status_
-
-### System Architecture
-
-![System Architecture](Mind%20mapping/system_architecture.png)
-_Complete technical architecture overview_
-
-### Data Quality Analysis Engine
-
-![Data Quality Analysis Engine](Mind%20mapping/data_quality_analysis_engine.png)
-_DQ analysis workflow and engine details_
-
-### Dataset Description
-
-![Dataset Description](Mind%20mapping/dataset_description.png)
-_Home Credit dataset structure and relationships_
-
-### Reports Generated
-
-![Reports Generated](Mind%20mapping/reports_generated.png)
-_Report types, formats, and contents_
-
-### System Demonstration
-
-![System Demonstration](Mind%20mapping/demonstration.png)
-_System demonstration and execution flow_
-
-These mind maps provide an easy-to-understand visual representation of the complex data quality system architecture and implementation.
-
----
-
-## Task Requirements Completed
-
-| Requirement                  | Status   | Implementation                                    |
-| ---------------------------- | -------- | ------------------------------------------------- |
-| Data source: Iceberg on HDFS | Complete | CSV data in HDFS with fresh sampling and analysis |
-| Daily data simulation script | Complete | Fresh random sampling from HDFS CSVs each run     |
-| SQL-native DQ checks         | Complete | PySpark SQL functions for all DQ validations      |
-| Volume/null/range monitoring | Complete | Min/max/avg, null %, alerts, range validation     |
-| Automated DQ monitoring      | Complete | Comprehensive HTML/JSON/TXT reports with alerts   |
-
----
-
-## How to Run the System
-
-### Step 1: Start Docker Environment
-
-```bash
-cd N:\Projects\task2\docker-iceberg
-docker-compose up -d
-```
-
-### Step 2: Run Data Quality Analysis
-
-```bash
-# Main execution method
-docker cp daily_simulation_dq_system.py spark-iceberg:/opt/spark/
-docker exec -it spark-iceberg python /opt/spark/daily_simulation_dq_system.py
-```
-
-### Step 3: Retrieve Generated Reports
-
-```bash
-# Copy all reports from Docker to local machine
-docker cp spark-iceberg:/opt/spark/dq-results/. ./dq-results/
-
-# View reports
-# - HTML: Open *.html files in browser for interactive reports
-# - JSON: Use *.json files for programmatic access
-# - TXT: Read *.txt files for quick summaries
-```
-
----
-
-## System Architecture
-
-### Data Processing Pipeline
-
-```
-HDFS CSV Files → Fresh Sampling → DQ Analysis → Reports Generation
-     ↓               ↓             ↓              ↓
-8 CSV files     Random sample   Min/Max/Avg     HTML/JSON/TXT
-(2.6GB total)   (different      Range checks    Quality scores
-in HDFS         each run)       Alert system    Visual reports
-```
-
-### Implementation Details
-
-The system is implemented in a single Python file (`daily_simulation_dq_system.py`) that:
-
-1. **Fresh Data Simulation**: Samples fresh data from HDFS CSV files using different random seeds each run
-2. **Comprehensive Analysis**: Performs 6 categories of DQ checks on 339 business columns
-3. **Report Generation**: Creates HTML, JSON, and TXT reports with detailed analysis
-
-### Data Sources
-
-8 CSV files uploaded to HDFS at `/data/home-credit-default-risk-dataset/`:
-
-- `application_train.csv` (307,511 rows)
-- `application_test.csv` (48,744 rows)
-- `bureau.csv` (1,716,428 rows)
-- `bureau_balance.csv` (27,299,925 rows)
-- `credit_card_balance.csv` (3,840,312 rows)
-- `installments_payments.csv` (13,605,401 rows)
-- `POS_CASH_balance.csv` (10,001,358 rows)
-- `previous_application.csv` (1,670,214 rows)
-
-### Daily Simulation Process
-
-- **Random Sampling**: 1.5-2.5% of original data with unique seed each execution
-- **Metadata Addition**: Adds simulation_id, timestamp, random_seed for traceability
-- **Temporary Tables**: Creates fresh tables for analysis with format `{table_name}_daily_{simulation_id}`
-
----
-
-## Data Quality Analysis Engine
-
-The system performs comprehensive DQ checks across 6 categories:
-
-### 1. Volume Monitoring
-
-- Row count validation per table
-- Volume change detection between runs
-- Critical alerts for empty datasets
-
-### 2. NULL Value Analysis
-
-```python
-null_count = df.filter(col(col_name).isNull()).count()
-null_percentage = (null_count / total_rows) * 100
-```
-
-- Graduated alerts: >95% (CRITICAL), >50% (WARNING), >20% (INFO)
-- Pass/fail validation against thresholds
-
-### 3. Statistical Range Validation
-
-```python
-stats = df.agg(
-    spark_min(col_name).alias("min_val"),
-    spark_max(col_name).alias("max_val"),
-    spark_avg(col_name).alias("avg_val")
-).collect()[0]
-```
-
-- Min/max/average calculations
-- Range span analysis
-- Business rule validation
-
-### 4. Business Rule Checks
-
-- **TARGET column**: Must be [0,1] (binary classification)
-- **DAYS\_\* columns**: Should be negative (past dates)
-- **AMT\_\* columns**: Should be positive (monetary amounts)
-- **SK*ID*\* columns**: Must be >95% unique (primary keys)
-
-### 5. String Analysis
-
-```python
-length_stats = df.agg(
-    spark_min(length(col(col_name))).alias("min_len"),
-    spark_max(length(col(col_name))).alias("max_len"),
-    spark_avg(length(col(col_name))).alias("avg_len")
-)
-```
-
-- String length statistics
-- Empty string detection
-- Overly long string alerts
-
-### 6. Data Quality Scoring
-
-```python
-quality_score = 100
-quality_score -= critical_alerts * 30  # -30 for each critical
-quality_score -= warning_alerts * 10   # -10 for each warning
-quality_score -= failed_checks * 20    # -20 for each failure
-quality_score -= min(null_percentage / 2, 25)  # Null penalty
-```
-
----
-
-## Report Generation
-
-The system generates three types of reports:
-
-#### HTML Reports
-
-- **Interactive Dashboard**: Color-coded quality scores
-- **Statistics Tables**: Min/max/avg with visual formatting
-- **Alert System**: Critical/warning/info alerts with descriptions
-- **DQ Check Status**: Pass/fail indicators for each validation
-
-#### JSON Reports
-
-- **Structured Data**: For programmatic access and APIs
-- **Complete Analysis**: All statistics and check results
-- **Simulation Metadata**: Random seeds and timestamps
-
-#### TXT Summaries
-
-- **Quick Overview**: Row counts and basic status
-- **Operational Monitoring**: Easy-to-read format for daily checks
+This project provides a robust data quality monitoring system for the Home Credit dataset using Apache Iceberg on HDFS, with daily simulation via PySpark scripts and comprehensive DQ checks. **We successfully used DQOps for manual data profiling and OpenRefine for manual QA, but full automation was limited due to integration complexities with Iceberg-on-HDFS and resource constraints (16GB+ RAM, high CPU, heavy SSD I/O).**
 
 ---
 
 ## Why This Approach?
 
-### Daily Simulation Benefits
-
-- **True Data Variation**: Different results each run demonstrate real monitoring
-- **Volume Drift Detection**: Track how data volumes change over time
-- **Statistical Drift**: Monitor min/max/avg changes across runs
-- **Quality Trend Analysis**: See how DQ scores evolve
-
-### SQL-Native Implementation
-
-- **Performance**: Leverages Spark's distributed computing
-- **Scalability**: Handles large datasets efficiently
-- **Maintainability**: Standard SQL operations, no external dependencies
-- **Reliability**: Proven Spark SQL engine for data processing
-
-### Comprehensive Coverage
-
-- **Completeness**: NULL analysis with threshold monitoring
-- **Validity**: Range and business rule validation
-- **Uniqueness**: Distinct count and ID validation
-- **Accuracy**: Statistical validation and outlier detection
-- **Consistency**: Data type and format validation
-- **Volume**: Row count and change monitoring
+- **What was tried:** I attempted direct integration of DQOps (via Spark Thrift Server, JDBC, and local Parquet) and OpenRefine (via Parquet, CSV, and HDFS connectors) for automated profiling and cleaning.
+- **What worked:** DQOps manual profiling via Parquet export and OpenRefine manual QA via CSV export provided valuable insights and data cleaning capabilities.
+- **What failed:** Direct automation failed due to catalog/metastore issues, resource exhaustion, and lack of native Parquet/HDFS support in OpenRefine.
+- **Current solution:** Core DQ logic implemented in PySpark scripts running on Iceberg/HDFS, with manual exports enabling DQOps profiling and OpenRefine cleaning. This hybrid approach provides comprehensive data quality coverage.
 
 ---
 
-## Sample Report Output
+## System Overview
 
-### HTML Report Summary
-
-The system generates comprehensive HTML reports with interactive dashboards. Here's a sample from `fresh_daily_dq_report_20250618_065034.html`:
-
-**Executive Summary:**
-
-- **Total Tables:** 8
-- **Total Rows Analyzed:** 1,115,879
-- **Business Columns:** 339
-- **Random Seed:** 738 (different each run)
-- **Processing Date:** 2025-06-18 07:23:59
-
-**Sample DQ Analysis Results:**
-
-| Table                       | Column           | Type    | Quality Score | Nulls % | Statistics                                               | DQ Checks                                                                               |
-| --------------------------- | ---------------- | ------- | ------------- | ------- | -------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| **application_train_daily** | SK_ID_CURR       | Integer | **100.0**     | 0.0%    | Min: 100070, Max: 456255, Avg: 276957.84, Unique: 100.0% | ✅ null_validation: PASS<br>✅ id_uniqueness: PASS<br>✅ numeric_range_validation: PASS |
-| **application_train_daily** | TARGET           | Integer | **100.0**     | 0.0%    | Min: 0, Max: 1, Avg: 0.08, Distinct: 2                   | ✅ null_validation: PASS<br>✅ numeric_range_validation: PASS                           |
-| **application_train_daily** | AMT_INCOME_TOTAL | Double  | **100.0**     | 0.0%    | Min: 27000.0, Max: 18000090.0, Avg: 172213.12            | ✅ null_validation: PASS<br>✅ numeric_range_validation: PASS                           |
-| **application_train_daily** | AMT_CREDIT       | Double  | **100.0**     | 0.0%    | Min: 45000.0, Max: 2961000.0, Avg: 604766.17             | ✅ null_validation: PASS<br>✅ numeric_range_validation: PASS                           |
-
-**Key Features of HTML Reports:**
-
-- **Color-coded quality scores** (Green: Pass, Yellow: Warning, Red: Critical)
-- **Interactive tables** with detailed statistics
-- **Business rule validation** (TARGET [0,1], AMT\_\* positive, etc.)
-- **Alert system** with graduated severity levels
-- **Complete audit trail** with simulation metadata
-
-### Report Types Generated
-
-1. **HTML Reports** (`fresh_daily_dq_report_*.html`)
-
-   - Interactive dashboards with visual formatting
-   - Detailed column-by-column analysis
-   - Quality scoring and alert systems
-
-2. **JSON Reports** (`fresh_daily_analysis_*.json`)
-
-   - Structured data for API integration
-   - Complete analysis results
-   - Machine-readable format
-
-3. **TXT Summaries** (`fresh_daily_summary_*.txt`)
-   - Quick operational overview
-   - Row counts and status
-   - Human-readable format
+- **PySpark Scripts:** Daily data simulation, comprehensive DQ checks (volume, nulls, range, business rules, string analysis), and multi-format reporting (HTML, JSON, TXT).
+- **Manual Integration:** Parquet export for DQOps (profiling/monitoring), CSV export for OpenRefine (manual cleaning/profiling).
+- **Data Drift Detection:** Automated comparison between daily analysis files with HTML visualization.
 
 ---
 
-## Sample Results
+## System Output Examples
 
-### Current Run Example (Seed: 738)
+### HTML Report Dashboard
 
-| Table                       | Rows    | Quality Highlights                    |
-| --------------------------- | ------- | ------------------------------------- |
-| application_train_daily     | 5,909   | ✅ TARGET [0,1], ✅ 100% unique IDs   |
-| bureau_daily                | 32,632  | ✅ ID uniqueness, ⚠️ Some null fields |
-| credit_card_balance_daily   | 73,287  | ✅ Amount validation, ✅ Range checks |
-| installments_payments_daily | 259,882 | ✅ Payment validation, ✅ Date logic  |
+Automated data quality results are visualized in an interactive HTML report:
 
-**Total Analyzed**: 1,115,879 rows across 8 tables, 339 business columns
+![HTML Report Dashboard](docs/Screenshots/result_profiling_first_our.png)
 
-### DQ Check Examples
+### JSON and TXT Summary Output
 
-```
-SK_ID_CURR (ID Column):
-✅ Quality Score: 100.0
-✅ Null %: 0.0%
-✅ Uniqueness: 100.0%
-✅ Min: 100070 | Max: 456255 | Avg: 276957.84
+Structured and human-readable summaries are generated for programmatic and operational use:
 
-AMT_INCOME_TOTAL (Amount Column):
-✅ Quality Score: 85.0
-✅ Null %: 5.2%
-⚠️ High variance detected: Min: 25,650 | Max: 4,050,000
-✅ All values positive (valid amounts)
-```
+![JSON Summary Output](docs/Screenshots/result_json_our.png)
+![TXT Summary Output](docs/Screenshots/result_txt_our.png)
+
+### Script Execution and Command Output
+
+Running the daily simulation DQ script and exporting Parquet files:
+
+![Running daily simulation DQ script](docs/Screenshots/daily_simulation_dq_checks_script_running.png)
+![Exporting Parquet files from HDFS](docs/Screenshots/copy_parquet_command_running.png)
 
 ---
 
-## Technical Architecture
+## Data Drift Detection
 
-### Core Components
+Automated drift detection between daily analysis files, with both JSON and HTML output:
 
-- **Apache Spark 3.4.0** with Iceberg extensions
-- **HDFS Storage** for source CSV files and warehouse
-- **Docker Compose** for environment orchestration
-- **PySpark** for data processing and analysis
-- **Random Sampling Engine** for daily simulation
+![Data Drift HTML Report](docs/Screenshots/data_drift_html_report_our.png)
+![Running calculate_data_drift.py](docs/Screenshots/calculate_data_drift_script_running.png)
 
-### Integration Points
+---
 
-- **DQOps Ready**: JSON output format compatible with DQOps ingestion
-- **OpenRefine Compatible**: CSV exports for data cleaning workflows
-- **API Ready**: Structured JSON for integration with other systems
+## DQOps Data Profiling & Monitoring
 
-### Performance Optimizations
+DQOps was used for automated data profiling, monitoring, and issue detection, but only in a manual way via Parquet export due to multiple technical complexities and integration limitations (not just Community Edition restrictions). Manual Parquet export enables profiling and monitoring in DQOps.
 
-- **Adaptive Query Execution**: Spark AQE for optimal performance
-- **Column Pruning**: Analyze only business columns
-- **Sampling Strategy**: Configurable sample rates (1-3%)
-- **Parallel Processing**: Multi-threaded column analysis
+- Data profiling dashboard (column stats):
+  ![DQOps Table Details](docs/Screenshots/data_profiling_table_details_preview_dqops.jpeg)
+- Column-level profiling:
+  ![DQOps Column Details](docs/Screenshots/data_profiling_columns_details_dqops.jpeg)
+- Monthly balance profiling:
+  ![DQOps Monthly Balance Profiling](docs/Screenshots/data_profiling_for_months_balance_dqops.jpeg)
+- Monitoring checks configuration:
+  ![DQOps Monitoring Checks](docs/Screenshots/monitoring_checks_configure_dqops.jpeg)
+- Issue detection and dashboard:
+  ![DQOps Issue Detection](docs/Screenshots/issues_detection_dqops.jpeg)
+- DQOps dashboard unavailable due to integration and resource limitations:
+  ![DQOps Dashboard Unavailable](docs/Screenshots/data_quality_dashboards_unavailable_issue_dqops.jpeg)
+
+---
+
+## OpenRefine Manual QA
+
+OpenRefine was used for manual QA and inspection.
+
+- Data import and profiling:
+  ![OpenRefine Usage](docs/Screenshots/open_refine.jpeg)
+- OpenRefine becomes unresponsive when opening large data files:
+  ![OpenRefine Unresponsiveness](docs/Screenshots/open_refine_unresposiveness.png)
+
+---
+
+## Resource Usage
+
+Monitoring memory usage when all docker containers are running on Windows:
+
+![Memory Usage on Windows](docs/Screenshots/memory_usage_windows.png)
+
+---
+
+## How to Run
+
+1. **Start Docker Environment:**
+   ```bash
+   cd docker-iceberg
+   docker-compose up -d
+   ```
+2. **Run Data Quality Analysis:**
+   ```bash
+   docker cp daily_simulation_dq_system.py spark-iceberg:/opt/spark/
+   docker exec -it spark-iceberg python /opt/spark/daily_simulation_dq_system.py
+   ```
+3. **Retrieve Reports:**
+   ```bash
+   docker cp spark-iceberg:/opt/spark/dq-results/. ./dq-results/
+   # Open HTML reports in browser, use JSON/TXT as needed
+   ```
+4. **Export Parquet for DQOps / CSV Guide for OpenRefine:**
+   ```bash
+   # Run the manual integration demo script (PowerShell)
+   cd docker-iceberg
+   docker cp export_hdfs_to_local.py spark-iceberg:/opt/spark/
+   docker exec -it spark-iceberg python /opt/spark/export_hdfs_to_local.py
+   # This will copy Parquet exports (if present) and provide a guide for CSV export
+   ```
+5. **Run Data Drift Detection:**
+   ```bash
+   #from root directory
+   python docker-iceberg/calculate_data_drift.py --batch
+   ```
 
 ---
 
@@ -363,134 +133,57 @@ AMT_INCOME_TOTAL (Amount Column):
 
 ```
 n:\Projects\task2\
-├── README.md                           # This file (complete user guide)
-├── TASK_COMPLETION_FINAL.md            # Final submission report
-├── docker-iceberg/                     # Main implementation directory
-│   ├── daily_simulation_dq_system.py   # Main DQ system
-│   ├── docker-compose.yml              # Environment setup
-│   ├── dq-config.json                  # DQ configuration
-│   ├── README.md                       # Quick reference (points to this file)
-│   ├── dq-results/                     # Generated reports
-│   │   ├── fresh_daily_dq_report_*.html    # Interactive HTML reports
-│   │   ├── fresh_daily_analysis_*.json     # Structured data
-│   │   └── fresh_daily_summary_*.txt       # Quick summaries
-│   ├── archive/                        # Archived development files
-│   └── warehouse/                      # Iceberg warehouse directory
-├── docs/                               # Technical documentation
-│   └── TECHNICAL_DEEP_DIVE.md          # Technical review guide
-├── Mind mapping/                       # Visual system architecture
-│   ├── data_quality_analysis_engine.png   # DQ analysis workflow
-│   ├── dataset_description.png            # Home Credit dataset overview
-│   ├── demonstration.png                  # System demonstration flow
-│   ├── key_achievements.png               # Project accomplishments
-│   ├── reports_generated.png              # Report types and formats
-│   ├── system_architecture.png            # Technical architecture
-│   └── task_requirement.png               # Requirements breakdown
-└── home-credit-default-risk-dataset/   # Source data (2.6GB)
+├── README.md
+├── TASK_COMPLETION_FINAL.md
+├── docker-iceberg/
+│   ├── daily_simulation_dq_system.py
+│   ├── calculate_data_drift.py
+│   ├── docker-compose.yml
+│   ├── dq-config.json
+│   ├── README.md
+│   ├── manual-integration-demo.ps1
+│   ├── export_hdfs_to_local.py
+│   ├── hdfs_iceberg_troubleshooting.ipynb
+│   ├── dq-results/
+│   │   ├── fresh_daily_dq_report_*.html
+│   │   ├── fresh_daily_analysis_*.json
+│   │   ├── fresh_daily_summary_*.txt
+│   │   └── data_drift/
+│   │       ├── data_drift_*.json
+│   │       └── data_drift_*.html
+│   ├── dq-results-final/
+│   ├── dq-results-test/
+│   ├── dq-results-fresh/
+│   ├── notebooks/
+│   ├── openrefine-workspace/
+│   ├── dqops-home/
+│   ├── archive/
+│   └── warehouse/
+├── docs/
+│   ├── Screenshots/
+│   └── TECHNICAL_DEEP_DIVE.md
+├── Mind mapping/
+│   ├── data_quality_analysis_engine.png
+│   ├── dataset_description.png
+│   ├── demonstration.png
+│   ├── key_achievements.png
+│   ├── reports_generated.png
+│   ├── system_architecture.png
+│   └── task_requirement.png
+└── home-credit-default-risk-dataset/
+    ├── application_train.csv
+    ├── application_test.csv
+    ├── bureau.csv
+    ├── bureau_balance.csv
+    ├── credit_card_balance.csv
+    ├── installments_payments.csv
+    ├── POS_CASH_balance.csv
+    ├── previous_application.csv
+    ├── sample_submission.csv
+    ├── HomeCredit_columns_description.csv
+    └── daily/
 ```
 
 ---
 
-## Demonstration Commands
-
-### Run Fresh Analysis
-
-```bash
-# Start environment
-cd N:\Projects\task2\docker-iceberg
-docker-compose up -d
-
-# Run analysis (generates different results each time)
-docker cp daily_simulation_dq_system.py spark-iceberg:/opt/spark/
-docker exec -it spark-iceberg python /opt/spark/daily_simulation_dq_system.py
-
-# Copy reports to local machine
-docker cp spark-iceberg:/opt/spark/dq-results/. ./dq-results/
-
-# View latest HTML report
-# Open the newest fresh_daily_dq_report_*.html in browser
-```
-
-### Verify Fresh Results
-
-```bash
-# Run multiple times to see different results
-docker exec -it spark-iceberg python /opt/spark/daily_simulation_dq_system.py  # Run 1: e.g., 1,115,879 rows, seed 738
-docker exec -it spark-iceberg python /opt/spark/daily_simulation_dq_system.py  # Run 2: e.g., 950,662 rows, seed 265
-docker exec -it spark-iceberg python /opt/spark/daily_simulation_dq_system.py  # Run 3: e.g., 1,123,368 rows, seed 411
-```
-
-### Sample Output
-
-```
-FRESH DAILY DATA QUALITY DEMO
-✅ Comprehensive DQ checks (min/max/avg/range/null validation)
-✅ Fresh data sampling from HDFS each run
-✅ Different results every time
-✅ Automated DQ monitoring with alerts
-
-🎲 Random Seed: 738
-📊 Total Rows: 1,115,879
-📄 fresh_daily_dq_report_20250618_065034.html (57.3 KB)
-🔄 Run again to see DIFFERENT results!
-```
-
----
-
-## Support & Troubleshooting
-
-### Common Issues
-
-1. **Docker not starting**: Ensure Docker Desktop is running
-2. **Permission errors**: Run PowerShell as Administrator
-3. **Port conflicts**: Stop other services on ports 8080, 9000, 4040
-4. **HDFS connection**: Wait 30 seconds after `docker-compose up -d`
-
-### Validation Commands
-
-```bash
-# Check container status
-docker ps
-
-# Verify HDFS data
-docker exec namenode hdfs dfs -ls /data/home-credit-default-risk-dataset/
-
-# Check Spark logs
-docker logs spark-iceberg
-
-# Test connectivity
-docker exec spark-iceberg python -c "from pyspark.sql import SparkSession; print('Spark OK')"
-```
-
----
-
-## Success Metrics Achieved
-
-### Functional Requirements
-
-- **Daily Simulation**: ✅ Fresh data sampling with different results each run
-- **HDFS Integration**: ✅ Data sourced from HDFS CSV files
-- **SQL-native**: ✅ All DQ checks use PySpark SQL functions
-- **Comprehensive Monitoring**: ✅ Volume, null, range, uniqueness validation
-- **Automated Reports**: ✅ HTML, JSON, TXT generation
-
-### Technical Excellence
-
-- **Performance**: Processes 1M+ rows in under 10 minutes
-- **Reliability**: Zero-error execution with robust error handling
-- **Scalability**: Handles 2.6GB dataset efficiently
-- **Maintainability**: Clean, documented, modular code
-- **Usability**: One-command demo execution
-
-### Business Value
-
-- **Data Quality Visibility**: Clear quality scores and trends
-- **Issue Detection**: Automated alerts for data problems
-- **Operational Monitoring**: Daily DQ tracking capability
-- **Integration Ready**: Compatible with enterprise DQ tools
-
----
-
-**Home Credit Data Quality System**
-
-Execute `daily_simulation_dq_system.py` for immediate results.
+**For more technical details: [`docs/TECHNICAL_DEEP_DIVE.md`](docs/TECHNICAL_DEEP_DIVE.md)**

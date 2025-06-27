@@ -1,0 +1,1881 @@
+{
+  "application_train_daily": {
+    "SK_ID_CURR": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "TARGET": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "NAME_CONTRACT_TYPE": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "CODE_GENDER": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "FLAG_OWN_CAR": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "FLAG_OWN_REALTY": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "CNT_CHILDREN": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_INCOME_TOTAL": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_CREDIT": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_ANNUITY": {
+      "total_rows": {
+        "old": 6236,
+        "new": 4726,
+        "percent_change": -24.21423989737011
+      },
+      "null_count": {
+        "old": 1,
+        "new": 0,
+        "percent_change": -100.0
+      },
+      "null_percentage": {
+        "old": 0.02,
+        "new": 0.0,
+        "percent_change": -100.0
+      },
+      "non_null_count": {
+        "old": 6235,
+        "new": 4726,
+        "percent_change": -24.202085004009625
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    }
+  },
+  "application_test_daily": {
+    "SK_ID_CURR": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "NAME_CONTRACT_TYPE": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "CODE_GENDER": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "FLAG_OWN_CAR": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "FLAG_OWN_REALTY": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "CNT_CHILDREN": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_INCOME_TOTAL": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_CREDIT": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_ANNUITY": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 1,
+        "new": 0,
+        "percent_change": -100.0
+      },
+      "null_percentage": {
+        "old": 0.1,
+        "new": 0.0,
+        "percent_change": -100.0
+      },
+      "non_null_count": {
+        "old": 990,
+        "new": 732,
+        "percent_change": -26.060606060606062
+      },
+      "data_quality_score": {
+        "old": 99.9,
+        "new": 100.0,
+        "percent_change": 0.1001001001000944
+      }
+    },
+    "AMT_GOODS_PRICE": {
+      "total_rows": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 991,
+        "new": 732,
+        "percent_change": -26.13521695257316
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    }
+  },
+  "bureau_daily": {
+    "SK_ID_CURR": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 70.0,
+        "percent_change": -30.0
+      }
+    },
+    "SK_ID_BUREAU": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "CREDIT_ACTIVE": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "CREDIT_CURRENCY": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "DAYS_CREDIT": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "CREDIT_DAY_OVERDUE": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "DAYS_CREDIT_ENDDATE": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 2103,
+        "new": 1562,
+        "percent_change": -25.72515454113172
+      },
+      "null_percentage": {
+        "old": 6.16,
+        "new": 6.06,
+        "percent_change": -1.6233766233766318
+      },
+      "non_null_count": {
+        "old": 32052,
+        "new": 24223,
+        "percent_change": -24.425932859103956
+      },
+      "data_quality_score": {
+        "old": 93.8,
+        "new": 87.0,
+        "percent_change": -7.249466950959485
+      }
+    },
+    "DAYS_ENDDATE_FACT": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 12512,
+        "new": 9427,
+        "percent_change": -24.656329923273656
+      },
+      "null_percentage": {
+        "old": 36.63,
+        "new": 36.56,
+        "percent_change": -0.19110019110019189
+      },
+      "non_null_count": {
+        "old": 21643,
+        "new": 16358,
+        "percent_change": -24.418980732800442
+      },
+      "data_quality_score": {
+        "old": 63.4,
+        "new": 81.7,
+        "percent_change": 28.86435331230285
+      }
+    },
+    "AMT_CREDIT_MAX_OVERDUE": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 22371,
+        "new": 16916,
+        "percent_change": -24.384247463233653
+      },
+      "null_percentage": {
+        "old": 65.5,
+        "new": 65.6,
+        "percent_change": 0.15267175572518216
+      },
+      "non_null_count": {
+        "old": 11784,
+        "new": 8869,
+        "percent_change": -24.73693143245078
+      },
+      "data_quality_score": {
+        "old": 50,
+        "new": 45,
+        "percent_change": -10.0
+      }
+    },
+    "CNT_CREDIT_PROLONG": {
+      "total_rows": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 34155,
+        "new": 25785,
+        "percent_change": -24.50592885375494
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    }
+  },
+  "bureau_balance_daily": {
+    "SK_ID_BUREAU": {
+      "total_rows": {
+        "old": 542044,
+        "new": 412889,
+        "percent_change": -23.827401465563682
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 542044,
+        "new": 412889,
+        "percent_change": -23.827401465563682
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 70.0,
+        "percent_change": -30.0
+      }
+    },
+    "MONTHS_BALANCE": {
+      "total_rows": {
+        "old": 542044,
+        "new": 412889,
+        "percent_change": -23.827401465563682
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 542044,
+        "new": 412889,
+        "percent_change": -23.827401465563682
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "STATUS": {
+      "total_rows": {
+        "old": 542044,
+        "new": 412889,
+        "percent_change": -23.827401465563682
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 542044,
+        "new": 412889,
+        "percent_change": -23.827401465563682
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    }
+  },
+  "credit_card_balance_daily": {
+    "SK_ID_PREV": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 70.0,
+        "percent_change": -30.0
+      }
+    },
+    "SK_ID_CURR": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 70.0,
+        "percent_change": -30.0
+      }
+    },
+    "MONTHS_BALANCE": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_BALANCE": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 90.0,
+        "percent_change": -10.0
+      }
+    },
+    "AMT_CREDIT_LIMIT_ACTUAL": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_DRAWINGS_ATM_CURRENT": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 14970,
+        "new": 11297,
+        "percent_change": -24.53573814295257
+      },
+      "null_percentage": {
+        "old": 19.65,
+        "new": 19.57,
+        "percent_change": -0.40712468193383355
+      },
+      "non_null_count": {
+        "old": 61219,
+        "new": 46439,
+        "percent_change": -24.142831473888826
+      },
+      "data_quality_score": {
+        "old": 80.4,
+        "new": 90.2,
+        "percent_change": 12.189054726368155
+      }
+    },
+    "AMT_DRAWINGS_CURRENT": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_DRAWINGS_OTHER_CURRENT": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 14970,
+        "new": 11297,
+        "percent_change": -24.53573814295257
+      },
+      "null_percentage": {
+        "old": 19.65,
+        "new": 19.57,
+        "percent_change": -0.40712468193383355
+      },
+      "non_null_count": {
+        "old": 61219,
+        "new": 46439,
+        "percent_change": -24.142831473888826
+      },
+      "data_quality_score": {
+        "old": 80.4,
+        "new": 90.2,
+        "percent_change": 12.189054726368155
+      }
+    },
+    "AMT_DRAWINGS_POS_CURRENT": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 14970,
+        "new": 11297,
+        "percent_change": -24.53573814295257
+      },
+      "null_percentage": {
+        "old": 19.65,
+        "new": 19.57,
+        "percent_change": -0.40712468193383355
+      },
+      "non_null_count": {
+        "old": 61219,
+        "new": 46439,
+        "percent_change": -24.142831473888826
+      },
+      "data_quality_score": {
+        "old": 80.4,
+        "new": 90.2,
+        "percent_change": 12.189054726368155
+      }
+    },
+    "AMT_INST_MIN_REGULARITY": {
+      "total_rows": {
+        "old": 76189,
+        "new": 57736,
+        "percent_change": -24.22003176311541
+      },
+      "null_count": {
+        "old": 5992,
+        "new": 4577,
+        "percent_change": -23.614819759679573
+      },
+      "null_percentage": {
+        "old": 7.86,
+        "new": 7.93,
+        "percent_change": 0.8905852417302722
+      },
+      "non_null_count": {
+        "old": 70197,
+        "new": 53159,
+        "percent_change": -24.27169252247247
+      },
+      "data_quality_score": {
+        "old": 92.1,
+        "new": 96.0,
+        "percent_change": 4.234527687296423
+      }
+    }
+  },
+  "installments_payments_daily": {
+    "SK_ID_PREV": {
+      "total_rows": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 70.0,
+        "percent_change": -30.0
+      }
+    },
+    "SK_ID_CURR": {
+      "total_rows": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 70.0,
+        "percent_change": -30.0
+      }
+    },
+    "NUM_INSTALMENT_VERSION": {
+      "total_rows": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "NUM_INSTALMENT_NUMBER": {
+      "total_rows": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "DAYS_INSTALMENT": {
+      "total_rows": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "DAYS_ENTRY_PAYMENT": {
+      "total_rows": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "null_count": {
+        "old": 56,
+        "new": 46,
+        "percent_change": -17.857142857142858
+      },
+      "null_percentage": {
+        "old": 0.02,
+        "new": 0.02,
+        "percent_change": 0.0
+      },
+      "non_null_count": {
+        "old": 269923,
+        "new": 205465,
+        "percent_change": -23.880143596507153
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_INSTALMENT": {
+      "total_rows": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_PAYMENT": {
+      "total_rows": {
+        "old": 269979,
+        "new": 205511,
+        "percent_change": -23.87889428437027
+      },
+      "null_count": {
+        "old": 56,
+        "new": 46,
+        "percent_change": -17.857142857142858
+      },
+      "null_percentage": {
+        "old": 0.02,
+        "new": 0.02,
+        "percent_change": 0.0
+      },
+      "non_null_count": {
+        "old": 269923,
+        "new": 205465,
+        "percent_change": -23.880143596507153
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    }
+  },
+  "POS_CASH_balance_daily": {
+    "SK_ID_PREV": {
+      "total_rows": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 70.0,
+        "percent_change": -30.0
+      }
+    },
+    "SK_ID_CURR": {
+      "total_rows": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 70.0,
+        "percent_change": -30.0
+      }
+    },
+    "MONTHS_BALANCE": {
+      "total_rows": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "CNT_INSTALMENT": {
+      "total_rows": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "null_count": {
+        "old": 516,
+        "new": 392,
+        "percent_change": -24.031007751937985
+      },
+      "null_percentage": {
+        "old": 0.26,
+        "new": 0.26,
+        "percent_change": 0.0
+      },
+      "non_null_count": {
+        "old": 198114,
+        "new": 150487,
+        "percent_change": -24.04019907729893
+      },
+      "data_quality_score": {
+        "old": 99.7,
+        "new": 99.9,
+        "percent_change": 0.2006018054162516
+      }
+    },
+    "CNT_INSTALMENT_FUTURE": {
+      "total_rows": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "null_count": {
+        "old": 516,
+        "new": 393,
+        "percent_change": -23.837209302325583
+      },
+      "null_percentage": {
+        "old": 0.26,
+        "new": 0.26,
+        "percent_change": 0.0
+      },
+      "non_null_count": {
+        "old": 198114,
+        "new": 150486,
+        "percent_change": -24.04070383718465
+      },
+      "data_quality_score": {
+        "old": 99.7,
+        "new": 99.9,
+        "percent_change": 0.2006018054162516
+      }
+    },
+    "NAME_CONTRACT_STATUS": {
+      "total_rows": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "SK_DPD": {
+      "total_rows": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "SK_DPD_DEF": {
+      "total_rows": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 198630,
+        "new": 150879,
+        "percent_change": -24.040175200120828
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    }
+  },
+  "previous_application_daily": {
+    "SK_ID_PREV": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "SK_ID_CURR": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 70.0,
+        "percent_change": -30.0
+      }
+    },
+    "NAME_CONTRACT_TYPE": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_ANNUITY": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 7287,
+        "new": 5642,
+        "percent_change": -22.574447646493756
+      },
+      "null_percentage": {
+        "old": 21.93,
+        "new": 22.5,
+        "percent_change": 2.599179206566349
+      },
+      "non_null_count": {
+        "old": 25947,
+        "new": 19438,
+        "percent_change": -25.08575172466952
+      },
+      "data_quality_score": {
+        "old": 78.1,
+        "new": 88.8,
+        "percent_change": 13.70038412291934
+      }
+    },
+    "AMT_APPLICATION": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_CREDIT": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "AMT_DOWN_PAYMENT": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 17644,
+        "new": 13530,
+        "percent_change": -23.316708229426432
+      },
+      "null_percentage": {
+        "old": 53.09,
+        "new": 53.95,
+        "percent_change": 1.6198907515539638
+      },
+      "non_null_count": {
+        "old": 15590,
+        "new": 11550,
+        "percent_change": -25.91404746632457
+      },
+      "data_quality_score": {
+        "old": 50,
+        "new": 45,
+        "percent_change": -10.0
+      }
+    },
+    "AMT_GOODS_PRICE": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 7468,
+        "new": 5836,
+        "percent_change": -21.85324049276915
+      },
+      "null_percentage": {
+        "old": 22.47,
+        "new": 23.27,
+        "percent_change": 3.56030262572319
+      },
+      "non_null_count": {
+        "old": 25766,
+        "new": 19244,
+        "percent_change": -25.312427229682527
+      },
+      "data_quality_score": {
+        "old": 77.5,
+        "new": 88.4,
+        "percent_change": 14.064516129032265
+      }
+    },
+    "WEEKDAY_APPR_PROCESS_START": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    },
+    "HOUR_APPR_PROCESS_START": {
+      "total_rows": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "null_count": {
+        "old": 0,
+        "new": 0,
+        "percent_change": null
+      },
+      "null_percentage": {
+        "old": 0.0,
+        "new": 0.0,
+        "percent_change": null
+      },
+      "non_null_count": {
+        "old": 33234,
+        "new": 25080,
+        "percent_change": -24.535114641632063
+      },
+      "data_quality_score": {
+        "old": 100.0,
+        "new": 100.0,
+        "percent_change": 0.0
+      }
+    }
+  }
+}

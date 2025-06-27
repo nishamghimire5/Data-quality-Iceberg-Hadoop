@@ -1,0 +1,905 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Fresh Daily DQ Report - Home Credit Dataset</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
+                .header { background-color: #2c3e50; color: white; padding: 20px; border-radius: 5px; margin-bottom: 20px; }
+                .summary { background-color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+                .table-section { background-color: white; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+                .good { color: #27ae60; }
+                .warning { color: #f39c12; }
+                .error { color: #e74c3c; }
+                .info { color: #3498db; }
+                table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+                th, td { padding: 8px; border: 1px solid #ddd; text-align: left; font-size: 12px; }
+                th { background-color: #34495e; color: white; }
+                .dq-check { margin: 5px 0; padding: 5px; border-radius: 3px; font-size: 11px; }
+                .check-pass { background-color: #d5f4e6; color: #27ae60; }
+                .check-fail { background-color: #fdf2f2; color: #e74c3c; }
+                .alert { margin: 2px 0; padding: 3px; border-radius: 3px; font-size: 10px; }
+                .alert-critical { background-color: #fdf2f2; color: #e74c3c; }
+                .alert-warning { background-color: #fefbf3; color: #f39c12; }
+                .alert-info { background-color: #f0f8ff; color: #3498db; }
+                .stats { font-size: 11px; color: #666; }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>🔄 Fresh Daily Data Quality Report</h1>
+                <h2>Home Credit Dataset - Comprehensive DQ Analysis</h2>
+                <p>Generated: 2025-06-27 08:09:24</p>
+                <p>Simulation ID: 20250627_074515 | Random Seed: 330</p>
+            </div>
+            
+            <div class="summary">
+                <h3>📊 Summary</h3>
+                <p>Total Tables: 8</p>
+                <p>Successful Analyses: 8</p>
+                <p>Total Rows: 883,338</p>
+                <p>Total Business Columns: 339</p>
+                <p><strong>🎲 Fresh Data:</strong> New random sample with seed 330</p>
+            </div>
+        
+            <div class="table-section">
+                <h3 class="good">✅ application_train_daily</h3>
+                <p>Rows: 4,726 | Business Columns: 122</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Statistics</th>
+                            <th>DQ Checks</th>
+                            <th>Alerts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td><strong>SK_ID_CURR</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 100024<br>Max: 456232<br>Avg: 277959.48<br>Distinct: 4726<br>Unique: 100.0%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">id_uniqueness: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>TARGET</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0<br>Max: 1<br>Avg: 0.08<br>Distinct: 2<br>Unique: 0.04%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>NAME_CONTRACT_TYPE</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 2<br>Unique: 0.04%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CODE_GENDER</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 2<br>Unique: 0.04%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>FLAG_OWN_CAR</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 2<br>Unique: 0.04%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>FLAG_OWN_REALTY</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 2<br>Unique: 0.04%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CNT_CHILDREN</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0<br>Max: 5<br>Avg: 0.42<br>Distinct: 6<br>Unique: 0.13%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_INCOME_TOTAL</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 27000.0<br>Max: 4500000.0<br>Avg: 169279.18<br>Distinct: 204<br>Unique: 4.32%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_CREDIT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 45000.0<br>Max: 3150000.0<br>Avg: 601508.81<br>Distinct: 1197<br>Unique: 25.33%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_ANNUITY</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 3006.0<br>Max: 206167.5<br>Avg: 26908.71<br>Distinct: 2591<br>Unique: 54.82%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ application_test_daily</h3>
+                <p>Rows: 732 | Business Columns: 121</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Statistics</th>
+                            <th>DQ Checks</th>
+                            <th>Alerts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td><strong>SK_ID_CURR</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 100150<br>Max: 456114<br>Avg: 270572.35<br>Distinct: 732<br>Unique: 100.0%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">id_uniqueness: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>NAME_CONTRACT_TYPE</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 2<br>Unique: 0.27%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CODE_GENDER</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 2<br>Unique: 0.27%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>FLAG_OWN_CAR</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 2<br>Unique: 0.27%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>FLAG_OWN_REALTY</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 2<br>Unique: 0.27%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CNT_CHILDREN</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0<br>Max: 3<br>Avg: 0.4<br>Distinct: 4<br>Unique: 0.55%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_INCOME_TOTAL</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 32400.0<br>Max: 1710000.0<br>Avg: 180205.49<br>Distinct: 81<br>Unique: 11.07%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_CREDIT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 45000.0<br>Max: 2156400.0<br>Avg: 501941.99<br>Distinct: 351<br>Unique: 47.95%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_ANNUITY</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 3321.0<br>Max: 138555.0<br>Avg: 29437.36<br>Distinct: 596<br>Unique: 81.42%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_GOODS_PRICE</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 45000.0<br>Max: 1800000.0<br>Avg: 451530.42<br>Distinct: 150<br>Unique: 20.49%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ bureau_daily</h3>
+                <p>Rows: 25,785 | Business Columns: 17</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Statistics</th>
+                            <th>DQ Checks</th>
+                            <th>Alerts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td><strong>SK_ID_CURR</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="warning"><strong>70.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 100008<br>Max: 456227<br>Avg: 277606.32<br>Distinct: 24306<br>Unique: 94.26%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-fail">id_uniqueness: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: ID column SK_ID_CURR uniqueness only 94.26410703897615%</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>SK_ID_BUREAU</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 5000017<br>Max: 6843359<br>Avg: 5920161.79<br>Distinct: 25785<br>Unique: 100.0%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">id_uniqueness: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CREDIT_ACTIVE</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 4<br>Unique: 0.02%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CREDIT_CURRENCY</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 4<br>Unique: 0.02%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>DAYS_CREDIT</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: -2922<br>Max: 0<br>Avg: -1146.27<br>Distinct: 2908<br>Unique: 11.28%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CREDIT_DAY_OVERDUE</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0<br>Max: 1634<br>Avg: 0.53<br>Distinct: 59<br>Unique: 0.23%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>DAYS_CREDIT_ENDDATE</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>87.0</strong></td>
+                            <td>6.06%</td>
+                            <td class="stats">Min: -41847.0<br>Max: 31198.0<br>Avg: 538.21<br>Distinct: 5455<br>Unique: 21.16%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: DAYS_CREDIT_ENDDATE has positive days values: max=31198.0</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>DAYS_ENDDATE_FACT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>81.7</strong></td>
+                            <td>36.56%</td>
+                            <td class="stats">Min: -2890.0<br>Max: -1.0<br>Avg: -1016.88<br>Distinct: 2708<br>Unique: 10.5%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-info">INFO: 36.56001551289509% null values - moderate null rate</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_CREDIT_MAX_OVERDUE</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="error"><strong>45</strong></td>
+                            <td>65.6%</td>
+                            <td class="stats">Min: 0.0<br>Max: 8381349.0<br>Avg: 3734.74<br>Distinct: 1716<br>Unique: 6.66%</td>
+                            <td><div class="dq-check check-fail">null_validation: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: 65.60403335272446% null values - high null rate</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CNT_CREDIT_PROLONG</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0<br>Max: 4<br>Avg: 0.01<br>Distinct: 5<br>Unique: 0.02%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ bureau_balance_daily</h3>
+                <p>Rows: 412,889 | Business Columns: 3</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Statistics</th>
+                            <th>DQ Checks</th>
+                            <th>Alerts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td><strong>SK_ID_BUREAU</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="warning"><strong>70.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 5001709<br>Max: 6842885<br>Avg: 6036017.72<br>Distinct: 291889<br>Unique: 70.69%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-fail">id_uniqueness: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: ID column SK_ID_BUREAU uniqueness only 70.69430282715209%</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>MONTHS_BALANCE</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: -96<br>Max: 0<br>Avg: -30.7<br>Distinct: 97<br>Unique: 0.02%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>STATUS</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 8<br>Unique: 0.0%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ credit_card_balance_daily</h3>
+                <p>Rows: 57,736 | Business Columns: 23</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Statistics</th>
+                            <th>DQ Checks</th>
+                            <th>Alerts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td><strong>SK_ID_PREV</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="warning"><strong>70.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 1000018<br>Max: 2843496<br>Avg: 1905365.31<br>Distinct: 37822<br>Unique: 65.51%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-fail">id_uniqueness: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: ID column SK_ID_PREV uniqueness only 65.5085215463489%</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>SK_ID_CURR</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="warning"><strong>70.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 100011<br>Max: 456247<br>Avg: 278393.32<br>Distinct: 37764<br>Unique: 65.41%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-fail">id_uniqueness: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: ID column SK_ID_CURR uniqueness only 65.40806429264238%</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>MONTHS_BALANCE</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: -96<br>Max: -1<br>Avg: -34.54<br>Distinct: 96<br>Unique: 0.17%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_BALANCE</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>90.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: -47890.485<br>Max: 961263.765<br>Avg: 58256.53<br>Distinct: 24534<br>Unique: 42.49%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: AMT_BALANCE has negative amounts: min=-47890.485</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_CREDIT_LIMIT_ACTUAL</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0<br>Max: 1350000<br>Avg: 153938.25<br>Distinct: 106<br>Unique: 0.18%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_DRAWINGS_ATM_CURRENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>90.2</strong></td>
+                            <td>19.57%</td>
+                            <td class="stats">Min: 0.0<br>Max: 900000.0<br>Avg: 5855.94<br>Distinct: 378<br>Unique: 0.65%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_DRAWINGS_CURRENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0.0<br>Max: 1840173.57<br>Avg: 7442.03<br>Distinct: 4166<br>Unique: 7.22%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_DRAWINGS_OTHER_CURRENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>90.2</strong></td>
+                            <td>19.57%</td>
+                            <td class="stats">Min: 0.0<br>Max: 753637.5<br>Avg: 294.9<br>Distinct: 126<br>Unique: 0.22%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_DRAWINGS_POS_CURRENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>90.2</strong></td>
+                            <td>19.57%</td>
+                            <td class="stats">Min: 0.0<br>Max: 1840173.57<br>Avg: 3078.75<br>Distinct: 3686<br>Unique: 6.38%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_INST_MIN_REGULARITY</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>96.0</strong></td>
+                            <td>7.93%</td>
+                            <td class="stats">Min: 0.0<br>Max: 76429.53<br>Avg: 3543.68<br>Distinct: 7859<br>Unique: 13.61%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ installments_payments_daily</h3>
+                <p>Rows: 205,511 | Business Columns: 8</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Statistics</th>
+                            <th>DQ Checks</th>
+                            <th>Alerts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td><strong>SK_ID_PREV</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="warning"><strong>70.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 1000019<br>Max: 2843498<br>Avg: 1903883.96<br>Distinct: 166263<br>Unique: 80.9%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-fail">id_uniqueness: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: ID column SK_ID_PREV uniqueness only 80.90223880960143%</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>SK_ID_CURR</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="warning"><strong>70.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 100007<br>Max: 456250<br>Avg: 278807.42<br>Distinct: 128119<br>Unique: 62.34%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-fail">id_uniqueness: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: ID column SK_ID_CURR uniqueness only 62.341675141476614%</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>NUM_INSTALMENT_VERSION</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0.0<br>Max: 42.0<br>Avg: 0.86<br>Distinct: 38<br>Unique: 0.02%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>NUM_INSTALMENT_NUMBER</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 1<br>Max: 250<br>Avg: 18.93<br>Distinct: 225<br>Unique: 0.11%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>DAYS_INSTALMENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: -2922.0<br>Max: -2.0<br>Avg: -1040.01<br>Distinct: 2921<br>Unique: 1.42%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>DAYS_ENTRY_PAYMENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.02%</td>
+                            <td class="stats">Min: -3030.0<br>Max: -2.0<br>Avg: -1048.79<br>Distinct: 2962<br>Unique: 1.44%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_INSTALMENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0.0<br>Max: 2558800.53<br>Avg: 17085.48<br>Distinct: 113456<br>Unique: 55.21%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_PAYMENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.02%</td>
+                            <td class="stats">Min: 0.0<br>Max: 2558800.53<br>Avg: 17276.19<br>Distinct: 115744<br>Unique: 56.32%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ POS_CASH_balance_daily</h3>
+                <p>Rows: 150,879 | Business Columns: 8</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Statistics</th>
+                            <th>DQ Checks</th>
+                            <th>Alerts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td><strong>SK_ID_PREV</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="warning"><strong>70.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 1000005<br>Max: 2843490<br>Avg: 1902120.28<br>Distinct: 136450<br>Unique: 90.44%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-fail">id_uniqueness: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: ID column SK_ID_PREV uniqueness only 90.43670756036293%</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>SK_ID_CURR</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="warning"><strong>70.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 100001<br>Max: 456255<br>Avg: 278135.71<br>Distinct: 109790<br>Unique: 72.77%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-fail">id_uniqueness: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: ID column SK_ID_CURR uniqueness only 72.76691918689812%</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>MONTHS_BALANCE</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: -96<br>Max: -1<br>Avg: -35.07<br>Distinct: 96<br>Unique: 0.06%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CNT_INSTALMENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>99.9</strong></td>
+                            <td>0.26%</td>
+                            <td class="stats">Min: 1.0<br>Max: 72.0<br>Avg: 17.1<br>Distinct: 60<br>Unique: 0.04%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>CNT_INSTALMENT_FUTURE</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>99.9</strong></td>
+                            <td>0.26%</td>
+                            <td class="stats">Min: 0.0<br>Max: 72.0<br>Avg: 10.49<br>Distinct: 69<br>Unique: 0.05%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>NAME_CONTRACT_STATUS</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 7<br>Unique: 0.0%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>SK_DPD</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0<br>Max: 3775<br>Avg: 11.6<br>Distinct: 1268<br>Unique: 0.84%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>SK_DPD_DEF</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0<br>Max: 3208<br>Avg: 0.55<br>Distinct: 115<br>Unique: 0.08%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="table-section">
+                <h3 class="good">✅ previous_application_daily</h3>
+                <p>Rows: 25,080 | Business Columns: 37</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Column</th>
+                            <th>Type</th>
+                            <th>Quality Score</th>
+                            <th>Nulls %</th>
+                            <th>Statistics</th>
+                            <th>DQ Checks</th>
+                            <th>Alerts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            
+                        <tr>
+                            <td><strong>SK_ID_PREV</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 1000015<br>Max: 2845297<br>Avg: 1921630.96<br>Distinct: 25080<br>Unique: 100.0%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">id_uniqueness: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>SK_ID_CURR</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="warning"><strong>70.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 100030<br>Max: 456255<br>Avg: 278124.42<br>Distinct: 23731<br>Unique: 94.62%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-fail">id_uniqueness: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: ID column SK_ID_CURR uniqueness only 94.62121212121211%</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>NAME_CONTRACT_TYPE</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 4<br>Unique: 0.02%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_ANNUITY</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>88.8</strong></td>
+                            <td>22.5%</td>
+                            <td class="stats">Min: 0.0<br>Max: 208215.0<br>Avg: 15881.94<br>Distinct: 14841<br>Unique: 59.17%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-info">INFO: 22.496012759170654% null values - moderate null rate</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_APPLICATION</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0.0<br>Max: 3982500.0<br>Avg: 173881.71<br>Distinct: 7554<br>Unique: 30.12%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_CREDIT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0.0<br>Max: 3524220.0<br>Avg: 194910.18<br>Distinct: 10745<br>Unique: 42.84%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_DOWN_PAYMENT</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="error"><strong>45</strong></td>
+                            <td>53.95%</td>
+                            <td class="stats">Min: 0.0<br>Max: 1800000.0<br>Avg: 6785.38<br>Distinct: 2619<br>Unique: 10.44%</td>
+                            <td><div class="dq-check check-fail">null_validation: FAIL</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-warning">WARNING: 53.94736842105263% null values - high null rate</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>AMT_GOODS_PRICE</strong></td>
+                            <td class="stats">DoubleType()</td>
+                            <td class="good"><strong>88.4</strong></td>
+                            <td>23.27%</td>
+                            <td class="stats">Min: 0.0<br>Max: 3982500.0<br>Avg: 226649.9<br>Distinct: 7555<br>Unique: 30.12%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td><div class="alert alert-info">INFO: 23.269537480063796% null values - moderate null rate</div></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>WEEKDAY_APPR_PROCESS_START</strong></td>
+                            <td class="stats">StringType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Distinct: 7<br>Unique: 0.03%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">string_length_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                        <tr>
+                            <td><strong>HOUR_APPR_PROCESS_START</strong></td>
+                            <td class="stats">IntegerType()</td>
+                            <td class="good"><strong>100.0</strong></td>
+                            <td>0.0%</td>
+                            <td class="stats">Min: 0<br>Max: 23<br>Avg: 12.48<br>Distinct: 24<br>Unique: 0.1%</td>
+                            <td><div class="dq-check check-pass">null_validation: PASS</div><div class="dq-check check-pass">numeric_range_validation: PASS</div></td>
+                            <td></td>
+                        </tr>
+                
+                    </tbody>
+                </table>
+            </div>
+            
+        </body>
+        </html>
+        
